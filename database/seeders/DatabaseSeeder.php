@@ -14,6 +14,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(EmpresasSeeders::class);
+        $this->call(RolesSeeder::class);
+        $this->call(UsersSeeder::class);
+        $this->call(AreasSeeder::class);
+        $this->call(EmpleadosSeeder::class);
+        $this->call(ClientesSeeder::class);
+        $this->call(TipoCreditosSeeder::class);
+        $this->call(CarpetaCreditosSeeder::class);
+        $this->call(CustodiasSeeder::class);
+        $this->call(CreditoDetallesSeeder::class);
+        $this->call(SolicitudCreditosSeeder::class);
+        $this->call(GestionCreditosSeeder::class);
+        $this->call(BitacorasSeeder::class);
+        $this->call(ReportesSeeder::class);
+        $this->call(DocumentosSeeder::class); 
+        
     }
 }
