@@ -16,12 +16,19 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('ap_paterno');
+            $table->string('ap_materno');
+            $table->string('ci');
+            $table->date('fecha_nac');
+            $table->string('telefono');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
+            $table->unsignedBigInteger('id_rol');
+            $table->foreign('id_rol')->references('id')->on('roles');
             $table->timestamps();
         });
     }
