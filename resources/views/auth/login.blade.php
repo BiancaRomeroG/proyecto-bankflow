@@ -1,5 +1,5 @@
 <x-login-layout>
-    <x-jet-validation-errors class="mb-4" />
+    
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
@@ -119,6 +119,7 @@
                                             name="remember">
                                         <label class="form-check-label mb-0 ms-2" for="rememberMe">Recuérdame</label>
                                     </div>
+                                    <x-jet-validation-errors class="mb-4" />
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">INICIA
                                             SESIÓN</button>
