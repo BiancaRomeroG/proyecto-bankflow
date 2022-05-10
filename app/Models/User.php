@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -15,6 +16,7 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
@@ -25,8 +27,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'ap_paterno',
+        'ap_materno',
+        'ci',
+        'fecha_nac',
+        'telefono',
         'email',
         'password',
+        'id_rol'
     ];
 
     /**
