@@ -1,5 +1,3 @@
-Formulario de creacion de empleados
-
 <form action="" method="" enctype="">
     <input type="" name="">
     <input type="" name="">
@@ -9,4 +7,3 @@ Formulario de creacion de empleados
 
     <input type="" name="">
 </form>
-

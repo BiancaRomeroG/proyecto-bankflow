@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ClientesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/clientes', function () {
-    return view('clientes.index');
-});
+// Route::get('/clientes', function () { return view('clientes.index'); });
+
+// Route::get('/clientes/create',[ClientesController::class,'create']);
+
+Route::resource('clientes',ClientesController::class);
+
+Route::resource('empleado',EmpleadoController::class);
+
 
 Route::middleware([
     'auth:sanctum',
