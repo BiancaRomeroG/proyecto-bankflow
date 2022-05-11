@@ -18,22 +18,27 @@ class RolesSeeder extends Seeder
 //1
         $rol = new roles();
         $rol->nombre = 'Asesor de Credito';
+        $rol->descripcion = 'Encargado de bla bla bla bla bla bla';
         $rol->save();
 //2        
         $rol = new roles();
         $rol->nombre = 'Oficial de Credito';
+        $rol->descripcion = 'Encargado de bla bla bla bla bla bla';
         $rol->save();
 //3       
         $rol = new roles();
         $rol->nombre = 'Comite de Credito';
+        $rol->descripcion = 'Encargado de bla bla bla bla bla bla';
         $rol->save();
 //4       
         $rol = new roles();
         $rol->nombre = 'Departamento de Legal';
+        $rol->descripcion = 'Encargado de bla bla bla bla bla bla';
         $rol->save();
 //5
         $rol = new roles();
         $rol->nombre = 'Cliente';
+        $rol->descripcion = 'Encargado de bla bla bla bla bla bla';
         $rol->save();
     }
 }

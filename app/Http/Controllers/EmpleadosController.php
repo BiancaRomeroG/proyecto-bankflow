@@ -87,4 +87,8 @@ class EmpleadosController extends Controller
     {
         //
     }
+
+    public static function findBy($campo, $value){
+        return Empleados::where($campo,'=', $value)->first();
+    }
 }
