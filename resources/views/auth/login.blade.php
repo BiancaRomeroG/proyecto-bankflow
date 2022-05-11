@@ -1,6 +1,4 @@
 <x-login-layout>
-    
-
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
@@ -14,7 +12,7 @@
                 <nav
                     class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                     <div class="container-fluid ps-2 pe-0">
-                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
+                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{url('/')}}">
                             SISTEMA BANKFLOW
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -56,7 +54,7 @@
                             </ul>
                             <ul class="navbar-nav d-lg-block d-none">
                                 <li class="nav-item">
-                                    <a href="#" class="btn btn-sm mb-0 me-1 bg-gradient-dark">F.I.C.C.T.</a>
+                                    <a href="{{url('/')}}" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Volver</a>
                                 </li>
                             </ul>
                             <ul class="navbar-nav d-lg-block d-none">
@@ -126,7 +124,7 @@
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         ¿No tienes una cuenta?
-                                        <a href="pages/sign-up.php"
+                                        <a href="{{route('register')}}"
                                             class="text-primary text-gradient font-weight-bold">Únete</a>
                                     </p>
                                 </form>
