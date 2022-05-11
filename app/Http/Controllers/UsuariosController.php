@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\usuarios;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UsuariosController extends Controller
@@ -82,4 +82,11 @@ class UsuariosController extends Controller
     {
         //
     }
+
+    public static function find($id){
+        return User::find($id);
+    }
+
+    
+
 }
