@@ -25,6 +25,7 @@ class UsuariosController extends Controller
     public function create()
     {
         //
+        return view('usuarios.create');
     }
 
     /**
@@ -36,6 +37,10 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {
         //
+        $datosUsuarios = request()->exceptl('_token');
+        usuarios::insert($datosUsuarios);
+        return response()->json($datosUsuarios);
+
     }
 
     /**

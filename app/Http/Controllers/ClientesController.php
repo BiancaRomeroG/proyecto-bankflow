@@ -37,7 +37,10 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$datosClientes = request()->all();
+        $datosClientes = request()->except('_token');
+        clientes::insert($datosClientes);
+        return response()->json($datosClientes);
     }
 
     /**

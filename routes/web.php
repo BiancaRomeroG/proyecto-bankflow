@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\EmpleadosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +26,7 @@ Route::get('/', function () {
 
 Route::resource('clientes',ClientesController::class);
 
-Route::resource('empleado',EmpleadoController::class);
+Route::resource('empleados',EmpleadosController::class);
 
 
 Route::middleware([
