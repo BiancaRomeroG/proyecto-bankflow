@@ -28,6 +28,9 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::get('users/informacion-creditos', function () {
+    return view('informacion.info_creditos');
+})->name('info_creditos');
 
 //Auth::routes();
 
