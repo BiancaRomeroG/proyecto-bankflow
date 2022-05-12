@@ -37,6 +37,7 @@ class UsuariosController extends Controller
     public function store(Request $request)
     {
         //
+        
         $datosUsuarios = request()->exceptl('_token');
         usuarios::insert($datosUsuarios);
         return response()->json($datosUsuarios);
@@ -92,6 +93,6 @@ class UsuariosController extends Controller
         return User::find($id);
     }
 
-    
+
 
 }

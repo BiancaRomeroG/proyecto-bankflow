@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\empleados;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmpleadosController extends Controller
@@ -38,9 +39,15 @@ class EmpleadosController extends Controller
     public function store(Request $request)
     {
         //$datosEmpleados = request()->all();
-        $datosEmpleados = request()->exceptl('_token');
-        empleados::insert($datosEmpleados);
-        return response()->json($datosEmpleados);
+        //return $request;
+        $datosEmpleados = request()->except('_token');
+        $usuario = User::create($datosEmpleados);
+        //return $usuario;
+        $data = new empleados();
+        $data->id_usuario = $usuario->id;
+        $data->id_area = 4;
+        $data->save();
+        return redirect()->route('empleados.create')->with('info', 'El aprobado');
     }
 
     /**
