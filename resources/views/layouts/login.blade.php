@@ -30,8 +30,16 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
         
         <!-- CSS Files -->
-        <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
-    
+        <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
+        <style>
+            ::-webkit-scrollbar{
+                display: none;
+            }
+            a {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        </style>
+
         @livewireStyles
     </head>
     <body>
@@ -41,4 +49,5 @@
 
         @livewireScripts
     </body>
+    
 </html>
