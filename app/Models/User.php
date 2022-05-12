@@ -72,4 +72,8 @@ class User extends Authenticatable
         return $this->hasmany('App\Models\clientes');
     }
 
+    public function rol(){
+        return $this->belongsTo('App\Models\roles', 'id_rol', 'id');
+    }
+
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\areas;
 use App\Models\empleados;
+use App\Models\roles;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,8 +17,11 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        //
-        return view('empleados.index');
+        //$empleados = empleados::join('users', 'empleados.id_usuario','users.id')
+        //->join('areas', 'empleados.id_area', 'areas.id')
+        //->select('users.name', 'users.ap_paterno','users.ci', 'users.email', 'users.id_rol as rol', 'users.telefono', 'areas.nombre as area');
+        $empleados = empleados::get();
+        return view('empleados.index', compact('empleados'))->with('i');
     }
 
     /**
@@ -26,8 +31,9 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        //
-        return view('empleados.create');
+        $roles=roles::get();
+        $areas=areas::get();
+        return view('empleados.create',compact('roles', 'areas'));
     }
 
     /**
@@ -38,15 +44,13 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-        //$datosEmpleados = request()->all();
-        //return $request;
-        $datosEmpleados = request()->except('_token');
+        $datosEmpleados = request()->except('_token', 'id_area');
         $usuario = User::create($datosEmpleados);
         //return $usuario;
-        $data = new empleados();
-        $data->id_usuario = $usuario->id;
-        $data->id_area = 4;
-        $data->save();
+        $empleado = new empleados();
+        $empleado->id_usuario = $usuario->id;
+        $empleado->id_area = $request->id_area;
+        $empleado->save();
         return redirect()->route('empleados.create')->with('info', 'El aprobado');
     }
 
@@ -67,9 +71,11 @@ class EmpleadosController extends Controller
      * @param  \App\Models\empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function edit(empleados $empleados)
+    public function edit(empleados $empleado)
     {
-        //
+        $roles=roles::get();
+        $areas=areas::get();
+        return view('empleados.edit', compact('empleado', 'roles', 'areas'));
     }
 
     /**
@@ -81,7 +87,22 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, empleados $empleados)
     {
-        //
+        $usuario = User::find($request->id_usuario);
+        $usuario->name = $request->name;
+        $usuario->telefono = $request->telefono;
+        $usuario->email = $request->email;
+        $usuario->ci = $request->ci;
+        $usuario->ap_paterno = $request->ap_paterno;
+        $usuario->ap_materno = $request->ap_materno;
+        $usuario->id_rol = $request->id_rol;
+        $usuario->update();
+        //return $usuario;
+        $empleado = empleados::find($request->id);
+        $empleado->id_usuario = $usuario->id;
+        $empleado->id_area = $request->id_area;
+        $empleado->update();
+
+        return redirect()->route('empleados.index');
     }
 
     /**
@@ -90,9 +111,11 @@ class EmpleadosController extends Controller
      * @param  \App\Models\empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function destroy(empleados $empleados)
+    public function destroy($id)
     {
-        //
+        $empleado = empleados::find($id);
+        $empleado->delete();
+        return redirect('empleados.index');
     }
 
     public static function findBy($campo, $value){

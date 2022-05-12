@@ -9,6 +9,19 @@
     <input type="text" name="telefono" placeholder="telefono" id="nombre"><br>
     <input type="timestamp" name="email" placeholder="email" id="nombre"><br>
     <input type="text" name="password" placeholder="contrasenia" id="nombre"><br>
-    <input type="number" name="id_rol" placeholder="rol" id="id_rol"><br>
-    <input type="submit" value="Guardar datos">
+    <label>Rol: </label>
+                                    <select name="id_rol">
+                                        @foreach ($roles as $rol)
+                                            <option value="{{$rol->id}}">{{$rol->nombre}}</option>
+                                        @endforeach
+                                    </select>
+    <label>Area: </label>
+        <select name="id_area">
+                                        @foreach ($areas as $area)
+                                            <option value="{{$area->id}}">{{$area->nombre}}</option>
+                                        @endforeach
+                                    </select>
+
+                                    <input type="submit" value="Guardar datos">
+
 </form>
