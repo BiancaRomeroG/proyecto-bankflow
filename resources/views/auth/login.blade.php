@@ -9,10 +9,9 @@
         <div class="row">
             <div class="col-12">
                 <!-- Navbar -->
-                <nav
-                    class="navbar navbar-expand-lg blur border-radius-xl top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="box-shadow: none">
                     <div class="container-fluid ps-2 pe-0">
-                        <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{{url('/')}}">
+                        <a class="navbar-brand font-weight-bolder text-white ms-lg-0 ms-3 " href="#">
                             SISTEMA BANKFLOW
                         </a>
                         <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
@@ -27,39 +26,30 @@
                         <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav mx-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center me-2 active" aria-current="page"
+                                    <a class="nav-link d-flex align-items-center me-2 text-white" aria-current="page"
                                         href="#">
-                                        <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                                         Sistemas Informacion II
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="#">
-                                        <i class="fas fa-home opacity-6 text-dark me-1"></i>
+                                    <a class="nav-link text-white me-2" href="#">
                                         INF 412
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="#">
-                                        <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+                                    <a class="nav-link  text-white me-2" href="#">
                                         SB
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link me-2" href="#">
-                                        <i class="fa fa-user opacity-6 text-dark me-1"></i>
+                                    <a class="nav-link text-white me-2" href="#">
                                         Grupo #6
                                     </a>
                                 </li>
                             </ul>
-                            <ul class="navbar-nav d-lg-block d-none">
+                            <ul class="navbar-nav d-lg-block d-none mx-6">
                                 <li class="nav-item">
-                                    <a href="{{url('/')}}" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Volver</a>
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav d-lg-block d-none">
-                                <li class="nav-item">
-                                    <a href="#" class="btn btn-sm mb-0 me-1 bg-gradient-dark">U.A.G.R.M.</a>
+                                    <a href="{{url('/')}}" class="text-white">Volver</a>
                                 </li>
                             </ul>
                         </div>
@@ -73,7 +63,7 @@
         <div class="page-header align-items-start min-vh-100"
             style="background-image: url('https://user-images.githubusercontent.com/36086876/167264136-62f44173-33e5-4515-9c8e-515560aae494.png');">
             <span class="mask bg-gradient-dark opacity-6"></span>
-            <div class="container my-auto">
+            <div class="container my-auto mt-8">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
