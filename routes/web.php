@@ -34,8 +34,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+Route::get('users/informacion-creditos', function () {
+    return view('informacion.info_creditos');
+})->name('info_creditos');
+
     Route::resource('roles', RolesController::class);
 });
+
 
 //Auth::routes();
 
