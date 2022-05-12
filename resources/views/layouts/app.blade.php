@@ -22,8 +22,8 @@
     <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
 </head>
 
-<body class="font-sans antialiased">
-    <x-jet-banner />
+<body class="g-sidenav-show bg-gray-200 font-sans antialiased">
+    <x-jet-banner></x-jet-banner>
 
     <div class="min-h-screen bg-gray-100">
         <!-- Page Content -->
@@ -295,7 +295,7 @@
         <!-- Github buttons -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="../assets/js/material-dashboard.min.js?v=3.0.2"></script>
+        <script src="/assets/js/material-dashboard.min.js?v=3.0.2"></script>
     </div>
 
     @stack('modals')
