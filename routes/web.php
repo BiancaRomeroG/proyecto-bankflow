@@ -6,6 +6,8 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\EmpleadosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,15 @@ Route::post('/logout', [LoginController::class, 'logout'])
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/clientes', function () { return view('clientes.index'); });
+
+// Route::get('/clientes/create',[ClientesController::class,'create']);
+
+Route::resource('clientes',ClientesController::class);
+
+Route::resource('empleados',EmpleadosController::class);
+
 
 Route::middleware([
     'auth:sanctum',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\clientes;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -15,6 +16,7 @@ class ClientesController extends Controller
     public function index()
     {
         //
+        return view('clientes.indes');
     }
 
     /**
@@ -25,6 +27,7 @@ class ClientesController extends Controller
     public function create()
     {
         //
+        return view('clientes.create');
     }
 
     /**
@@ -35,9 +38,19 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        //$datosClientes = request()->all();
+        //return $request;
+        $datosClientes = request()->except('_token');
 
+        //return $datosClientes;
+        $usuario = User::create($datosClientes);
+
+        $cliente = new clientes;
+        $cliente->id_usuario= $usuario->id;
+
+        $cliente->save();
+        return redirect()->route('clientes.create')->with('info', 'El aprobado');
+    }
     /**
      * Display the specified resource.
      *
