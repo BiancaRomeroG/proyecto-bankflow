@@ -1,5 +1,9 @@
 <?php
 
+
+use App\Http\Controllers\PruebaController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/logout', [LoginController::class, 'logout'])
+        ->name('logout');
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,11 +33,14 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
 
 Route::get('users/informacion-creditos', function () {
     return view('informacion.info_creditos');
 })->name('info_creditos');
+
+    Route::resource('roles', RolesController::class);
+});
+
 
 //Auth::routes();
 

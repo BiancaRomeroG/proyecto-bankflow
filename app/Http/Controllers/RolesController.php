@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\roles;
+use App\Models\User;
+use App\Models\usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RolesController extends Controller
 {
@@ -14,7 +17,8 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
+        $roles = DB::table('roles')->get();
+        return view('roles.index', compact('roles'))->with('i');
     }
 
     /**
@@ -24,7 +28,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //
+        return view('roles.create');
     }
 
     /**
@@ -35,7 +39,20 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            DB::transaction(function () use ($request) {
+                $roles = roles::create([
+                    'nombre' => $request->nombre,
+                    'descripcion' => $request->descripcion,
+                ]);
+                $roles->save();
+            });     
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            //retorna una vista indicando hubo algun error
+        }
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -44,9 +61,12 @@ class RolesController extends Controller
      * @param  \App\Models\roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function show(roles $roles)
+    public function show($rol)
     {
-        //
+        $rol = roles::findOrFail($rol);      
+        $usuarios = DB::table('users')->where('users.id_rol', '=', $rol->id)->get(); 
+
+        return view('roles.show', compact('rol', 'usuarios'))->with('i');
     }
 
     /**
@@ -55,9 +75,10 @@ class RolesController extends Controller
      * @param  \App\Models\roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function edit(roles $roles)
+    public function edit($rol)
     {
-        //
+        $rol = roles::findOrFail($rol);  
+        return view('roles.edit', compact('rol'));
     }
 
     /**
@@ -67,9 +88,21 @@ class RolesController extends Controller
      * @param  \App\Models\roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, roles $roles)
+    public function update(Request $request, $rol)
     {
-        //
+        try {
+            $rol = roles::findOrFail($rol);   
+            $rol->nombre = $request->nombre;
+            $rol->descripcion = $request->descripcion;
+            $rol->save();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
+        }
+
+        return redirect()->route('roles.index'); //con una alerta que se hizo todo chido
     }
 
     /**
@@ -78,7 +111,7 @@ class RolesController extends Controller
      * @param  \App\Models\roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function destroy(roles $roles)
+    public function destroy($roles)
     {
         //
     }
