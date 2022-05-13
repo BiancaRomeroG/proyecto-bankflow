@@ -1,9 +1,9 @@
 <x-login-layout>
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
+    @if (session('status'))
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
+    @endif
 
     <div class="container position-sticky z-index-sticky top-0">
         <div class="row">
@@ -49,7 +49,7 @@
                             </ul>
                             <ul class="navbar-nav d-lg-block d-none mx-6">
                                 <li class="nav-item">
-                                    <a href="{{url('/')}}" class="text-white">Volver</a>
+                                    <a href="{{ url('/') }}" class="text-white">Volver</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,31 +62,32 @@
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-100"
             style="background-image: url('https://cdn.pixabay.com/photo/2015/07/28/22/01/office-865091_960_720.jpg');">
-            
+
             <div class="container my-auto mt-8">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom bg-gray-300">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-secondary shadow-secondary border-radius-lg py-3 pe-1">
-                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Inicia sesión</h4>
+                                <div class="bg-gradient-dark shadow-secondary border-radius-lg py-3 pe-1">
+                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-4">Inicia sesión</h4>
                                     <div class="row mt-3">
                                         <div class="col-2 text-center ms-auto">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-facebook text-white text-lg"></i>
-                                            </a>
+                                            <i class="fas fa-circle mt-1" style="color: rgb(248, 78, 78)"></i>
                                         </div>
                                         <div class="col-2 text-center px-1">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-github text-white text-lg"></i>
-                                            </a>
+                                            <i class="fas fa-circle mt-1" style="color: rgb(230, 230, 8)"></i>
                                         </div>
                                         <div class="col-2 text-center me-auto">
-                                            <a class="btn btn-link px-3" href="javascript:;">
-                                                <i class="fa fa-google text-white text-lg"></i>
-                                            </a>
+                                            <i class="fas fa-circle mt-1" style="color: rgb(7, 191, 83)"></i>
                                         </div>
                                     </div>
+                                    {{-- <div class="text-center">
+                                        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                                            <i class="fas fa-circle mt-1" style="color: rgb(248, 78, 78)"></i>
+                                            &nbsp;<i class="fas fa-circle mt-1" style="color: rgb(230, 230, 8)"></i>
+                                            &nbsp;<i class="fas fa-circle mt-1" style="color: rgb(7, 191, 83)"></i>
+                                        </ol>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="card-body">
@@ -109,13 +110,12 @@
                                     </div>
                                     <x-jet-validation-errors class="mb-4" />
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-secondary w-100 my-4 mb-2">INICIA
+                                        <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">INICIA
                                             SESIÓN</button>
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         ¿No tienes una cuenta?
-                                        <a href="{{route('register')}}"
-                                            class="text-success font-weight-bold">Únete</a>
+                                        <a href="{{ route('register') }}" class="text-info font-weight-bold">Únete</a>
                                     </p>
                                 </form>
                             </div>
@@ -144,23 +144,23 @@
         </div>
     </main>
     <!--   Core JS Files   -->
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
-  <!-- Github buttons -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/material-dashboard.min.js?v=3.0.2"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="assets/js/material-dashboard.min.js?v=3.0.2"></script>
 </x-login-layout>
 
 {{-- <div class="flex items-center justify-end mt-4">
