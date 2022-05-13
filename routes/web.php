@@ -4,6 +4,7 @@ use App\Http\Controllers\AreasController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ Route::middleware([
 
     Route::resource('roles', RolesController::class);
     Route::resource('areas', AreasController::class);
+    Route::resource('usuarios', UsuariosController::class);
 });
 
 
