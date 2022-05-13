@@ -62,7 +62,7 @@
                     <div class="col-10 col-lg-8 m-auto mt-7">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <div class="card mb-4">
+                            <div class="card mb-5">
                                 <div class="card-body">
                                     <h5 class="font-weight-bolder mb-0">Ingresa tu Información</h5>
                                     <p class="mb-0 text-sm">Personaliza tu perfil</p>
@@ -140,101 +140,107 @@
 
 
                                     <div class="button-row d-flex mt-4">
-                                        <button class="btn bg-gradient-dark mb-0 js-btn-prev" type="submit"
-                                            title="Prev">
-                                            Listo
-                                        </button>
+                                        <a href="#empresa">
+                                            <button class="btn bg-gradient-dark mb-0 js-btn-prev" type="button"
+                                                title="Prev">
+                                                Listo
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <h5 class="font-weight-bolder mb-0">Ingresa Información de tu empresa</h5>
+                                    <h5 class="font-weight-bolder mb-0" id="empresa">Ingresa Información de tu empresa
+                                    </h5>
                                     <p class="mb-0 text-sm">Datos que ayuden a identificar tu empresa</p>
                                     <div class="row mt-3">
                                         <div class="col-12 col-sm-6">
                                             <div class="input-group input-group-static my-2">
-                                                <label>Nombres</label>
-                                                <input name="name" class="multisteps-form__input form-control"
+                                                <label>Nombre</label>
+                                                <input name="nombre" class="multisteps-form__input form-control"
                                                     type="text" />
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                            <div class="input-group input-group-static my-2">
-                                                <label>Apellido Paterno</label>
-                                                <input name="ap_paterno" class="multisteps-form__input form-control"
-                                                    type="text" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
                                         <div class="col-12 col-sm-6">
                                             <div class="input-group input-group-static my-2">
-                                                <label>Apellido Materno</label>
-                                                <input name="ap_materno" class="multisteps-form__input form-control"
+                                                <label>Cantidad de trabajadores</label>
+                                                <input name="cant_trabajadores"
+                                                    class="multisteps-form__input form-control" type="number" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-12 col-sm-12">
+                                            <div class="input-group input-group-static my-2">
+                                                <label>Direccion</label>
+                                                <input name="direccion" class="multisteps-form__input form-control"
                                                     type="text" />
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                            <div class="input-group input-group-static my-2">
-                                                <label>Cedula de identidad</label>
-                                                <input name="ci" class="multisteps-form__input form-control"
-                                                    type="number" />
-                                            </div>
-                                        </div>
                                     </div>
-                                    <div class="row mt-3">
-                                        <div class="col-6 col-sm-4 mt-3 mt-sm-0">
-                                            <div class="input-group input-group-static my-2">
-                                                <label>Telefono</label>
-                                                <input name="telefono" class="multisteps-form__input form-control"
-                                                    placeholder="+591" type="number" />
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 mt-3 mt-sm-0">
-                                            <div class="input-group input-group-static my-2">
-                                                <label>Fecha de Nacimiento</label>
-                                                <input name="fecha_nac" type="date" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-6 col-sm-4 mt-3 mt-sm-0">
-                                            <div class="input-group input-group-static my-2">
-                                                <label>Email</label>
-                                                <input name="email" class="multisteps-form__input form-control"
-                                                    type="email" placeholder="ejemplo@gmail.com" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12 col-sm-6">
-                                            <div class="input-group input-group-static my-2">
-                                                <label>Contraseña</label>
-                                                <input name="password" class="multisteps-form__input form-control"
-                                                    type="password" />
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
-                                            <div class="input-group input-group-static my-2">
-                                                <label>Confirmar Contraseña</label>
-                                                <input name="password_confirmation"
-                                                    class="multisteps-form__input form-control" type="password" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <input type="text" hidden name="id_rol" value="7">
-
-
+                                    <!-- Button trigger modal -->
                                     <div class="button-row d-flex mt-4">
-                                        <button class="btn bg-gradient-dark mb-0 js-btn-prev" type="submit"
-                                            title="Prev">
+                                        <button type="button" class="btn bg-gradient-dark mb-0 js-btn-prev btn-block"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModalSignUp"
+                                            title="Rellenar datos de tarjeta">
                                             Registrar
                                         </button>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalSignUp" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalSignTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body p-0">
+                                                    <div class="card card-plain">
+                                                        <div class="card-header pb-0 text-left">
+                                                            <h5 class="">Rellena los datos de tu tarjeta
+                                                            </h5>
+                                                            <p class="mb-0">Y accede todas las funcionalidades
+                                                            </p>
+                                                        </div>
+                                                        <div class="card-body pb-3">
+                                                            <label>Nº de tarjeta</label>
+                                                            <div class="input-group input-group-outline my-2">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="----/----/----/----">
+                                                            </div>
+                                                            <label>MM/AA</label>
+                                                            <div class="input-group input-group-outline my-2">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="--/--">
+                                                            </div>
+                                                            <label>Codigo de seguridad</label>
+                                                            <div class="input-group input-group-outline my-2">
+                                                                <input type="password" class="form-control">
+                                                            </div>
+
+                                                            <div class="text-center">
+                                                                <button type="submit"
+                                                                    class="btn bg-gradient-warning btn-lg btn-rounded w-100 mt-4 mb-0">Realizar
+                                                                    pago</button>
+                                                            </div>
+                                                        </div>
+                                                        {{-- <div class="card-footer text-center pt-0 px-sm-4 px-1">
+                                                            <p class="mb-4 mx-auto">
+                                                                Already have an account?
+                                                                <a href="javascrpt:;"
+                                                                    class="text-primary text-gradient font-weight-bold">Realizar pago</a>
+                                                            </p>
+                                                        </div> --}}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
+                </div>
 
 
                 </div>
