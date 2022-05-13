@@ -21,4 +21,6 @@ class credito_detalle extends Model
         'numero_cuotas',
         'id_custodia'
     ];
+
+    
 }
