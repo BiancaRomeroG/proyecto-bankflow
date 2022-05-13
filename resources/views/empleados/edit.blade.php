@@ -1,3 +1,4 @@
+@section('title', 'Empleado')
 <x-app-layout>
     <section>
         <div class="card mb-4">
@@ -6,7 +7,7 @@
                     <button class="btn btn-dark btn-sm mt-2" type="button" style="display: inline-block"><i
                             class="fas fa-arrow-left"></i> Atrás</button>
                 </a>
-                <h5 class="font-weight-bolder" style="display: inline-block">&nbsp;&nbsp; Agregando Empleado</h5>
+                <h5 class="font-weight-bolder" style="display: inline-block">&nbsp;&nbsp; Editando Empleado</h5>
             </div>
             <hr class="m-0">
             <div class="card-body mt-0 pt-0">

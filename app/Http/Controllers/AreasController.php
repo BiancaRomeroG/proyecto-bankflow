@@ -70,7 +70,7 @@ class AreasController extends Controller
                             ->join('roles', 'users.id_rol', 'roles.id')
                             ->join('areas', 'empleados.id_area', 'areas.id')
                             ->where('areas.id', '=', $area->id)
-                            ->select('users.name', 'users.ap_paterno', 'users.ap_materno', 'users.ci', 'roles.nombre As nombre_rol')
+                            ->select('empleados.id as id','users.name', 'users.ap_paterno', 'users.ap_materno','users.telefono','users.email','users.ci', 'roles.nombre As nombre_rol')
                             ->get();
         } catch (\Exception $e) {
             //retornar alerta de ha ocurrido un error
@@ -124,4 +124,7 @@ class AreasController extends Controller
     {
         //
     }
+
+    
+
 }

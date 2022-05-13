@@ -190,5 +190,44 @@ class UsersSeeder extends Seeder
         $usuario->password = Hash::make('12345678');
         $usuario->id_rol = 5;
         $usuario->save();
+
+//Aministradores
+//15
+        $usuario = new User();
+        $usuario->name = 'Anabel';
+        $usuario->ap_paterno = 'Salazar';
+        $usuario->ap_materno = 'Chavez';
+        $usuario->ci = '8908759';
+        $usuario->fecha_nac = '1989/05/21';
+        $usuario->telefono = '78451255';
+        $usuario->email = 'anabel@gmail.com';
+        $usuario->password = Hash::make('12345678');
+        $usuario->id_rol = 7;
+        $usuario->save();
+//16
+        $usuario = new User();
+        $usuario->name = 'Homero';
+        $usuario->ap_paterno = 'Simpson';
+        $usuario->ap_materno = 'Tapia';
+        $usuario->ci = '8908760';
+        $usuario->fecha_nac = '1984/11/21';
+        $usuario->telefono = '78451256';
+        $usuario->email = 'homero@gmail.com';
+        $usuario->password = Hash::make('12345678');
+        $usuario->id_rol = 7;
+        $usuario->save();
+//17
+        $usuario = new User();
+        $usuario->name = 'Lucas';
+        $usuario->ap_paterno = 'Benavides';
+        $usuario->ap_materno = 'Suarez';
+        $usuario->ci = '8908761';
+        $usuario->fecha_nac = '1985/12/21';
+        $usuario->telefono = '78451257';
+        $usuario->email = 'lucas@gmail.com';
+        $usuario->password = Hash::make('12345678');
+        $usuario->id_rol = 7;
+        $usuario->save();
+
     }
 }

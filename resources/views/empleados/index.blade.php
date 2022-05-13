@@ -1,3 +1,4 @@
+@section('title', 'Empleados')
 <x-app-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">

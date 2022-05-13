@@ -17,4 +17,8 @@ class clientes extends Model
     public function user(){
         return $this->belongsTo('App\Models\User', 'id_usuario', 'id');
     }
+
+    public function creditos(){
+        return $this->hasMany('App\Models\solicitud_credito', 'id_cliente', 'id');
+    }    
 }

@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12">
                 <!-- Navbar -->
-                <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="box-shadow: none">
+                <nav class="navbar fixed-top navbar-expand-lg" style="box-shadow: none">
                     <div class="container-fluid ps-2 pe-0">
                         <a class="navbar-brand font-weight-bolder text-white ms-lg-0 ms-3 " href="#">
                             SISTEMA BANKFLOW
@@ -30,12 +30,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center me-2 text-white" aria-current="page"
                                         href="#">
-                                        Sistemas Informacion II
+                                        SI II
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white me-2" href="#">
-                                        INF 412
+                                    <a href="{{ route('login') }}" class="nav-link text-white me-2" href="#">
+                                        Iniciar Sesión
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -43,15 +43,12 @@
                                         SB
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white me-2" href="#">
-                                        Grupo #6
-                                    </a>
-                                </li>
                             </ul>
                             <ul class="navbar-nav d-lg-block d-none mx-6">
                                 <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="text-white">Log in</a>
+                                    <a class="nav-link mb-0 px-0 py-1 text-white" href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio" role="tab"
+                                        aria-selected="true">
+                                    Contactanos</a>
                                 </li>
                             </ul>
                         </div>
@@ -63,8 +60,8 @@
     </div>
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-100 mb-6"
-            style="background-image: url('https://4.bp.blogspot.com/-edFLjIj7qAI/UlRTRPDdfrI/AAAAAAABFzU/XnOWcSTffas/s1600/Fondos+de+pantalla+De+Paisajes+-+Wallpapers+HD+(5).jpg');">
-            <h1 class="font-weight-bold text-white m-auto mt-14" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">BANK - FLOW <p class="text-center text-dark">Agregen imagen</p></h1>
+            style="background-image: url('https://cdn.pixabay.com/photo/2015/07/28/22/01/office-865091_960_720.jpg');">
+            <h1 class="font-weight-bold text-white m-auto mt-14" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">BANK - FLOW <p class="text-center text-white">El Mejor sistema para procesos crediticios</p></h1>
             {{-- <span class="mask bg-gradient-dark opacity-6"></span> --}}
         </div>
         <div class="container my-auto mb-4">
@@ -83,7 +80,7 @@
                             </div>
                             <div class="card-body text-lg-start text-center pt-0">
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mt-3 text-white" style="background-color: #0AD149">
-                                    Try Premium
+                                    Try Starter
                                     <i class="fas fa-arrow-right ms-1"></i>
                                 </a>
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mb-4 text-dark" style="background-color: rgb(238, 238, 238)">
@@ -174,7 +171,7 @@
 
                     <div class="col-md-4 mb-4">
                         <div class="card bg-gradient-light shadow-lg">
-                            <span class="badge rounded-pill bg-gray-400 text-dark w-30 mt-n2 mx-auto">Premium</span>
+                            <span class="badge rounded-pill bg-gray-400 text-dark w-30 mt-n2 mx-auto">Corporativo</span>
                             <div class="card-header text-center pt-4 pb-3 bg-transparent">
                                 <h1 class="font-weight-bold mt-2 text-dark" style="font-family: Arial, Helvetica, sans-serif">
                                     <small class="text-lg mb-auto">$</small>59<small class="text-lg">/mo</small>
@@ -182,7 +179,7 @@
                             </div>
                             <div class="card-body text-lg-start text-center pt-0">
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mt-3 mb-0 text-white" style="background-color: #0AD149">
-                                    Try Premium
+                                    Try Corporativo
                                     <i class="fas fa-arrow-right ms-1"></i>
                                 </a>
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mt-3 mb-4 text-dark" style="background-color: rgb(238, 238, 238)">
@@ -243,36 +240,6 @@
                 </div>
             </div>
         </footer>
-<div class="bg-gray-900"></div>
     </main>
     <!--   Core JS Files   -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-      var nav = document.querySelector('nav');
-
-      window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 100) {
-          nav.classList.add('bg-gray-900', 'shadow');
-        } else {
-          nav.classList.remove('bg-gray-900', 'shadow');
-        }
-      });
-    </script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js?v=3.0.2"></script>
 </x-login-layout>
