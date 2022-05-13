@@ -33,16 +33,16 @@
                     <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu1" data-bs-parent="#menu" >
                         <div class="">
                             <li class="w-100">
-                                <a class="nav-link "> <span class="nav-link-item ms-4">Empleado</span></a>
+                                <a  href="{{route('empleados.index')}}" class="nav-link "> <span class="nav-link-item ms-4">Empleado</span></a>
                             </li>
                             <li class="w-100">
-                                <a class="nav-link "> <span class="nav-link-item ms-4">Cliente</span></a>
+                                <a href="{{route('clientes.index')}}" class="nav-link "> <span class="nav-link-item ms-4">Cliente</span></a>
                             </li>
                     </ul>
                     
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="../pages/billing.html">
+                    <a class="nav-link text-white " href="{{ route('usuarios.index') }}" >
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons">group</i>
                         </div>
