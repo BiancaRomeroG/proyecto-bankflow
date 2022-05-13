@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12">
                 <!-- Navbar -->
-                <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="box-shadow: none">
+                <nav class="navbar fixed-top navbar-expand-lg" style="box-shadow: none">
                     <div class="container-fluid ps-2 pe-0">
                         <a class="navbar-brand font-weight-bolder text-white ms-lg-0 ms-3 " href="#">
                             SISTEMA BANKFLOW
@@ -30,12 +30,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link d-flex align-items-center me-2 text-white" aria-current="page"
                                         href="#">
-                                        Sistemas Informacion II
+                                        SI II
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white me-2" href="#">
-                                        INF 412
+                                    <a href="{{ route('login') }}" class="nav-link text-white me-2" href="#">
+                                        Iniciar Sesión
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -43,15 +43,12 @@
                                         SB
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white me-2" href="#">
-                                        Grupo #6
-                                    </a>
-                                </li>
                             </ul>
                             <ul class="navbar-nav d-lg-block d-none mx-6">
                                 <li class="nav-item">
-                                    <a href="{{ route('login') }}" class="text-white">Log in</a>
+                                    <a class="nav-link mb-0 px-0 py-1 text-white" href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio" role="tab"
+                                        aria-selected="true">
+                                    Contactanos</a>
                                 </li>
                             </ul>
                         </div>
@@ -243,36 +240,6 @@
                 </div>
             </div>
         </footer>
-<div class="bg-gray-900"></div>
     </main>
     <!--   Core JS Files   -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
-      var nav = document.querySelector('nav');
-
-      window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 100) {
-          nav.classList.add('bg-gray-900', 'shadow');
-        } else {
-          nav.classList.remove('bg-gray-900', 'shadow');
-        }
-      });
-    </script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js?v=3.0.2"></script>
 </x-login-layout>

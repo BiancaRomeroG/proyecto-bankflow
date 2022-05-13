@@ -32,7 +32,7 @@
                     <div class="nav-wrapper position-relative end-0">
                         <ul class="nav nav-pills nav-fill p-1" role="tablist" style="background-color: #5ff890">
                             <li class="nav-item" >
-                                <a class="nav-link mb-0 px-0 py-1" href="https://api.whatsapp.com/send?phone=+591{{$empleado->user->telefono}}&text=Hola,%20¿Como%20va%20el%20caso?" role="tab"
+                                <a class="nav-link mb-0 px-0 py-1" href="https://api.whatsapp.com/send?phone=+591{{$empleado->user->telefono}}&text=Hola,%20te%20hablo%20desde%20la%20empresa" role="tab"
                                     aria-selected="true">
                                     <i class="fab fa-whatsapp"></i>
                                     <span class="ms-1">Messages</span>
