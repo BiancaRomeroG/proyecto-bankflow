@@ -38,11 +38,8 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //$datosClientes = request()->all();
-        //return $request;
         $datosClientes = request()->except('_token');
 
-        //return $datosClientes;
         $usuario = User::create($datosClientes);
 
         $cliente = new clientes;
@@ -57,9 +54,9 @@ class ClientesController extends Controller
      * @param  \App\Models\clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function show(clientes $clientes)
+    public function show(clientes $cliente)
     {
-        //
+        return view('clientes.show', compact('cliente'))->with('i');
     }
 
     /**
@@ -68,9 +65,9 @@ class ClientesController extends Controller
      * @param  \App\Models\clientes  $clientes
      * @return \Illuminate\Http\Response
      */
-    public function edit(clientes $clientes)
+    public function edit(clientes $cliente)
     {
-        //
+        return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -82,7 +79,20 @@ class ClientesController extends Controller
      */
     public function update(Request $request, clientes $clientes)
     {
-        //
+        $usuario = User::find($request->id_usuario);
+        $usuario->name = $request->name;
+        $usuario->telefono = $request->telefono;
+        $usuario->email = $request->email;
+        $usuario->ci = $request->ci;
+        $usuario->ap_paterno = $request->ap_paterno;
+        $usuario->ap_materno = $request->ap_materno;
+        $usuario->update();
+
+        $cliente = clientes::find($request->id);
+        $cliente->id_usuario = $usuario->id;
+        $cliente->update();
+
+        return redirect()->route('clientes.index');
     }
 
     /**

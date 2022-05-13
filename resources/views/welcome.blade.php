@@ -63,8 +63,8 @@
     </div>
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-100 mb-6"
-            style="background-image: url('https://4.bp.blogspot.com/-edFLjIj7qAI/UlRTRPDdfrI/AAAAAAABFzU/XnOWcSTffas/s1600/Fondos+de+pantalla+De+Paisajes+-+Wallpapers+HD+(5).jpg');">
-            <h1 class="font-weight-bold text-white m-auto mt-14" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">BANK - FLOW <p class="text-center text-dark">Agregen imagen</p></h1>
+            style="background-image: url('https://cdn.pixabay.com/photo/2015/07/28/22/01/office-865091_960_720.jpg');">
+            <h1 class="font-weight-bold text-white m-auto mt-14" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">BANK - FLOW <p class="text-center text-white">Mejor sistema para procesos crediticios</p></h1>
             {{-- <span class="mask bg-gradient-dark opacity-6"></span> --}}
         </div>
         <div class="container my-auto mb-4">

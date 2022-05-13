@@ -51,7 +51,7 @@ class EmpleadosController extends Controller
         $empleado->id_usuario = $usuario->id;
         $empleado->id_area = $request->id_area;
         $empleado->save();
-        return redirect()->route('empleados.create')->with('info', 'El aprobado');
+        return redirect()->route('empleados.index')->with('info', 'El aprobado');
     }
 
     /**
