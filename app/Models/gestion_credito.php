@@ -14,4 +14,6 @@ class gestion_credito extends Model
         'id_empleado',
         'id_solicitud_credito',
     ];
+
+    
 }

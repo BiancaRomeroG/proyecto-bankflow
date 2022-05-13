@@ -22,4 +22,9 @@ class empleados extends Model
     public function area(){
         return $this->belongsTo('App\Models\areas', 'id_area', 'id');
     }
+
+    public function creditos(){
+        return $this->belongsToMany('App\Models\solicitud_credito', 'gestion_creditos', 'id_empleado', 'id_solicitud_credito');
+    }
+
 }

@@ -19,4 +19,16 @@ class solicitud_credito extends Model
         'id_carpeta_credito',
         'id_credito_detalle'
     ];
+
+    public function tipo(){
+        return $this->belongsTo('App\Models\tipo_credito', 'id_tipo_credito', 'id');
+    }
+
+    public function creditos(){
+        return $this->belongsToMany('App\Models\empleados', 'gestion_creditos', 'id_solicitud_credito', 'id_empleado');
+    }
+
+    public function cliente(){
+        return $this->belongsTo('App\Models\clientes', 'id_cliente', 'id');
+    }
 }

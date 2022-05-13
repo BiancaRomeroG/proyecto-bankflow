@@ -60,9 +60,9 @@ class EmpleadosController extends Controller
      * @param  \App\Models\empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function show(empleados $empleados)
+    public function show(empleados $empleado)
     {
-        //
+        return view('empleados.show', compact('empleado'))->with('i');
     }
 
     /**

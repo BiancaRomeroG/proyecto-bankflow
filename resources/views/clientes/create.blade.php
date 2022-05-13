@@ -1,8 +1,7 @@
 Formulario de creacion de empleados
 
-<form action="{{ route('clientes.store')  }}" method="post" enctype="multipart/form-data">
+<form action="{{ route('clientes.store') }}" method="post" enctype="multipart/form-data">
     @csrf
-
     <input type="text" name="name" placeholder="nombre" id="nombre"><br>
     <input type="text" name="ap_paterno" placeholder="apellido_paterno" id="nombre"><br>
     <input type="text" name="ap_materno" placeholder="apellido_materno" id="nombre"><br>
