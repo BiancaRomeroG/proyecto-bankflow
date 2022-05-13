@@ -61,14 +61,14 @@
     </div>
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-100"
-            style="background-image: url('https://user-images.githubusercontent.com/36086876/167264136-62f44173-33e5-4515-9c8e-515560aae494.png');">
-            <span class="mask bg-gradient-dark opacity-6"></span>
+            style="background-image: url('https://cdn.pixabay.com/photo/2015/07/28/22/01/office-865091_960_720.jpg');">
+            
             <div class="container my-auto mt-8">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
-                        <div class="card z-index-0 fadeIn3 fadeInBottom">
+                        <div class="card z-index-0 fadeIn3 fadeInBottom bg-gray-300">
                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                                <div class="bg-gradient-secondary shadow-secondary border-radius-lg py-3 pe-1">
                                     <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Inicia sesión</h4>
                                     <div class="row mt-3">
                                         <div class="col-2 text-center ms-auto">
@@ -109,13 +109,13 @@
                                     </div>
                                     <x-jet-validation-errors class="mb-4" />
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">INICIA
+                                        <button type="submit" class="btn bg-gradient-secondary w-100 my-4 mb-2">INICIA
                                             SESIÓN</button>
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         ¿No tienes una cuenta?
                                         <a href="{{route('register')}}"
-                                            class="text-primary text-gradient font-weight-bold">Únete</a>
+                                            class="text-success font-weight-bold">Únete</a>
                                     </p>
                                 </form>
                             </div>

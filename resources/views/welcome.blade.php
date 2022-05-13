@@ -63,8 +63,8 @@
     </div>
     <main class="main-content  mt-0">
         <div class="page-header align-items-start min-vh-100 mb-6"
-            style="background-image: url('https://4.bp.blogspot.com/-edFLjIj7qAI/UlRTRPDdfrI/AAAAAAABFzU/XnOWcSTffas/s1600/Fondos+de+pantalla+De+Paisajes+-+Wallpapers+HD+(5).jpg');">
-            <h1 class="font-weight-bold text-white m-auto mt-14" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">BANK - FLOW <p class="text-center text-dark">Agregen imagen</p></h1>
+            style="background-image: url('https://cdn.pixabay.com/photo/2015/07/28/22/01/office-865091_960_720.jpg');">
+            <h1 class="font-weight-bold text-white m-auto mt-14" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">BANK - FLOW <p class="text-center text-white">El Mejor sistema para procesos crediticios</p></h1>
             {{-- <span class="mask bg-gradient-dark opacity-6"></span> --}}
         </div>
         <div class="container my-auto mb-4">
@@ -83,7 +83,7 @@
                             </div>
                             <div class="card-body text-lg-start text-center pt-0">
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mt-3 text-white" style="background-color: #0AD149">
-                                    Try Premium
+                                    Try Starter
                                     <i class="fas fa-arrow-right ms-1"></i>
                                 </a>
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mb-4 text-dark" style="background-color: rgb(238, 238, 238)">
@@ -174,7 +174,7 @@
 
                     <div class="col-md-4 mb-4">
                         <div class="card bg-gradient-light shadow-lg">
-                            <span class="badge rounded-pill bg-gray-400 text-dark w-30 mt-n2 mx-auto">Premium</span>
+                            <span class="badge rounded-pill bg-gray-400 text-dark w-30 mt-n2 mx-auto">Corporativo</span>
                             <div class="card-header text-center pt-4 pb-3 bg-transparent">
                                 <h1 class="font-weight-bold mt-2 text-dark" style="font-family: Arial, Helvetica, sans-serif">
                                     <small class="text-lg mb-auto">$</small>59<small class="text-lg">/mo</small>
@@ -182,7 +182,7 @@
                             </div>
                             <div class="card-body text-lg-start text-center pt-0">
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mt-3 mb-0 text-white" style="background-color: #0AD149">
-                                    Try Premium
+                                    Try Corporativo
                                     <i class="fas fa-arrow-right ms-1"></i>
                                 </a>
                                 <a href="javascript:;" class="btn btn-icon d-lg-block mt-3 mb-4 text-dark" style="background-color: rgb(238, 238, 238)">

@@ -1,15 +1,17 @@
+@section('title', 'Empleado')
 <x-app-layout>
     <section>
         <div class="card mb-4">
             <div class="card-header mb-0 pt-3 pb-2">
-                <a href="{{route('empleados.index')}}">
-                <button class="btn btn-dark btn-sm mt-2" type="button" style="display: inline-block"><i class="fas fa-arrow-left"></i> Atrás</button>
-            </a>
-                    <h5 class="font-weight-bolder" style="display: inline-block">&nbsp;&nbsp; Agregando Empleado</h5>
+                <a href="{{ route('empleados.index') }}">
+                    <button class="btn btn-dark btn-sm mt-2" type="button" style="display: inline-block"><i
+                            class="fas fa-arrow-left"></i> Atrás</button>
+                </a>
+                <h5 class="font-weight-bolder" style="display: inline-block">&nbsp;&nbsp; Agregando Empleado</h5>
             </div>
             <hr class="m-0">
             <div class="card-body mt-0 pt-0">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('empleados.store') }}">
                     @csrf
                     <div class="row mt-3">
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
@@ -71,6 +73,12 @@
                                 <label>Email</label>
                                 <input name="email" class="multisteps-form__input form-control" type="email"
                                     placeholder="ejemplo@gmail.com" />
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                            <div class="input-group input-group-static my-2">
+                                <label>Contraseña</label>
+                                <input name="password" class="form-control" type="password"/>
                             </div>
                         </div>
                     </div>

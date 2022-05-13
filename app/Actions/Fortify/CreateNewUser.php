@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\empresa;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -33,7 +34,7 @@ class CreateNewUser implements CreatesNewUsers
             'id_rol' => ['required']
         ])->validate();
 
-        return User::create([
+        $usuario = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
@@ -44,5 +45,13 @@ class CreateNewUser implements CreatesNewUsers
             'ci'=> $input['ci'],
             'id_rol' => $input['id_rol']
         ]);
+        $usuario->save();
+        $empresa = new empresa();
+        $empresa->nombre = $input['nombre'];
+        $empresa->direccion = $input['direccion'];
+        $empresa->cant_trabajadores = $input['cant_trabajadores'];
+        $empresa->id_admin = $usuario->id;
+        $empresa->save();
+        return $usuario;
     }
 }
