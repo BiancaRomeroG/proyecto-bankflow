@@ -19,13 +19,15 @@ class UsuariosController extends Controller
     public function index()
     {
         $usuariosEmpleado = User::join('empleados', 'empleados.id_usuario', 'users.id')
-        ->select('users.id', 'users.name', 'users.ap_paterno', 'users.email', 'users.ci', 'users.created_at', 'users.id_rol');
+        ->join('roles','users.id_rol','roles.id')
+        ->select('users.id', 'users.name', 'users.ap_paterno', 'users.email', 'users.ci', 'users.telefono','users.created_at', 'users.id_rol' ,'roles.nombre as nombre_rol');
 
         $usuarios = User::join('clientes', 'clientes.id_usuario', 'users.id')
+        ->join('roles','users.id_rol','roles.id')
         ->union($usuariosEmpleado)
-        ->select('users.id', 'users.name', 'users.ap_paterno', 'users.email', 'users.ci', 'users.created_at', 'users.id_rol')
+        ->select('users.id', 'users.name', 'users.ap_paterno', 'users.email', 'users.ci','users.telefono' ,'users.created_at', 'users.id_rol','roles.nombre as nombre_rol')
         ->get();
-
+        // return $usuarios;
         return view('usuarios.index',compact('usuarios'))->with('i');
     }
 
@@ -97,10 +99,12 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuarios $usuarios)
+    public function edit($usuarios)
     {
-        // $usuario = user::findOrFail($usuarios);
-        // return view('usuarios.edit', compact('usuario'));
+        $usuario = user::findOrFail($usuarios);
+        if($usuario->id_rol)
+        
+        return view('usuarios.edit', compact('usuario'));
     }
 
     /**
