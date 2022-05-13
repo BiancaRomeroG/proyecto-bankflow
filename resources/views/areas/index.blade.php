@@ -1,4 +1,3 @@
-@section('title', 'Areas')
 <x-app-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
@@ -26,8 +25,7 @@
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Descripcion</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Opciones</th>
                                 </tr>
                             </thead>
@@ -43,15 +41,16 @@
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-xs">{{ $area->nombre }}</h6>
+                                                    <h4 class="mb-0 text-xs">{{ $area->nombre }}
+                                                       </h4>
+                    
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">
-                                                {{ $area->descripcion}}
-                                            </p>
+                                            <p class="text-xs text-secondary mb-0">{{ $area->descripcion }}</p>
                                         </td>
+            
                                         <td class="align-middle text-center">
                                             <a href="{{ route('areas.edit', $area->id) }}">
                                                 <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
@@ -75,5 +74,43 @@
             </div>
         </div>
     </div>
+    
 </x-app-layout>
-
+{{--
+<x-app-layout>
+    <h1>Areas uWu</h1>
+    <div>
+        <x-jet-button>
+            <a href="{{ route('areas.create') }}">Crear nueva area</a>
+        </x-jet-button>
+    </div>
+    <div>
+        @if (count($areas) > 0)
+            <table>
+                <tr>
+                    <th>N°</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th> 
+                    <th>Acciones</th>
+                </tr>
+                @foreach ($areas as $area)
+                    <tr>
+                        <td>{{ ++$i }}</td>
+                        <td>{{ $area->nombre }}</td>
+                        <td>{{ $area->descripcion }}</td>
+                        <td>
+                            <a href="{{ route('areas.show', $area->id) }}">Ver</a>
+                            <a href="{{ route('areas.edit', $area->id) }}">Editar</a>
+                            <a href="#">Eliminar</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>            
+        @else
+            <div>
+                No hay nada xD
+            </div>
+        @endif
+        
+    </div>
+</x-app-layout> --}}
