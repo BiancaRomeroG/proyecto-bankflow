@@ -1,9 +1,10 @@
 <?php
 
-
+use App\Http\Controllers\AreasController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
@@ -45,11 +46,13 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-Route::get('users/informacion-creditos', function () {
-    return view('informacion.info_creditos');
-})->name('info_creditos');
+    Route::get('users/informacion-creditos', function () {
+        return view('informacion.info_creditos');
+    })->name('info_creditos');
 
     Route::resource('roles', RolesController::class);
+    Route::resource('areas', AreasController::class);
+    Route::resource('usuarios', UsuariosController::class);
 });
 
 
