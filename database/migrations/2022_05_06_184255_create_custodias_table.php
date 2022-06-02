@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('custodias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_cliente');
+            $table->unsignedBigInteger('id_empresa');
+            $table->foreign('id_empresa')->references('id')->on('empresas');
             $table->timestamps();
         });
     }

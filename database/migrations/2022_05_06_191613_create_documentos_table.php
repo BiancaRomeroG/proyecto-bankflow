@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('descripcion');
             $table->unsignedBigInteger('id_carpeta');
             $table->foreign('id_carpeta')->references('id')->on('carpeta_creditos');
+            $table->unsignedBigInteger('id_empresa');
+            $table->foreign('id_empresa')->references('id')->on('empresas');
             $table->timestamps();
         });
     }
