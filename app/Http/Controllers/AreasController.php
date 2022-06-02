@@ -17,7 +17,7 @@ class AreasController extends Controller
      */
     public function index()
     {
-        $areas = DB::table('areas')->get();
+        $areas = areas::paginate(8);
         return view('areas.index', compact('areas'))->with('i');
     }
 

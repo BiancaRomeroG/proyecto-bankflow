@@ -69,6 +69,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="">
+                            {{$areas->links()}}
+                        </div>
                     </div>
                 </div>
             </div>

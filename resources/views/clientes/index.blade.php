@@ -10,6 +10,20 @@
                         <a href="{{ route('clientes.create') }}" class="btn btn-sm btn-dark">Agregar</a>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                        <select class="form-control border border-gray-400" id="opcion" name="opcion">
+                            <option class="text-dark" value="nombre">&nbsp;&nbsp;Nombre</option>
+                            <option class="text-dark" value="telefono">&nbsp;&nbsp;CI</option>
+                        </select>
+                    </div>
+                    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <input type="text" id="texto" name="texto"
+                            class="border border-gray-400 form-control bg-gray-100" placeholder="Texto a buscar">
+                    </div>
+                </div>
+
             </div>
             <hr class="m-0">
             <div class="card-body">
@@ -22,9 +36,6 @@
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Nombre-Correo</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Rol</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Ci</th>
                                     <th
@@ -60,11 +71,6 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">
-                                                {{ $cliente->user->rol->nombre }}
-                                            </p>
-                                        </td>
-                                        <td>
                                             <span
                                                 class="text-secondary text-xs font-weight-normal">{{ $cliente->user->ci }}</span>
                                         </td>
@@ -90,6 +96,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="">
+                            {{ $clientes->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

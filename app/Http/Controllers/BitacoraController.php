@@ -21,7 +21,7 @@ class BitacoraController extends Controller
     public function __invoke($request, $next)
     {
         $this->create(Auth::user()->id, 'Inicio de sesión', 
-        'Inicio de sesión exitoso en el sistema del usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
+        'Inicio de sesión exitoso en el sistema del usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id, Auth::user()->id_empresa );
 
         return $next($request);
     }
@@ -40,6 +40,7 @@ class BitacoraController extends Controller
         $bitacora->accion = $accion;
         $bitacora->descripcion = $descripcion;
         $bitacora->id_area = $empleado->id_area;
+        $bitacora->id_empresa = $empleado->id_empresa;
         $bitacora->save();
         }
          

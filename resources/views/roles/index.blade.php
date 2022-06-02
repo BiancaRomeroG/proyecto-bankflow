@@ -70,6 +70,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="">
+                            {{$roles->links()}}
+                        </div>
                     </div>
                 </div>
             </div>
