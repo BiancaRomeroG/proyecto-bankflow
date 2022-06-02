@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('direccion');
             $table->integer('cant_trabajadores');
-            $table->unsignedBigInteger('id_admin');
-            $table->foreign('id_admin')->references('id')->on('users');
             $table->timestamps();
         });
     }

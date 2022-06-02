@@ -12,5 +12,6 @@ class custodias extends Model
     protected $table = 'custodias';
     protected $fillable = [
         'nombre_cliente',
+        'id_empresa'
     ];
 }

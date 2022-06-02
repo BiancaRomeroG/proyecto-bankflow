@@ -13,5 +13,6 @@ class areas extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
+        'id_empresa'
     ];
 }

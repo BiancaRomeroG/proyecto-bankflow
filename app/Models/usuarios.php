@@ -19,5 +19,6 @@ class usuarios extends Model
         'telefono',
         'email',
         'contrasena',
+        'id_empresa'
     ];
 }
