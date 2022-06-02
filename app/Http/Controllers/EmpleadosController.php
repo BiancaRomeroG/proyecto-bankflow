@@ -20,7 +20,7 @@ class EmpleadosController extends Controller
         //$empleados = empleados::join('users', 'empleados.id_usuario','users.id')
         //->join('areas', 'empleados.id_area', 'areas.id')
         //->select('users.name', 'users.ap_paterno','users.ci', 'users.email', 'users.id_rol as rol', 'users.telefono', 'areas.nombre as area');
-        $empleados = empleados::get();
+        $empleados = empleados::paginate(6);
         return view('empleados.index', compact('empleados'))->with('i');
     }
 

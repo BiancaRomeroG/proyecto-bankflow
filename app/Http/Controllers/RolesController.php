@@ -17,7 +17,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $roles = DB::table('roles')->get();
+        $roles = roles::paginate(8);
         return view('roles.index', compact('roles'))->with('i');
     }
 
@@ -64,7 +64,7 @@ class RolesController extends Controller
     public function show($rol)
     {
         $rol = roles::findOrFail($rol);      
-        $usuarios = DB::table('users')->where('users.id_rol', '=', $rol->id)->get(); 
+        $usuarios = DB::table('users')->where('users.id_rol', '=', $rol->id)->paginate(6); 
 
         return view('roles.show', compact('rol', 'usuarios'))->with('i');
     }
