@@ -62,7 +62,7 @@
 
                 </div>
                 <br>
-                <!-- Denomicaciones -->
+                {{-- <!-- Denomicaciones -->
                 <div class="row">
                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                         <select class="form-control border border-gray-400" id="opcion" name="opcion">
@@ -88,7 +88,7 @@
                         <input type="text" id="texto" name="texto"
                             class="border border-gray-400 form-control bg-gray-100" placeholder="&nbsp;&nbsp;Texto a buscar">
                     </div>
-                </div>
+                </div> --}}
 
             </div>
             <hr class="m-0">
