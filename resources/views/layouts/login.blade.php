@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -54,12 +54,12 @@
     </div>
 
     @livewireScripts
-</body>
+
 <script src="{{ asset('js') }}/bootstrap.bundle.min.js"></script>
 
 
 <script src="{{ asset('assets') }}/js/core/popper.min.js"></script>
-<script src="{{ asset('assets') }}/js/core/bootstrap.min.js"></script>
+{{-- <script src="{{ asset('assets') }}/js/core/bootstrap.min.js"></script> --}}
 <script src="{{ asset('assets') }}/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="{{ asset('assets') }}/js/plugins/smooth-scrollbar.min.js"></script>
 <script>
@@ -87,5 +87,5 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('assets') }}/js/material-dashboard.min.js?v=3.0.2"></script>
-
+</body>
 </html>

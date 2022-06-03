@@ -4,11 +4,17 @@ use App\Http\Controllers\AreasController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\DocumentosController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\SolicitudCreditoController;
+use App\Http\Controllers\TipoCreditoController;
+use App\Http\Controllers\PersonalizarController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,9 +60,24 @@ Route::middleware([
     Route::resource('clientes',ClientesController::class);
 
     Route::resource('empleados',EmpleadosController::class);
+
+    Route::get('creditos/{id}/documentos', [SolicitudCreditoController::class, 'documentos'] )->name('credito.documentos'); //index de documentos
+    Route::resource('creditos', SolicitudCreditoController::class);
+    Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');	
+    Route::get('documentos/{id}/create', [DocumentosController::class, 'create'])->name('documentos.create');
+    Route::post('documento/store', [DocumentosController::class, 'store'])->name('documentos.store');
+    Route::resource('tipos', TipoCreditoController::class);
+    Route::resource('usuarios', UsuariosController::class);  
+    Route::get('general', [PersonalizarController::class, 'index'] )->name('general.index');
+    Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
+    Route::get('/bitacora',[BitacoraController::class,'index'])->name('bitacora.index');
+
+
+
 });
 
 
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

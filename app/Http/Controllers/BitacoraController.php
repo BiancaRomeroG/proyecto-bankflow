@@ -14,14 +14,15 @@ class BitacoraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   //get all accion in descentent orden of bitacora model
+        $acciones = bitacora::orderBy('id', 'desc')->paginate(10);
+        return view('bitacora.index',compact('acciones'))->with('i');
     }
 
     public function __invoke($request, $next)
     {
         $this->create(Auth::user()->id, 'Inicio de sesión', 
-        'Inicio de sesión exitoso en el sistema del usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
+        'Inicio de sesión exitoso en el sistema del usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id, Auth::user()->id_empresa );
 
         return $next($request);
     }
@@ -33,15 +34,16 @@ class BitacoraController extends Controller
      */
     public static function create($id_user, $accion, $descripcion)
     {   
-        // $user = UsuariosController::find($id_user);
-        // $empleado = EmpleadosController::findBy('id_usuario', $user->id);
-        // if($empleado){
-        // $bitacora = new bitacora();
-        // $bitacora->accion = $accion;
-        // $bitacora->descripcion = $descripcion;
-        // $bitacora->id_area = $empleado->id_area;
-        // $bitacora->save();
-        // }
+        $user = UsuariosController::find($id_user);
+        $empleado = EmpleadosController::findBy('id_usuario', $user->id);
+        if($empleado){
+        $bitacora = new bitacora();
+        $bitacora->accion = $accion;
+        $bitacora->descripcion = $descripcion;
+        $bitacora->id_area = $empleado->id_area;
+        $bitacora->id_empresa = $empleado->id_empresa;
+        $bitacora->save();
+        }
          
     }
 

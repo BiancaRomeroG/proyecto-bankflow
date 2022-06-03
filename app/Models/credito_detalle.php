@@ -22,5 +22,8 @@ class credito_detalle extends Model
         'id_custodia'
     ];
 
+    public function custodia(){
+        return $this->belongsTo('App\Models\custodias', 'id_custodia', 'id');
+    }
     
 }

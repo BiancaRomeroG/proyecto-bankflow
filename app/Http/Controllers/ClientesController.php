@@ -17,6 +17,7 @@ class ClientesController extends Controller
     public function index()
     {
         $clientes = clientes::where('id_empresa', '=', ClientesController::id_empresa())->get();
+        $clientes = clientes::paginate(6);
         return view('clientes.index', compact('clientes'))->with('i');
     }
 
@@ -47,6 +48,12 @@ class ClientesController extends Controller
         $cliente->id_usuario= $usuario->id;
 
         $cliente->save();
+
+
+        //registrar la accion en la bitacora
+        BitacoraController::create(Auth::user()->id,'Creación de cliente',
+         'El usuario con id: '.Auth::user()->id.' creó el cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
+
         return redirect()->route('clientes.create')->with('info', 'El aprobado');
     }
     /**
@@ -92,6 +99,10 @@ class ClientesController extends Controller
         $cliente = clientes::find($request->id);
         $cliente->id_usuario = $usuario->id;
         $cliente->update();
+
+        //registrar en bitacora esta accion
+        BitacoraController::create(Auth::user()->id,'Edición de Cliente',
+        'El usuario con id: '.Auth::user()->id.' editó los del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
         return redirect()->route('clientes.index');
     }

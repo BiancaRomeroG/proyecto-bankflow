@@ -21,9 +21,14 @@ class EmpleadosController extends Controller
         //$empleados = empleados::join('users', 'empleados.id_usuario','users.id')
         //->join('areas', 'empleados.id_area', 'areas.id')
         //->select('users.name', 'users.ap_paterno','users.ci', 'users.email', 'users.id_rol as rol', 'users.telefono', 'areas.nombre as area');
+
         $rol = roles::findOrFail(Auth::user()->id_rol)->nombre;
         $empleados = empleados::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
         return view('empleados.index', compact('empleados', 'rol'))->with('i');
+
+        $empleados = empleados::paginate(6);
+        return view('empleados.index', compact('empleados'))->with('i');
+
     }
 
     /**
@@ -53,6 +58,11 @@ class EmpleadosController extends Controller
         $empleado->id_usuario = $usuario->id;
         $empleado->id_area = $request->id_area;
         $empleado->save();
+
+        //registrar en bitacora esta accion
+        BitacoraController::create(Auth::user()->id, 'Creación de empleado',
+            'El usuario con id: '.Auth::user()->id.' creó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno.' con id: '.$empleado->id);
+
         return redirect()->route('empleados.index')->with('info', 'El aprobado');
     }
 
@@ -104,6 +114,9 @@ class EmpleadosController extends Controller
         $empleado->id_area = $request->id_area;
         $empleado->update();
 
+        //registrar en bitacora esta accion
+        BitacoraController::create(Auth::user()->id, 'Edición de empleado',
+            'El usuario con id: '.Auth::user()->id.' editó los datos del empleado: '.$usuario->name.' '.$usuario->ap_paterno.' '.$usuario->ap_materno.' con id: '.$empleado->id);
         return redirect()->route('empleados.index');
     }
 

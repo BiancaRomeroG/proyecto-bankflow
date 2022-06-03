@@ -9,8 +9,8 @@
         <div class="row">
             <div class="col-12">
                 <!-- Navbar -->
-                <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="box-shadow: none">
-                    <div class="container-fluid ps-2 pe-0">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-black" style="box-shadow: none">
+                    <div class="container px-5">
                         <a class="navbar-brand font-weight-bolder text-white ms-lg-0 ms-3 " href="#">
                             SISTEMA BANKFLOW
                         </a>
@@ -24,33 +24,15 @@
                             </span>
                         </button>
                         <div class="collapse navbar-collapse" id="navigation">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center me-2 text-white" aria-current="page"
-                                        href="#">
-                                        Sistemas Informacion II
-                                    </a>
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
+                                        href="{{ url('/') }}">Home</a></li>
+                                <li class="nav-item"><a class="nav-link text-white" href="#!">About</a></li>
+                                <li class="nav-item"><a class="nav-link text-white"
+                                        href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio">Contact</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white me-2" href="#">
-                                        INF 412
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  text-white me-2" href="#">
-                                        SB
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white me-2" href="#">
-                                        Grupo #6
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="navbar-nav d-lg-block d-none mx-6">
-                                <li class="nav-item">
-                                    <a href="{{ url('/') }}" class="text-white">Volver</a>
-                                </li>
+                                <li class="nav-item"><a class="nav-link text-white"
+                                        href="#!">Log In</a></li>
                             </ul>
                         </div>
                     </div>
@@ -60,36 +42,16 @@
         </div>
     </div>
     <main class="main-content  mt-0">
-        <div class="page-header align-items-start min-vh-100"
-            style="background-image: url('https://cdn.pixabay.com/photo/2015/07/28/22/01/office-865091_960_720.jpg');">
+        <div class="page-header bg-black align-items-start min-vh-100">
 
             <div class="container my-auto mt-8">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom bg-gray-300">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-dark shadow-secondary border-radius-lg py-3 pe-1">
-                                    <h4 class="text-white font-weight-bolder text-center mt-2 mb-4">Inicia sesión</h4>
-                                    <div class="row mt-3">
-                                        <div class="col-2 text-center ms-auto">
-                                            <i class="fas fa-circle mt-1" style="color: rgb(248, 78, 78)"></i>
-                                        </div>
-                                        <div class="col-2 text-center px-1">
-                                            <i class="fas fa-circle mt-1" style="color: rgb(230, 230, 8)"></i>
-                                        </div>
-                                        <div class="col-2 text-center me-auto">
-                                            <i class="fas fa-circle mt-1" style="color: rgb(7, 191, 83)"></i>
-                                        </div>
-                                    </div>
-                                    {{-- <div class="text-center">
-                                        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                                            <i class="fas fa-circle mt-1" style="color: rgb(248, 78, 78)"></i>
-                                            &nbsp;<i class="fas fa-circle mt-1" style="color: rgb(230, 230, 8)"></i>
-                                            &nbsp;<i class="fas fa-circle mt-1" style="color: rgb(7, 191, 83)"></i>
-                                        </ol>
-                                    </div> --}}
-                                </div>
-                            </div>
+                           
+                                    <h4 class="font-weight-bolder text-center mt-4">Iniciar sesión</h4>
+                                    <p class= "text-center">Ingrese su Correo y Contraseña</p>
+                                    
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -110,7 +72,7 @@
                                     </div>
                                     <x-jet-validation-errors class="mb-4" />
                                     <div class="text-center">
-                                        <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">INICIA
+                                        <button type="submit" class="btn bg-gradient-info w-100 my-4 mb-2">INICIA
                                             SESIÓN</button>
                                     </div>
                                     <p class="mt-4 text-sm text-center">
@@ -123,44 +85,10 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer position-absolute bottom-2 py-2 w-100">
-                <div class="container">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-12 col-md-6 my-auto">
-                            <div class="copyright text-center text-sm text-white text-lg-start">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script> /
-                                F.I.C.C.T. <i class="fa fa-chart-pie" aria-hidden="true"></i>
-                                <a href="https://1drv.ms/w/s!ArQLL-6st4rhuF0jDR3JUw_88npc"
-                                    class="font-weight-bold text-white" target="_blank">Documentacion</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </footer>
+            
         </div>
     </main>
     <!--   Core JS Files   -->
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/material-dashboard.min.js?v=3.0.2"></script>
 </x-login-layout>
 
 {{-- <div class="flex items-center justify-end mt-4">

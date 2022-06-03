@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\carpeta_credito;
 use App\Models\documentos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DocumentosController extends Controller
 {
@@ -12,7 +14,7 @@ class DocumentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
     }
@@ -22,9 +24,10 @@ class DocumentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    
+    public function create($id)
     {
-        //
+        return view('procesos.documentos.create', compact('id') );
     }
 
     /**
@@ -35,7 +38,23 @@ class DocumentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            DB::beginTransaction();
+            documentos::store($request);
+            DB::commit();
+            return redirect()->route('credito.documentos', $request->id_carpeta);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route('credito.documentos', $request->id_carpeta);
+        }
+    }
+
+    public function descargar($id){
+        $documento = documentos::find($id);
+        if($documento->archivo_ruta != null){
+        $path = storage_path("app/public/".$documento->archivo_ruta);
+        return response()->download($path);
+        }
     }
 
     /**
