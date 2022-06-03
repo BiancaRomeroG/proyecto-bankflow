@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\PersonalizarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,9 +54,14 @@ Route::middleware([
     Route::resource('roles', RolesController::class);
     Route::resource('areas', AreasController::class);
     Route::resource('usuarios', UsuariosController::class);
+    
+    Route::get('general', [PersonalizarController::class, 'index'] )->name('general.index');
+    Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
+
 });
 
 
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
