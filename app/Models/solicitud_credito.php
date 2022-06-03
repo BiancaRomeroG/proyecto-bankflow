@@ -31,4 +31,8 @@ class solicitud_credito extends Model
     public function cliente(){
         return $this->belongsTo('App\Models\clientes', 'id_cliente', 'id');
     }
+
+    public function detalles(){
+        return $this->belongsTo('App\Models\credito_detalle', 'id_credito_detalle', 'id');
+    }
 }

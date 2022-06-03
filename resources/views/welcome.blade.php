@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Navbar -->
-                    <nav class="navbar fixed-top navbar-expand-lg" style="box-shadow: none">
+                    <nav class="navbar fixed-top navbar-expand-lg bg-black" style="box-shadow: none">
                         <div class="container px-5">
                             <a class="navbar-brand font-weight-bolder text-white ms-lg-0 ms-3 " href="#">
                                 SISTEMA BANKFLOW
