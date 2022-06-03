@@ -91,6 +91,25 @@
                     <span class="nav-link-text ms-1">Bitacora</span>
                 </a>
             </li>
+
+            <li>
+                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
+                    data-bs-toggle="collapse" aria-expanded="false">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">work</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Personalizar</span>
+                </a>
+                <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu3" data-bs-parent="#menu">
+                    <div class="">
+                        <li class="w-100">
+                            <a href="{{ route('general.index') }}"  class="nav-link "> <span
+                                    class="nav-link-item ms-4">General</span></a>
+                        </li>
+                </ul>
+            </li>
+
+
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas
                     administrativas</h6>
