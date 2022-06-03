@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\areas;
+use App\Models\empleados;
 use App\Models\User;
 use App\Models\usuarios;
 use Illuminate\Http\Request;
@@ -18,7 +19,9 @@ class AreasController extends Controller
      */
     public function index()
     {
+        $areas = DB::table('areas')->where('id_empresa', '=', AreasController::id_empresa())->get();
         $areas = areas::paginate(8);
+
         return view('areas.index', compact('areas'))->with('i');
     }
 
@@ -74,12 +77,7 @@ class AreasController extends Controller
     {
         $area = areas::findOrFail($area);
         try {
-            $empleados = User::join('empleados', 'empleados.id_usuario', 'users.id')
-                            ->join('roles', 'users.id_rol', 'roles.id')
-                            ->join('areas', 'empleados.id_area', 'areas.id')
-                            ->where('areas.id', '=', $area->id)
-                            ->select('empleados.id as id','users.name', 'users.ap_paterno', 'users.ap_materno','users.telefono','users.email','users.ci', 'roles.nombre As nombre_rol')
-                            ->get();
+            $empleados = empleados::where('id_area', $area->id)->get();
         } catch (\Exception $e) {
             //retornar alerta de ha ocurrido un error
         }
@@ -139,6 +137,8 @@ class AreasController extends Controller
         //
     }
 
-    
+    private static function id_empresa() {
+        return Auth::user()->id_empresa;
+    }
 
 }

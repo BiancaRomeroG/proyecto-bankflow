@@ -25,7 +25,7 @@
                                         Nombre-Correo</th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Rol</th>
+                                        Empresa</th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Ci</th>
                                     <th
@@ -62,7 +62,7 @@
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">
-                                                {{ $usuario->nombre_rol }}
+                                                {{ $usuario->empresa->nombre }}
                                             </p>
                                         </td>
                                         <td>

@@ -7,9 +7,13 @@
                     <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                         <h4 class="text-dark" class="card-title">Empleados</h4>
                     </div>
+                    @if ($rol == "Administrador de empresa")
+                        
                     <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                         <a href="{{ route('empleados.create') }}" class="btn btn-sm btn-dark">Agregar</a>
-                    </div>
+                    </div> 
+                    
+                    @endif
                 </div>
             </div>
             <hr class="m-0">

@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451241';
         $usuario->email = 'juan@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 1;
+        $usuario->id_rol = 2;
         $usuario->id_empresa = 1;
         $usuario->save();
 //2
@@ -41,7 +41,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451242';
         $usuario->email = 'jose@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 2;
+        $usuario->id_rol = 3;
         $usuario->id_empresa = 1;
         $usuario->save();
 //3
@@ -54,7 +54,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451243';
         $usuario->email = 'luis@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 3;
+        $usuario->id_rol = 4;
         $usuario->id_empresa = 1;
         $usuario->save();
 //4
@@ -67,7 +67,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451244';
         $usuario->email = 'raul@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 4;
+        $usuario->id_rol = 5;
         $usuario->id_empresa = 1;
         $usuario->save();
 //5
@@ -80,7 +80,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451245';
         $usuario->email = 'andres@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 1;
+        $usuario->id_rol = 2;
         $usuario->id_empresa = 1;
         $usuario->save();
 //6
@@ -93,7 +93,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451246';
         $usuario->email = 'nancy@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 2;
+        $usuario->id_rol = 3;
         $usuario->id_empresa = 1;
         $usuario->save();
 //7     
@@ -106,7 +106,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451247';
         $usuario->email = 'maria@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 3;
+        $usuario->id_rol = 4;
         $usuario->id_empresa = 1;
         $usuario->save();
 //8
@@ -119,7 +119,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451248';
         $usuario->email = 'lucia@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 4;
+        $usuario->id_rol = 5;
         $usuario->id_empresa = 1;
         $usuario->save();
 
@@ -135,7 +135,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451249';
         $usuario->email = 'clara@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 1;
         $usuario->save();
 //10
@@ -148,7 +148,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451250';
         $usuario->email = 'julio@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 1;
         $usuario->save();
 //------------------------------------------------------------------        
@@ -162,7 +162,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451251';
         $usuario->email = 'lia@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 1;
         $usuario->save();
 //12
@@ -175,7 +175,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451252';
         $usuario->email = 'mark@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 1;
         $usuario->save();
 //13
@@ -188,7 +188,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451253';
         $usuario->email = 'alejandro@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 1;
         $usuario->save();
 //14
@@ -201,7 +201,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451254';
         $usuario->email = 'joel@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 1;
         $usuario->save();
 
@@ -216,7 +216,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451255';
         $usuario->email = 'anabel@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 7;
+        $usuario->id_rol = 1;
         $usuario->id_empresa = 1;
         $usuario->save();
 //16
@@ -265,7 +265,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451241';
         $usuario->email = 'juan2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 1;
+        $usuario->id_rol = 2;
         $usuario->id_empresa = 2;
         $usuario->save();
         //2
@@ -278,7 +278,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451242';
         $usuario->email = 'jose2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 2;
+        $usuario->id_rol = 3;
         $usuario->id_empresa = 2;
         $usuario->save();
         //3
@@ -291,7 +291,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451243';
         $usuario->email = 'luis2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 3;
+        $usuario->id_rol = 4;
         $usuario->id_empresa = 2;
         $usuario->save();
         //4
@@ -304,7 +304,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451244';
         $usuario->email = 'raul2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 4;
+        $usuario->id_rol = 5;
         $usuario->id_empresa = 2;
         $usuario->save();
         //5
@@ -317,7 +317,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451245';
         $usuario->email = 'andres2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 1;
+        $usuario->id_rol = 2;
         $usuario->id_empresa = 2;
         $usuario->save();
         //6
@@ -330,7 +330,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451246';
         $usuario->email = 'nancy2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 2;
+        $usuario->id_rol = 3;
         $usuario->id_empresa = 2;
         $usuario->save();
         //7     
@@ -343,7 +343,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451247';
         $usuario->email = 'maria2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 3;
+        $usuario->id_rol = 4;
         $usuario->id_empresa = 2;
         $usuario->save();
         //8
@@ -356,7 +356,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451248';
         $usuario->email = 'lucia2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 4;
+        $usuario->id_rol = 5;
         $usuario->id_empresa = 2;
         $usuario->save();
 
@@ -372,7 +372,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451249';
         $usuario->email = 'clara2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 2;
         $usuario->save();
         //10
@@ -385,7 +385,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451250';
         $usuario->email = 'julio2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 2;
         $usuario->save();
         //------------------------------------------------------------------        
@@ -399,7 +399,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451251';
         $usuario->email = 'lia2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 2;
         $usuario->save();
         //12
@@ -412,7 +412,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451252';
         $usuario->email = 'mark2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 2;
         $usuario->save();
         //13
@@ -425,7 +425,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451253';
         $usuario->email = 'alejandro2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 2;
         $usuario->save();
         //14
@@ -438,7 +438,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451254';
         $usuario->email = 'joel2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 5;
+        $usuario->id_rol = 6;
         $usuario->id_empresa = 2;
         $usuario->save();
 
@@ -453,7 +453,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451255';
         $usuario->email = 'anabel2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 7;
+        $usuario->id_rol = 13;
         $usuario->id_empresa = 2;
         $usuario->save();
         //16
@@ -466,7 +466,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451256';
         $usuario->email = 'homero2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 7;
+        $usuario->id_rol = 13;
         $usuario->id_empresa = 2;
         $usuario->save();
         //17
@@ -479,7 +479,7 @@ class UsersSeeder extends Seeder
         $usuario->telefono = '78451257';
         $usuario->email = 'lucas2@gmail.com';
         $usuario->password = Hash::make('12345678');
-        $usuario->id_rol = 7;
+        $usuario->id_rol = 13;
         $usuario->id_empresa = 2;
         $usuario->save();
     }

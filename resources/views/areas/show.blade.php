@@ -51,25 +51,25 @@
                                                         class="avatar avatar-sm me-3">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-xs">{{ $empleado->name }}
-                                                        {{ $empleado->ap_paterno }}</h6>
+                                                    <h6 class="mb-0 text-xs">{{ $empleado->user->name }}
+                                                        {{ $empleado->user->ap_paterno.' '.$empleado->user->ap_materno }}</h6>
                                                     <p class="text-xs text-secondary mb-0">
-                                                        {{ $empleado->email }}
+                                                        {{ $empleado->user->email }}
                                                     </p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <span
-                                                class="text-secondary text-xs font-weight-normal">{{ $empleado->nombre_rol }}</span>
+                                                class="text-secondary text-xs font-weight-normal">{{ $empleado->user->rol->nombre }}</span>
                                         </td>
                                         <td>
                                             <span
-                                                class="text-secondary text-xs font-weight-normal">{{ $empleado->ci }}</span>
+                                                class="text-secondary text-xs font-weight-normal">{{ $empleado->user->ci }}</span>
                                         </td>
                                         <td class="text-center">
                                             <span
-                                                class="text-secondary text-xs font-weight-normal">{{ $empleado->telefono }}</span>
+                                                class="text-secondary text-xs font-weight-normal">{{ $empleado->user->telefono }}</span>
                                         </td>
                                         <td class="align-middle text-center">
                                             <a href="{{ route('empleados.edit', $empleado) }}">

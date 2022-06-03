@@ -1,5 +1,6 @@
 @props(['style' => session('flash.bannerStyle', 'success'), 'message' => session('flash.banner')])
 
+   
 <aside
     class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
     id="sidenav-main">
@@ -8,7 +9,9 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href=" #" target="_blank">
             <img src="{{asset('assets')}}/img/logo.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold text-white">SISTEMA BANKFLOW</span>
+            <span class="ms-1 font-weight-bold text-white">
+                <?php use App\Models\empresa;$empresa = empresa::findOrFail(Auth::user()->id_empresa);echo $empresa->nombre;?>
+            </span>
         </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
@@ -22,6 +25,7 @@
                     <span class="nav-link-text ms-1">Home</span>
                 </a>
             </li>
+            <?php use App\Models\roles;$id_rol = Auth::user()->id_rol;$rol = roles::findOrFail($id_rol);if ($rol->nombre != "Cliente") {?>
             <li>
                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
@@ -30,6 +34,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Registro</span>
                 </a>
+
                 <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu1" data-bs-parent="#menu">
                     <div class="">
                         <li class="w-100">
@@ -41,8 +46,8 @@
                                     class="nav-link-item ms-4">Cliente</span></a>
                         </li>
                 </ul>
-
             </li>
+            <?php } if ($rol->nombre != "Cliente") {?>
             <li class="nav-item">
                 <a class="nav-link text-white " href="{{ route('usuarios.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -51,7 +56,7 @@
                     <span class="nav-link-text ms-1">Usuarios</span>
                 </a>
             </li>
-
+            
             <li>
                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
@@ -75,6 +80,24 @@
                         </li>
                 </ul>
             </li>
+            <?php } if ($rol->nombre == "Cliente") {?>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ route('info_creditos') }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">description</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Requisitos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="#">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">post_add</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Mis Créditos</span>
+                    </a>
+                </li>
+            <?php } if ($rol->nombre == "Administrador" || $rol->nombre == "Administrador de empresa") {?>
             <li>
                 <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
@@ -110,11 +133,14 @@
                     <span class="nav-link-text ms-1">Bitacora</span>
                 </a>
             </li>
-
+            <?php } if ($rol->nombre == "Administrador de empresa") {?>
             <li>
                 <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">settings</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Configuración</span>
                         <i class="material-icons opacity-10">work</i>
                     </div>
                     <span class="nav-link-text ms-1">Personalizar</span>
@@ -122,12 +148,21 @@
                 <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu3" data-bs-parent="#menu">
                     <div class="">
                         <li class="w-100">
+                            <a href="#" class="nav-link "> <span
+                                    class="nav-link-item ms-4">Factura</span></a>
+                        </li>
+                        <li class="w-100">
+                            <a href="#" class="nav-link "> <span
+                                    class="nav-link-item ms-4">Demas cosas</span></a>
+                        </li>
+                </ul>
+            </li>
+            <?php }?>
                             <a href="{{ route('general.index') }}"  class="nav-link "> <span
                                     class="nav-link-item ms-4">General</span></a>
                         </li>
                 </ul>
             </li>
-
 
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas

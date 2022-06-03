@@ -14,6 +14,7 @@ class bitacora extends Model
         'accion',
         'descripcion',
         'id_area',
+        'id_empresa'
     ];
 
 

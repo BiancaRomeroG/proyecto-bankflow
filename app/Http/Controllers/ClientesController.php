@@ -16,6 +16,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
+        $clientes = clientes::where('id_empresa', '=', ClientesController::id_empresa())->get();
         $clientes = clientes::paginate(6);
         return view('clientes.index', compact('clientes'))->with('i');
     }
@@ -115,5 +116,9 @@ class ClientesController extends Controller
     public function destroy(clientes $clientes)
     {
         //
+    }
+
+    private static function id_empresa() {
+        return Auth::user()->id_empresa;
     }
 }

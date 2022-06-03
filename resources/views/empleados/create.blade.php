@@ -42,8 +42,10 @@
                             <label>Rol: </label>
                             <select class="form-select" name="id_rol">
                                 @foreach ($roles as $rol)
-                                    <option value="{{ $rol->id }}">
-                                        {{ $rol->nombre }}</option>
+                                    @if ($rol->nombre != "Administrador" && $rol->nombre != "Administrador de empresa")
+                                        <option value="{{ $rol->id }}">
+                                            {{ $rol->nombre }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

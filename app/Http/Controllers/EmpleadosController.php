@@ -21,8 +21,14 @@ class EmpleadosController extends Controller
         //$empleados = empleados::join('users', 'empleados.id_usuario','users.id')
         //->join('areas', 'empleados.id_area', 'areas.id')
         //->select('users.name', 'users.ap_paterno','users.ci', 'users.email', 'users.id_rol as rol', 'users.telefono', 'areas.nombre as area');
+
+        $rol = roles::findOrFail(Auth::user()->id_rol)->nombre;
+        $empleados = empleados::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
+        return view('empleados.index', compact('empleados', 'rol'))->with('i');
+
         $empleados = empleados::paginate(6);
         return view('empleados.index', compact('empleados'))->with('i');
+
     }
 
     /**
@@ -32,8 +38,8 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        $roles=roles::get();
-        $areas=areas::get();
+        $roles=roles::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
+        $areas=areas::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
         return view('empleados.create',compact('roles', 'areas'));
     }
 
@@ -79,8 +85,8 @@ class EmpleadosController extends Controller
      */
     public function edit(empleados $empleado)
     {
-        $roles=roles::get();
-        $areas=areas::get();
+        $roles=roles::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
+        $areas=areas::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
         return view('empleados.edit', compact('empleado', 'roles', 'areas'));
     }
 
@@ -129,5 +135,9 @@ class EmpleadosController extends Controller
 
     public static function findBy($campo, $value){
         return Empleados::where($campo,'=', $value)->first();
+    }
+
+    private static function id_empresa() {
+        return Auth::user()->id_empresa;
     }
 }
