@@ -23,11 +23,8 @@ class EmpleadosController extends Controller
         //->select('users.name', 'users.ap_paterno','users.ci', 'users.email', 'users.id_rol as rol', 'users.telefono', 'areas.nombre as area');
 
         $rol = roles::findOrFail(Auth::user()->id_rol)->nombre;
-        $empleados = empleados::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
+        $empleados = empleados::where('id_empresa', '=', EmpleadosController::id_empresa())->paginate(6);
         return view('empleados.index', compact('empleados', 'rol'))->with('i');
-
-        $empleados = empleados::paginate(6);
-        return view('empleados.index', compact('empleados'))->with('i');
 
     }
 
