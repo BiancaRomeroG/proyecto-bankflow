@@ -7,6 +7,7 @@ use App\Models\empleados;
 use App\Models\roles;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmpleadosController extends Controller
 {
@@ -51,6 +52,11 @@ class EmpleadosController extends Controller
         $empleado->id_usuario = $usuario->id;
         $empleado->id_area = $request->id_area;
         $empleado->save();
+
+        //registrar en bitacora esta accion
+        BitacoraController::create(Auth::user()->id, 'Creación de empleado',
+            'El usuario con id: '.Auth::user()->id.' creó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno.' con id: '.$empleado->id);
+
         return redirect()->route('empleados.index')->with('info', 'El aprobado');
     }
 
@@ -102,6 +108,9 @@ class EmpleadosController extends Controller
         $empleado->id_area = $request->id_area;
         $empleado->update();
 
+        //registrar en bitacora esta accion
+        BitacoraController::create(Auth::user()->id, 'Edición de empleado',
+            'El usuario con id: '.Auth::user()->id.' editó los datos del empleado: '.$usuario->name.' '.$usuario->ap_paterno.' '.$usuario->ap_materno.' con id: '.$empleado->id);
         return redirect()->route('empleados.index');
     }
 

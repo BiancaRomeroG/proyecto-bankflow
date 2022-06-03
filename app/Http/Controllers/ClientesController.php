@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\clientes;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientesController extends Controller
 {
@@ -46,6 +47,12 @@ class ClientesController extends Controller
         $cliente->id_usuario= $usuario->id;
 
         $cliente->save();
+
+
+        //registrar la accion en la bitacora
+        BitacoraController::create(Auth::user()->id,'Creación de cliente',
+         'El usuario con id: '.Auth::user()->id.' creó el cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
+
         return redirect()->route('clientes.create')->with('info', 'El aprobado');
     }
     /**
@@ -91,6 +98,10 @@ class ClientesController extends Controller
         $cliente = clientes::find($request->id);
         $cliente->id_usuario = $usuario->id;
         $cliente->update();
+
+        //registrar en bitacora esta accion
+        BitacoraController::create(Auth::user()->id,'Edición de Cliente',
+        'El usuario con id: '.Auth::user()->id.' editó los del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
         return redirect()->route('clientes.index');
     }

@@ -14,8 +14,9 @@ class BitacoraController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   //get all accion in descentent orden of bitacora model
+        $acciones = bitacora::orderBy('id', 'desc')->paginate(10);
+        return view('bitacora.index',compact('acciones'))->with('i');
     }
 
     public function __invoke($request, $next)
