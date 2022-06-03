@@ -28,14 +28,14 @@
                             </button>
                             <div class="collapse navbar-collapse" id="navigation">
                                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                                    <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
-                                            href="#!">Home</a></li>
-                                    <li class="nav-item"><a class="nav-link text-white" href="#!">About</a></li>
+                                    <!--<li class="nav-item"><a class="nav-link active text-white" aria-current="page"
+                                        href="#!">Home</a></li>-->
+                                    <!--<li class="nav-item"><a class="nav-link text-white" href="#!">About</a></li>-->
                                     <li class="nav-item"><a class="nav-link text-white"
-                                            href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio">Contact</a>
+                                            href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio">Contacto</a>
                                     </li>
                                     <li class="nav-item"><a class="nav-link text-white"
-                                            href="{{ route('login') }}">Log In</a></li>
+                                            href="{{ route('login') }}">Inicia sesión</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <header class="bg-transparent">
-            <div class="page-header bg-black align-items-start min-vh-100">
+            <div class="page-header bg-secondary align-items-start min-vh-100" >
                 <div class="container px-5 m-auto">
                     <div class="row gx-5 align-items-center justify-content-center">
                         <div class="col-lg-8 col-xl-7 col-xxl-6">
@@ -54,13 +54,13 @@
                                 <h1 class="font-weight-bold text-white m-auto mt-14" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Una salida a tus problemas Bank Flow</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">Moderniza los procesos de negocios, y consigue las metas de un verdadero equipo de prestacion de creditos</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-info btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                    <a class="btn btn-outline-white btn-lg px-4" href="#!">Learn More</a>
+                                    <a class="btn btn-info btn-lg px-4 me-sm-3" href="#features">INFORMACIÓN</a>
+                                    <a class="btn btn-outline-white btn-lg px-4" href="#costumer">PRECIOS</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img
-                                class="img-fluid rounded-3 my-5" src="https://img.freepik.com/free-vector/sales-managers-with-laptops-growth-chart-sales-growth-manager-accounting-sales-promotion-operations-concept-white-background_335657-1704.jpg?t=st=1654148498~exp=1654149098~hmac=1791ec51fd2e294ca090cf2376b3458f360c16b6ad87af3d24b3edda5b0f6040&w=740"
+                                class="img-fluid rounded-3 my-5" src="https://user-images.githubusercontent.com/36086876/171867350-31b56aef-0462-4499-8de9-735740e101b5.gif"
                                 alt="..." /></div>
                     </div>
                 </div>
@@ -77,43 +77,40 @@
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-info text-white rounded-3 mb-3"><i
                                 class="bi bi-collection m-2"></i></div>
-                        <h2 class="h4 fw-bolder" style="font-family: Arial, Helvetica, sans-serif">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                            sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
+                        <h2 class="h4 fw-bolder" style="font-family: Arial, Helvetica, sans-serif">Impulse los flujos de trabajo sin esfuerzo</h2>
+                        <p>Las automatizaciones sin código le permiten poner el flujo de trabajo de su equipo en piloto automático. Las alertas, las actualizaciones automáticas de estado y los flujos de proyectos mantendrán a su equipo en el buen camino y confiado en lo que están trabajando.</p>
+                        <!--<a class="text-decoration-none" href="#!">
+
                             <i class="bi bi-arrow-right"></i>
-                        </a>
+                        </a>-->
                     </div>
                     <div class="col-lg-4 mb-5 mb-lg-0">
                         <div class="feature bg-info text-white rounded-3 mb-3"><i
                                 class="bi bi-building m-2"></i>
                         </div>
-                        <h2 class="h4 fw-bolder" style="font-family: Arial, Helvetica, sans-serif">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                            sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
+                        <h2 class="h4 fw-bolder" style="font-family: Arial, Helvetica, sans-serif">Mantén a todos sincronizados y enfocados</h2>
+                        <p>Alinee los objetivos, establezca prioridades y administre los plazos fácilmente. Asegúrese de que su equipo esté siempre en la misma página, incluso con cambios repentinos, en una plataforma tan flexible como usted.</p>
+                        <!--<a class="text-decoration-none" href="#!">
+
                             <i class="bi bi-arrow-right"></i>
-                        </a>
+                        </a>-->
                     </div>
                     <div class="col-lg-4">
                         <div class="feature bg-info text-white rounded-3 mb-3"><i
                                 class="bi bi-toggles2 m-2"></i>
                         </div>
-                        <h2 class="h4 fw-bolder" style="font-family: Arial, Helvetica, sans-serif">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another
-                            sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
+                        <h2 class="h4 fw-bolder" style="font-family: Arial, Helvetica, sans-serif">Controla todos los elementos en movimiento</h2>
+                        <p>Accede fácilmente a todas las actualizaciones de progreso, aprobaciones de presupuesto y más en una sola plataforma y consulta al instante el estado del trabajo.</p>
+                        <!--<a class="text-decoration-none" href="#!">
+
                             <i class="bi bi-arrow-right"></i>
-                        </a>
+                        </a></a>-->
                     </div>
                 </div>
             </div>
         </section>
         <!--precios-->
-        <section class="bg-light py-5 border-bottom">
+        <section class="bg-light py-5 border-bottom" id="costumer">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <span class="badge rounded-pill text-info w-10 mt-n2 mx-auto mb-4"
@@ -289,8 +286,8 @@
         <section class="py-5 border-bottom">
             <div class="container px-5 my-5">
                 <div class="text-center mb-5">
-                    <h2 class="fw-bolder">Customer testimonials</h2>
-                    <p class="lead mb-0">Our customers love working with us</p>
+                    <h2 class="fw-bolder">Dé forma a potentes flujos de trabajo empresariales</h2>
+                    <p class="lead mb-0">para equipos de todos los tamaños</p>
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
@@ -301,10 +298,8 @@
                                     <div class="flex-shrink-0"><i
                                             class="bi bi-chat-right-quote-fill text-info fs-1"></i></div>
                                     <div class="ms-4">
-                                        <p class="mb-1">Thank you for putting together such a great product.
-                                            We loved working with you and the whole team, and we will be recommending
-                                            you to others!</p>
-                                        <div class="small text-muted">- Client Name, Location</div>
+                                        <p class="mb-1">Cree flujos de trabajo personalizados y automáticos para aumentar la productividad de su equipo con BankFlow</p>
+                                        <div class="small text-muted">- Jorge Mendez, SEO en BankFlow</div>
                                     </div>
                                 </div>
                             </div>
@@ -316,10 +311,8 @@
                                     <div class="flex-shrink-0"><i
                                             class="bi bi-chat-right-quote-fill text-info fs-1"></i></div>
                                     <div class="ms-4">
-                                        <p class="mb-1">The whole team was a huge help with putting things
-                                            together for our company and brand. We will be hiring them again in the near
-                                            future for additional work!</p>
-                                        <div class="small text-muted">- Client Name, Location</div>
+                                        <p class="mb-1">Comuníquese, asigne la propiedad y haga avanzar los proyectos, sin necesidad de reuniones. El conocimiento contextualizado disponible para todos significa que puede sentirse seguro de que los próximos pasos siempre se cuidan.</p>
+                                        <div class="small text-muted">- Clara Torrez, Team Leader en BankFlow</div>
                                     </div>
                                 </div>
                             </div>
@@ -332,7 +325,7 @@
 
         <footer class="py-5 bg-info">
             <div class="container px-5">
-                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p>
+                <p class="m-0 text-center text-white">Copyright &copy; BankFlow 2022</p>
             </div>
         </footer>
     </main>

@@ -15,4 +15,15 @@ class bitacora extends Model
         'descripcion',
         'id_area',
     ];
+
+
+    public function area()
+    {
+        return $this->belongsTo('App\Models\areas', 'id_area');
+    }
+
+    public function empresa()
+    {
+        return $this->belongsTo('App\Models\empresa', 'id_empresa');
+    }
 }
