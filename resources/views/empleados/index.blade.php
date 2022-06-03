@@ -96,7 +96,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="">
+                        <div>
                             {{$empleados->links()}}
                         </div>
                     </div>
