@@ -6,6 +6,7 @@ use App\Models\areas;
 use App\Models\User;
 use App\Models\usuarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AreasController extends Controller
@@ -46,12 +47,19 @@ class AreasController extends Controller
                     'descripcion' => $request->descripcion,
                 ]);
                 $areas->save();
+                BitacoraController::create(Auth::user()->id, 'Creación de area', 
+                'El usuario con id: '.Auth::user()->id.' creó el area: '.$areas->nombre.' con id: '.$areas->id);
             });     
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
+            BitacoraController::create(Auth::user()->id, 'Error al crear', 
+            'Error al intentar crear el area: '.$request->nombre.'por el usuario con id: '.Auth::user()->id);
             //retorna una vista indicando hubo algun error
         }
+
+        //registrar esta accion en bitacora
+       
 
         return redirect()->route('areas.index');
     }
@@ -106,8 +114,14 @@ class AreasController extends Controller
             $area->save();
 
             DB::commit();
+
+            //se guarda en bitacora esta accion
+            BitacoraController::create(Auth::user()->id, 'Edición de area',
+            'El usuario con id: '.Auth::user()->id.' editó el area: '.$area->nombre.' con id: '.$area->id);
         } catch (\Exception $e) {
             DB::rollBack();
+            BitacoraController::create(Auth::user()->id, 'Error al editar',
+            'Error al intentar editar el area: '.$area->nombre.'por el usuario con id: '.Auth::user()->id);
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
 
