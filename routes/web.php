@@ -32,9 +32,7 @@ Route::get('/', function () {
 
 // Route::get('/clientes/create',[ClientesController::class,'create']);
 
-Route::resource('clientes',ClientesController::class);
 
-Route::resource('empleados',EmpleadosController::class);
 
 
 Route::middleware([
@@ -53,6 +51,9 @@ Route::middleware([
     Route::resource('roles', RolesController::class);
     Route::resource('areas', AreasController::class);
     Route::resource('usuarios', UsuariosController::class);
+    Route::resource('clientes',ClientesController::class);
+
+    Route::resource('empleados',EmpleadosController::class);
 });
 
 

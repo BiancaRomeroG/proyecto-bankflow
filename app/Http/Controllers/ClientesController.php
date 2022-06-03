@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\clientes;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientesController extends Controller
 {
@@ -15,7 +16,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = clientes::get();
+        $clientes = clientes::where('id_empresa', '=', ClientesController::id_empresa())->get();
         return view('clientes.index', compact('clientes'))->with('i');
     }
 
@@ -104,5 +105,9 @@ class ClientesController extends Controller
     public function destroy(clientes $clientes)
     {
         //
+    }
+
+    private static function id_empresa() {
+        return Auth::user()->id_empresa;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\empresa;
+use App\Models\roles;
 use App\Models\User;
 use App\Models\usuarios;
 use Illuminate\Http\Request;
@@ -18,16 +20,10 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuariosEmpleado = User::join('empleados', 'empleados.id_usuario', 'users.id')
-        ->join('roles','users.id_rol','roles.id')
-        ->select('users.id', 'users.name', 'users.ap_paterno', 'users.email', 'users.ci', 'users.telefono','users.created_at', 'users.id_rol' ,'roles.nombre as nombre_rol');
-
-        $usuarios = User::join('clientes', 'clientes.id_usuario', 'users.id')
-        ->join('roles','users.id_rol','roles.id')
-        ->union($usuariosEmpleado)
-        ->select('users.id', 'users.name', 'users.ap_paterno', 'users.email', 'users.ci','users.telefono' ,'users.created_at', 'users.id_rol','roles.nombre as nombre_rol')
-        ->get();
-        // return $usuarios;
+        $usuarios = User::join('roles', 'users.id_rol', 'roles.id')
+                        ->where('roles.nombre', "Administrador de empresa")
+                        ->get();
+        
         return view('usuarios.index',compact('usuarios'))->with('i');
     }
 
@@ -152,6 +148,9 @@ class UsuariosController extends Controller
         return User::find($id);
     }
 
+    private static function id_empresa() {
+        return Auth::user()->id_empresa;
+    }
 
 
 }

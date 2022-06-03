@@ -77,4 +77,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\roles', 'id_rol', 'id');
     }
 
+    public function empresa(){
+        return $this->belongsTo('App\Models\empresa', 'id_empresa', 'id');
+    }
+
 }

@@ -13,6 +13,7 @@ class roles extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
-        'id_empresa'
+        'id_empresa',
+        'estado'
     ];
 }

@@ -33,15 +33,15 @@ class BitacoraController extends Controller
      */
     public static function create($id_user, $accion, $descripcion)
     {   
-        $user = UsuariosController::find($id_user);
-        $empleado = EmpleadosController::findBy('id_usuario', $user->id);
-        if($empleado){
-        $bitacora = new bitacora();
-        $bitacora->accion = $accion;
-        $bitacora->descripcion = $descripcion;
-        $bitacora->id_area = $empleado->id_area;
-        $bitacora->save();
-        }
+        // $user = UsuariosController::find($id_user);
+        // $empleado = EmpleadosController::findBy('id_usuario', $user->id);
+        // if($empleado){
+        // $bitacora = new bitacora();
+        // $bitacora->accion = $accion;
+        // $bitacora->descripcion = $descripcion;
+        // $bitacora->id_area = $empleado->id_area;
+        // $bitacora->save();
+        // }
          
     }
 

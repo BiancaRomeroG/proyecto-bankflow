@@ -47,11 +47,13 @@
                             <label>Rol: </label>
                             <select class="form-select" name="id_rol">
                                 @foreach ($roles as $rol)
+                                @if ($rol->nombre != "Administrador" && $rol->nombre != "Administrador de empresa")
                                     @if ($empleado->user->id_rol == $rol->id)
                                         <option selected value="{{ $rol->id }}">{{ $rol->nombre }}</option>
                                     @else
                                         <option value="{{ $rol->id }}">{{ $rol->nombre }}</option>
                                     @endif
+                                @endif
                                 @endforeach
                             </select>
                         </div>
