@@ -8,7 +8,10 @@ use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\DocumentosController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\SolicitudCreditoController;
+use App\Http\Controllers\TipoCreditoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +56,16 @@ Route::middleware([
     Route::resource('roles', RolesController::class);
     Route::resource('areas', AreasController::class);
     Route::resource('usuarios', UsuariosController::class);
+
+    Route::get('creditos/{id}/documentos', [SolicitudCreditoController::class, 'documentos'] )->name('credito.documentos'); //index de documentos
+    Route::resource('creditos', SolicitudCreditoController::class);
+
+    Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');	
+    Route::get('documentos/{id}/create', [DocumentosController::class, 'create'])->name('documentos.create');
+    Route::post('documento/store', [DocumentosController::class, 'store'])->name('documentos.store');
+
+    Route::resource('tipos', TipoCreditoController::class);
+
 });
 
 
