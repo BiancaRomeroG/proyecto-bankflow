@@ -26,7 +26,7 @@
 
 <body class="g-sidenav-show bg-gray-200 font-sans antialiased">
     <x-jet-banner></x-jet-banner>
-
+   
     <div class="min-h-screen bg-gray-100">
         <!-- Page Content -->
         <main>
