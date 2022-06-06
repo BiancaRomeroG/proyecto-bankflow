@@ -24,7 +24,7 @@ class UsuariosController extends Controller
                         ->where('roles.nombre', "Administrador de empresa")
                         ->get();
         
-        return view('usuarios.index',compact('usuarios'))->with('i');
+        return view('tenant.usuarios.index',compact('usuarios'))->with('i');
     }
 
     /**
@@ -87,6 +87,9 @@ class UsuariosController extends Controller
         //     //retornar alerta de ha ocurrido un error
         // }
         // return view('usuarios.show')->with('i');
+       
+        $resultado = empty(tenant('id')) ? '0' : tenant('id');
+        return $resultado;
     }
 
     /**

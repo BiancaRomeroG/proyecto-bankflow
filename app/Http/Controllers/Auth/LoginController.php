@@ -40,12 +40,49 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+      //  $redirectTo = RouteServiceProvider::getHome();
     }
+
+
+    public function showLoginForm()
+    {
+        if (empty(tenant('id')))
+            return view('auth.login');
+        else
+            return view('tenant.auth.login');
+    }
+
+    /**
+     * Handle an authentication attempt.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function authenticated(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect(tenant('id').'/dashboard');
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
+    }
+
+
+
 
     public function logout(Request $request)
     {
-        BitacoraController::create(Auth::user()->id, 'Cerró sesión',
-         'Cerró sesión en el sistema el usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
+        //  BitacoraController::create(Auth::user()->id, 'Cerró sesión',
+        //    'Cerró sesión en el sistema el usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
         $this->guard()->logout();
 
         $request->session()->invalidate();
@@ -58,6 +95,6 @@ class LoginController extends Controller
 
         return $request->wantsJson()
             ? new JsonResponse([], 204)
-            : redirect('/');
+            : redirect(tenant('id'). '/');
     }
 }

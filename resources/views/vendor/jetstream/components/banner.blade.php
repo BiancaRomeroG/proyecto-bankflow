@@ -10,14 +10,14 @@
         <a class="navbar-brand m-0" href="#!" target="_blank">
             <img src="{{asset('assets')}}/img/logo.png" class="navbar-brand-img h-100" alt="main_logo">
             <span class="ms-1 font-weight-bold text-white">
-                <?php use App\Models\empresa;$empresa = empresa::findOrFail(Auth::user()->id_empresa);echo $empresa->nombre;?>
+                {{--  <?php use App\Models\empresa;$empresa = empresa::findOrFail(Auth::user()->id_empresa);echo $empresa->nombre;?>  --}}
             </span>
         </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse w-auto h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            <li class="nav-item">
+            {{--  <li class="nav-item">
                 <a class="nav-link text-white" href="{{route('dashboard')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
@@ -168,7 +168,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Perfil</span>
                 </a>
-            </li>
+            </li>  --}}
             <li class="nav-item">
                 <form style="display: inline" method="POST" action="{{ route('logout') }}">
                     @csrf

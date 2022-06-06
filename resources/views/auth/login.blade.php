@@ -1,4 +1,5 @@
 <x-login-layout>
+    @section('title', 'Login')
     @if (session('status'))
         <div class="mb-4 font-medium text-sm text-green-600">
             {{ session('status') }}
@@ -53,7 +54,7 @@
                                     <p class= "text-center">Ingrese su Correo y Contraseña</p>
                                     
                             <div class="card-body">
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="{{ route('login')}}">
                                     @csrf
                                     <div class="input-group input-group-outline my-3">
                                         <label class="form-label"></label>
