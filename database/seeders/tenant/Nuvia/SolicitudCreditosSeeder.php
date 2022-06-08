@@ -15,398 +15,904 @@ class SolicitudCreditosSeeder extends Seeder
      */
     public function run()
     {
-// cliente 1 :: u9     
-//1   
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '5000';
-        $solicitud->tiempo = '2020-01-20 10:25:00';
-        $solicitud->motivo = 'Compra de insumos para su empresa';
-        $solicitud->id_cliente = 1;
-        $solicitud->id_tipo_credito = 2;
-        $solicitud->id_carpeta_credito = 1;
-        $solicitud->id_credito_detalle = 1;
-        $solicitud->save();     
-//2        
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '9000';
-        $solicitud->tiempo = '2022-01-20 10:04:00';
-        $solicitud->motivo = 'Construccion de nuevo almacen';
-        $solicitud->id_cliente = 1;
-        $solicitud->id_tipo_credito = 1;
-        $solicitud->id_carpeta_credito = 2;
-        $solicitud->id_credito_detalle = 2;
-        $solicitud->save();
-//3
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '6000';
-        $solicitud->tiempo = '2019-01-20 10:30:00';
-        $solicitud->motivo = 'Compra de viaticos por situacion de emergencia';
-        $solicitud->id_cliente = 1;
-        $solicitud->id_tipo_credito = 3;
-        $solicitud->id_carpeta_credito = 3;
-        $solicitud->id_credito_detalle = 3;        
-        $solicitud->save();
-
-//cliente 2 :: u10
-//4
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '10000';
-        $solicitud->tiempo = '2020-08-20 08:00:00';
-        $solicitud->motivo = 'Adquision de camion para exportacion de productos de su empresa';
-        $solicitud->id_cliente = 2;
-        $solicitud->id_tipo_credito = 2;
-        $solicitud->id_carpeta_credito = 4;
-        $solicitud->id_credito_detalle = 4;        
-        $solicitud->save();
-//5
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '20000';
-        $solicitud->tiempo = '2022-02-20 09:00:00';
-        $solicitud->motivo = 'Adquision de terreno para nuevo establecimiento';
-        $solicitud->id_cliente = 2;
-        $solicitud->id_tipo_credito = 1;
-        $solicitud->id_carpeta_credito = 5;
-        $solicitud->id_credito_detalle = 5;        
-        $solicitud->save();
-//6
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '4000';
-        $solicitud->tiempo = '2019-10-20 12:00:00';
-        $solicitud->motivo = 'Compra de computadora/laptop mac';
-        $solicitud->id_cliente = 2;
-        $solicitud->id_tipo_credito = 3;
-        $solicitud->id_carpeta_credito = 6;
-        $solicitud->id_credito_detalle = 6;        
-        $solicitud->save();
-
-//cliente 3 :: u11
-//7
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '6000';
-        $solicitud->tiempo = '2019-10-20 13:00:00';
-        $solicitud->motivo = 'Renovacion de inventario, cargas del exterior';
-        $solicitud->id_cliente = 3;
-        $solicitud->id_tipo_credito = 2;
-        $solicitud->id_carpeta_credito = 7;
-        $solicitud->id_credito_detalle = 7;        
-        $solicitud->save();
-//8
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '10000';
-        $solicitud->tiempo = '2019-04-20 10:00:00';
-        $solicitud->motivo = 'Compra de bienes y raices';
-        $solicitud->id_cliente = 3;
-        $solicitud->id_tipo_credito = 1;
-        $solicitud->id_carpeta_credito = 8;
-        $solicitud->id_credito_detalle = 8;        
-        $solicitud->save();
-//9
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '3000';
-        $solicitud->tiempo = '2019-10-20 10:00:00';
-        $solicitud->motivo = 'Adquision de televisor de alta gamma';
-        $solicitud->id_cliente = 3;
-        $solicitud->id_tipo_credito = 3;
-        $solicitud->id_carpeta_credito = 9;
-        $solicitud->id_credito_detalle = 9;        
-        $solicitud->save();     
-
-//cliente 4 :: u12
-//10
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '8000';
-        $solicitud->tiempo = '2020-08-20 10:00:00';
-        $solicitud->motivo = 'Adquision de nuevos inmuebles para uno de los establecimientos';
-        $solicitud->id_cliente = 4;
-        $solicitud->id_tipo_credito = 2;
-        $solicitud->id_carpeta_credito = 10;
-        $solicitud->id_credito_detalle = 10;        
-        $solicitud->save();
-//11
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '15000';
-        $solicitud->tiempo = '2022-02-20 10:00:00';
-        $solicitud->motivo = 'Adquision de nuevo establecimiento en el centro';
-        $solicitud->id_cliente = 4;
-        $solicitud->id_tipo_credito = 1;
-        $solicitud->id_carpeta_credito = 11;
-        $solicitud->id_credito_detalle = 11;        
-        $solicitud->save();
-//12
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '6000';
-        $solicitud->tiempo = '2019-10-20 10:00:00';
-        $solicitud->motivo = 'Compra de pasajes para tour turistico en el exterior';
-        $solicitud->id_cliente = 4;
-        $solicitud->id_tipo_credito = 3;
-        $solicitud->id_carpeta_credito = 12;
-        $solicitud->id_credito_detalle = 12;        
-        $solicitud->save();
-
-
-//cliente 5 :: u13
-//13
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '8600';
-        $solicitud->tiempo = '2020-08-20 10:00:00';
-        $solicitud->motivo = 'Mantenimiento de maquinarias de la empresa';
-        $solicitud->id_cliente = 5;
-        $solicitud->id_tipo_credito = 2;
-        $solicitud->id_carpeta_credito = 13;
-        $solicitud->id_credito_detalle = 13;        
-        $solicitud->save();
-//14
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '20000';
-        $solicitud->tiempo = '2020-02-20 10:00:00';
-        $solicitud->motivo = 'Compra de bienes y raices, y construccion de casa';
-        $solicitud->id_cliente = 5;
-        $solicitud->id_tipo_credito = 1;
-        $solicitud->id_carpeta_credito = 14;
-        $solicitud->id_credito_detalle = 14;        
-        $solicitud->save();
-//15
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '4500';
-        $solicitud->tiempo = '2021-10-20 10:00:00';
-        $solicitud->motivo = 'Compra de inmuebles para el hogar';
-        $solicitud->id_cliente = 5;
-        $solicitud->id_tipo_credito = 3;
-        $solicitud->id_carpeta_credito = 15;
-        $solicitud->id_credito_detalle = 15;        
-        $solicitud->save();
-
-//cliente 6 :: u14
-//16
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '10000';
-        $solicitud->tiempo = '2020-08-20 10:00:00';
-        $solicitud->motivo = 'Compra de cargamento de productos del exterior';
-        $solicitud->id_cliente = 6;
-        $solicitud->id_tipo_credito = 2;
-        $solicitud->id_carpeta_credito = 16;
-        $solicitud->id_credito_detalle = 16;        
-        $solicitud->save();
-//17
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '8000';
-        $solicitud->tiempo = '2022-02-20 10:00:00';
-        $solicitud->motivo = 'Construccion de casa de dos pisos, con inmuebles';
-        $solicitud->id_cliente = 6;
-        $solicitud->id_tipo_credito = 1;
-        $solicitud->id_carpeta_credito = 17;
-        $solicitud->id_credito_detalle = 17;        
-        $solicitud->save();
-//18
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '5000';
-        $solicitud->tiempo = '2019-10-20 10:00:00';
-        $solicitud->motivo = 'Compra de nueva motocicleta Honda 0 km';
-        $solicitud->id_cliente = 6;
-        $solicitud->id_tipo_credito = 3;
-        $solicitud->id_carpeta_credito = 18;
-        $solicitud->id_credito_detalle = 18;        
-        $solicitud->save();
-
-
-
-
-
-
-
-
-        // cliente 1 :: u9     
-        //1   
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '5000';
-        $solicitud->tiempo = '2020-01-20 10:25:00';
-        $solicitud->motivo = 'Compra de insumos para su empresa';
-        $solicitud->id_cliente = 7;
-        $solicitud->id_tipo_credito = 5;
-        $solicitud->id_carpeta_credito = 19;
-        $solicitud->id_credito_detalle = 1;
-        $solicitud->save();     
-        //2        
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '9000';
-        $solicitud->tiempo = '2022-01-20 10:04:00';
-        $solicitud->motivo = 'Construccion de nuevo almacen';
-        $solicitud->id_cliente = 7;
-        $solicitud->id_tipo_credito = 4;
-        $solicitud->id_carpeta_credito = 20;
-        $solicitud->id_credito_detalle = 2;
-        $solicitud->save();
-        //3
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '6000';
-        $solicitud->tiempo = '2019-01-20 10:30:00';
-        $solicitud->motivo = 'Compra de viaticos por situacion de emergencia';
-        $solicitud->id_cliente = 7;
-        $solicitud->id_tipo_credito = 6;
-        $solicitud->id_carpeta_credito = 21;
-        $solicitud->id_credito_detalle = 3;        
-        $solicitud->save();
-
-        //cliente 2 :: u10
-        //4
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '10000';
-        $solicitud->tiempo = '2020-08-20 08:00:00';
-        $solicitud->motivo = 'Adquision de camion para exportacion de productos de su empresa';
-        $solicitud->id_cliente = 8;
-        $solicitud->id_tipo_credito = 5;
-        $solicitud->id_carpeta_credito = 22;
-        $solicitud->id_credito_detalle = 4;        
-        $solicitud->save();
-        //5
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '20000';
-        $solicitud->tiempo = '2022-02-20 09:00:00';
-        $solicitud->motivo = 'Adquision de terreno para nuevo establecimiento';
-        $solicitud->id_cliente = 8;
-        $solicitud->id_tipo_credito = 4;
-        $solicitud->id_carpeta_credito = 23;
-        $solicitud->id_credito_detalle = 5;        
-        $solicitud->save();
-        //6
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '4000';
-        $solicitud->tiempo = '2019-10-20 12:00:00';
-        $solicitud->motivo = 'Compra de computadora/laptop mac';
-        $solicitud->id_cliente = 8;
-        $solicitud->id_tipo_credito = 6;
-        $solicitud->id_carpeta_credito = 24;
-        $solicitud->id_credito_detalle = 6;        
-        $solicitud->save();
-
-        //cliente 3 :: u11
-        //7
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '6000';
-        $solicitud->tiempo = '2019-10-20 13:00:00';
-        $solicitud->motivo = 'Renovacion de inventario, cargas del exterior';
-        $solicitud->id_cliente = 9;
-        $solicitud->id_tipo_credito = 5;
-        $solicitud->id_carpeta_credito = 25;
-        $solicitud->id_credito_detalle = 7;        
-        $solicitud->save();
-        //8
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '10000';
-        $solicitud->tiempo = '2019-04-20 10:00:00';
-        $solicitud->motivo = 'Compra de bienes y raices';
-        $solicitud->id_cliente = 9;
-        $solicitud->id_tipo_credito = 4;
-        $solicitud->id_carpeta_credito = 26;
-        $solicitud->id_credito_detalle = 8;        
-        $solicitud->save();
-        //9
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '3000';
-        $solicitud->tiempo = '2019-10-20 10:00:00';
-        $solicitud->motivo = 'Adquision de televisor de alta gamma';
-        $solicitud->id_cliente = 9;
-        $solicitud->id_tipo_credito = 6;
-        $solicitud->id_carpeta_credito = 27;
-        $solicitud->id_credito_detalle = 9;        
-        $solicitud->save();     
-
-        //cliente 4 :: u12
-        //10
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '8000';
-        $solicitud->tiempo = '2020-08-20 10:00:00';
-        $solicitud->motivo = 'Adquision de nuevos inmuebles para uno de los establecimientos';
-        $solicitud->id_cliente = 10;
-        $solicitud->id_tipo_credito = 5;
-        $solicitud->id_carpeta_credito = 28;
-        $solicitud->id_credito_detalle = 10;        
-        $solicitud->save();
-        //11
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '15000';
-        $solicitud->tiempo = '2022-02-20 10:00:00';
-        $solicitud->motivo = 'Adquision de nuevo establecimiento en el centro';
-        $solicitud->id_cliente = 10;
-        $solicitud->id_tipo_credito = 4;
-        $solicitud->id_carpeta_credito = 29;
-        $solicitud->id_credito_detalle = 11;        
-        $solicitud->save();
-        //12
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '6000';
-        $solicitud->tiempo = '2019-10-20 10:00:00';
-        $solicitud->motivo = 'Compra de pasajes para tour turistico en el exterior';
-        $solicitud->id_cliente = 10;
-        $solicitud->id_tipo_credito = 6;
-        $solicitud->id_carpeta_credito = 30;
-        $solicitud->id_credito_detalle = 12;        
-        $solicitud->save();
-
-
-        //cliente 5 :: u13
-        //13
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '8600';
-        $solicitud->tiempo = '2020-08-20 10:00:00';
-        $solicitud->motivo = 'Mantenimiento de maquinarias de la empresa';
-        $solicitud->id_cliente = 11;
-        $solicitud->id_tipo_credito = 5;
-        $solicitud->id_carpeta_credito = 31;
-        $solicitud->id_credito_detalle = 13;        
-        $solicitud->save();
-        //14
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '20000';
-        $solicitud->tiempo = '2020-02-20 10:00:00';
-        $solicitud->motivo = 'Compra de bienes y raices, y construccion de casa';
-        $solicitud->id_cliente = 11;
-        $solicitud->id_tipo_credito = 4;
-        $solicitud->id_carpeta_credito = 32;
-        $solicitud->id_credito_detalle = 14;        
-        $solicitud->save();
-        //15
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '4500';
-        $solicitud->tiempo = '2021-10-20 10:00:00';
-        $solicitud->motivo = 'Compra de inmuebles para el hogar';
-        $solicitud->id_cliente = 11;
-        $solicitud->id_tipo_credito = 6;
-        $solicitud->id_carpeta_credito = 33;
-        $solicitud->id_credito_detalle = 15;        
-        $solicitud->save();
-
-        //cliente 6 :: u14
-        //16
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '10000';
-        $solicitud->tiempo = '2020-08-20 10:00:00';
-        $solicitud->motivo = 'Compra de cargamento de productos del exterior';
-        $solicitud->id_cliente = 12;
-        $solicitud->id_tipo_credito = 5;
-        $solicitud->id_carpeta_credito = 34;
-        $solicitud->id_credito_detalle = 16;        
-        $solicitud->save();
-        //17
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '8000';
-        $solicitud->tiempo = '2022-02-20 10:00:00';
-        $solicitud->motivo = 'Construccion de casa de dos pisos, con inmuebles';
-        $solicitud->id_cliente = 12;
-        $solicitud->id_tipo_credito = 4;
-        $solicitud->id_carpeta_credito = 35;
-        $solicitud->id_credito_detalle = 17;        
-        $solicitud->save();
-        //18
-        $solicitud = new solicitud_credito();        
-        $solicitud->monto = '5000';
-        $solicitud->tiempo = '2019-10-20 10:00:00';
-        $solicitud->motivo = 'Compra de nueva motocicleta Honda 0 km';
-        $solicitud->id_cliente = 12;
-        $solicitud->id_tipo_credito = 6;
-        $solicitud->id_carpeta_credito = 36;
-        $solicitud->id_credito_detalle = 18;        
-        $solicitud->save();
-
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 1,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 1,
+            'id_credito_detalle' => 1
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 1,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 2,
+            'id_credito_detalle' => 2
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 2,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 3,
+            'id_credito_detalle' => 3
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 2,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 4,
+            'id_credito_detalle' => 4
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 3,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 5,
+            'id_credito_detalle' => 5
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 3,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 6,
+            'id_credito_detalle' => 6
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 4,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 7,
+            'id_credito_detalle' => 7
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 4,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 8,
+            'id_credito_detalle' => 8
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 5,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 9,
+            'id_credito_detalle' => 9
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 5,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 10,
+            'id_credito_detalle' => 10
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 6,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 11,
+            'id_credito_detalle' => 11
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 6,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 12,
+            'id_credito_detalle' => 12
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 7,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 13,
+            'id_credito_detalle' => 13
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 7,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 14,
+            'id_credito_detalle' => 14
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 8,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 15,
+            'id_credito_detalle' => 15
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 8,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 16,
+            'id_credito_detalle' => 16
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 9,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 17,
+            'id_credito_detalle' => 17
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 9,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 18,
+            'id_credito_detalle' => 18
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 10,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 19,
+            'id_credito_detalle' => 19
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 10,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 20,
+            'id_credito_detalle' => 20
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 11,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 21,
+            'id_credito_detalle' => 21
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 11,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 22,
+            'id_credito_detalle' => 22
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 12,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 23,
+            'id_credito_detalle' => 23
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 12,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 24,
+            'id_credito_detalle' => 24
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 13,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 25,
+            'id_credito_detalle' => 25
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 13,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 26,
+            'id_credito_detalle' => 26
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 14,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 27,
+            'id_credito_detalle' => 27
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 14,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 28,
+            'id_credito_detalle' => 28
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 15,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 29,
+            'id_credito_detalle' => 29
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 15,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 30,
+            'id_credito_detalle' => 30
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 16,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 31,
+            'id_credito_detalle' => 31
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 16,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 32,
+            'id_credito_detalle' => 32
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 17,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 33,
+            'id_credito_detalle' => 33
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 17,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 34,
+            'id_credito_detalle' => 34
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 18,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 35,
+            'id_credito_detalle' => 35
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 18,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 36,
+            'id_credito_detalle' => 36
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 19,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 37,
+            'id_credito_detalle' => 37
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 19,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 38,
+            'id_credito_detalle' => 38
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 20,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 39,
+            'id_credito_detalle' => 39
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 20,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 40,
+            'id_credito_detalle' => 40
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 21,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 41,
+            'id_credito_detalle' => 41
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 21,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 42,
+            'id_credito_detalle' => 42
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 22,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 43,
+            'id_credito_detalle' => 43
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 22,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 44,
+            'id_credito_detalle' => 44
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 23,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 45,
+            'id_credito_detalle' => 45
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 23,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 46,
+            'id_credito_detalle' => 46
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 24,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 47,
+            'id_credito_detalle' => 47
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 24,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 48,
+            'id_credito_detalle' => 48
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 25,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 49,
+            'id_credito_detalle' => 49
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 25,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 50,
+            'id_credito_detalle' => 50
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 26,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 51,
+            'id_credito_detalle' => 51
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 26,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 52,
+            'id_credito_detalle' => 52
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 27,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 53,
+            'id_credito_detalle' => 53
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 27,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 54,
+            'id_credito_detalle' => 54
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 28,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 55,
+            'id_credito_detalle' => 55
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 28,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 56,
+            'id_credito_detalle' => 56
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 29,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 57,
+            'id_credito_detalle' => 57
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 29,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 58,
+            'id_credito_detalle' => 58
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 30,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 59,
+            'id_credito_detalle' => 59
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 30,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 60,
+            'id_credito_detalle' => 60
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 31,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 61,
+            'id_credito_detalle' => 61
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 31,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 62,
+            'id_credito_detalle' => 62
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 32,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 63,
+            'id_credito_detalle' => 63
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 32,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 64,
+            'id_credito_detalle' => 64
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 33,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 65,
+            'id_credito_detalle' => 65
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 33,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 66,
+            'id_credito_detalle' => 66
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 34,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 67,
+            'id_credito_detalle' => 67
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 34,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 68,
+            'id_credito_detalle' => 68
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 35,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 69,
+            'id_credito_detalle' => 69
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 35,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 70,
+            'id_credito_detalle' => 70
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 36,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 71,
+            'id_credito_detalle' => 71
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 36,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 72,
+            'id_credito_detalle' => 72
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 37,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 73,
+            'id_credito_detalle' => 73
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 37,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 74,
+            'id_credito_detalle' => 74
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 38,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 75,
+            'id_credito_detalle' => 75
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 38,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 76,
+            'id_credito_detalle' => 76
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 39,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 77,
+            'id_credito_detalle' => 77
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 39,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 78,
+            'id_credito_detalle' => 78
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 40,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 79,
+            'id_credito_detalle' => 79
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 40,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 80,
+            'id_credito_detalle' => 80
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 41,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 81,
+            'id_credito_detalle' => 81
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 41,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 82,
+            'id_credito_detalle' => 82
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 42,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 83,
+            'id_credito_detalle' => 83
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 42,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 84,
+            'id_credito_detalle' => 84
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 43,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 85,
+            'id_credito_detalle' => 85
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 43,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 86,
+            'id_credito_detalle' => 86
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 3000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 44,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 87,
+            'id_credito_detalle' => 87
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 44,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 88,
+            'id_credito_detalle' => 88
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 45,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 89,
+            'id_credito_detalle' => 89
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 45,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 90,
+            'id_credito_detalle' => 90
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 46,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 91,
+            'id_credito_detalle' => 91
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 46,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 92,
+            'id_credito_detalle' => 92
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 47,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 93,
+            'id_credito_detalle' => 93
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 47,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 94,
+            'id_credito_detalle' => 94
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 4000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 48,
+            'id_tipo_credito' => 1,
+            'id_carpeta_credito' => 95,
+            'id_credito_detalle' => 95
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 48,
+            'id_tipo_credito' => 2,
+            'id_carpeta_credito' => 96,
+            'id_credito_detalle' => 96
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 15000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 49,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 97,
+            'id_credito_detalle' => 97
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 6000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 49,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 98,
+            'id_credito_detalle' => 98
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 10000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 50,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 99,
+            'id_credito_detalle' => 99
+        ]);
+        
+        solicitud_credito::create([
+            'monto' => 7000,
+            'motivo' => 'Compra y venta de insumos',
+            'id_cliente' => 50,
+            'id_tipo_credito' => 3,
+            'id_carpeta_credito' => 100,
+            'id_credito_detalle' => 100
+        ]);
     }
 }

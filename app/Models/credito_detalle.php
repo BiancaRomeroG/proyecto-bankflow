@@ -15,11 +15,10 @@ class credito_detalle extends Model
         'fecha_fin',
         'descripcion',
         'estado',
-        'interes',
-        'capital',
+        'tasa_interes',
         'pago_estado',
         'numero_cuotas',
-        'id_custodia'
+        'id_carpeta'
     ];
 
     public function custodia(){

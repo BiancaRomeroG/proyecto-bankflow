@@ -16,7 +16,6 @@ class documentos extends Model
         'formato',
         'descripcion',
         'id_carpeta',
-        'id_empresa',
     ];
 
     public static function store($request){

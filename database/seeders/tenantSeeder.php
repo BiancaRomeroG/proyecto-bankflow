@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\models\Tenant;
-use Database\Seeders\Tenant\Nuviaseeder;
+use App\Models\Tenant;
+use Database\Seeders\Tenant\NuviaSeeder;
 
 class tenantSeeder extends Seeder
 {
@@ -20,6 +20,7 @@ class tenantSeeder extends Seeder
             'id' => 'nuvia',
             'name' => 'Banco Nuvia',
         ]);
+        $empresa1->save();
 
         //seed the tenant
         $empresa1->run( function(){
@@ -31,6 +32,10 @@ class tenantSeeder extends Seeder
             'id' => 'alas',
             'name' => 'Banco Alas',
         ]);
+
+        $empresa2->run(function() {
+            $this->call(NuviaSeeder::class);
+        });
 
     }
 }

@@ -13,6 +13,5 @@ class tipo_credito extends Model
     protected $fillable = [
         'nombre',
         'descripcion',
-        'id_empresa'
     ];
 }

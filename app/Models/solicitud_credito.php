@@ -12,7 +12,6 @@ class solicitud_credito extends Model
     protected $table = 'solicitud_creditos';
     protected $fillable = [
         'monto',
-        'tiempo',
         'motivo',
         'id_cliente',
         'id_tipo_credito',

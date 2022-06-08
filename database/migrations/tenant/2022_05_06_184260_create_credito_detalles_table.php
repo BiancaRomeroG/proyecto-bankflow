@@ -19,12 +19,11 @@ return new class extends Migration
             $table->date('fecha_fin');
             $table->string('descripcion');
             $table->string('estado');
-            $table->float('interes');
-            $table->float('capital');
+            $table->float('tasa_interes');
             $table->string('pago_estado');
             $table->integer('numero_cuotas');
-            $table->unsignedBigInteger('id_custodia');
-            $table->foreign('id_custodia')->references('id')->on('custodias');
+            $table->unsignedBigInteger('id_carpeta');
+            $table->foreign('id_carpeta')->references('id')->on('carpeta_creditos');
             $table->timestamps();
         });
     }

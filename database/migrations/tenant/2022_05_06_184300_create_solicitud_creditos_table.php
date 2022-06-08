@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('solicitud_creditos', function (Blueprint $table) {
             $table->id();
             $table->string('monto');
-            $table->dateTime('tiempo');
             $table->string('motivo');
             $table->unsignedBigInteger('id_cliente');
             $table->unsignedBigInteger('id_tipo_credito');

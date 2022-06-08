@@ -13,7 +13,6 @@ class empleados extends Model
     protected $fillable = [
         'id_usuario',
         'id_area',
-        'id_empresa'
     ];
 
     public function user(){
