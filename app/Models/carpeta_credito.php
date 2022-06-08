@@ -11,7 +11,6 @@ class carpeta_credito extends Model
 
     protected $table = 'carpeta_creditos';
     protected $fillable = [
-        'info_cliente',
         'requisito_prestamo',
     ];
 }
