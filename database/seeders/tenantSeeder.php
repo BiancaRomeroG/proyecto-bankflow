@@ -6,6 +6,9 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Tenant;
 use Database\Seeders\Tenant\NuviaSeeder;
+use Database\Seeders\Tenant\AlasSeeder;
+
+
 
 class tenantSeeder extends Seeder
 {
@@ -34,7 +37,7 @@ class tenantSeeder extends Seeder
         ]);
 
         $empresa2->run(function() {
-            $this->call(NuviaSeeder::class);
+            $this->call(AlasSeeder::class);
         });
 
     }

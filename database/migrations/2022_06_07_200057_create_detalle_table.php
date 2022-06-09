@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('detalle', function (Blueprint $table) {
             $table->id();
-            $table->float('monto');
+            $table->float('precio');
             $table->string('miembros');
             $table->date('fecha_suscripcion');
             $table->string('storage');
+            $table->string('comprobante_pago')->nullable();
             $table->timestamps();
         });
     }

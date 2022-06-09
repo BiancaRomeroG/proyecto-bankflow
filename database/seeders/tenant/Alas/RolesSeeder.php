@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Tenant\Nuvia;
+namespace Database\Seeders\Tenant\Alas;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

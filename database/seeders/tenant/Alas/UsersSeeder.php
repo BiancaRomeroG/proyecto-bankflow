@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Tenant\Nuvia;
+namespace Database\Seeders\Tenant\Alas;
 
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -662,7 +662,7 @@ class UsersSeeder extends Seeder
                         'ci' => 8235957,
                         'fecha_nac' => '1995-12-24',
                         'telefono' => 79080657,
-                        'email' => 'admin_nuvia@gmail.com',
+                        'email' => 'admin_alas@gmail.com',
                         'password' => bcrypt('12345678')
                 ])->assignRole('Admin');
         }

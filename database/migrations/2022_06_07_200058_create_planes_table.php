@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('tipo_plan');
+            $table->unsignedBigInteger('id_detalle');
+            $table->foreign('id_detalle')->references('id')->on('detalle');
             $table->timestamps();
         });
     }
