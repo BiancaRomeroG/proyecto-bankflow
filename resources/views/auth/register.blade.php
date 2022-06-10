@@ -60,8 +60,9 @@
                 <div class="page-header align-items-start min-vh-100"
                     style="background-image: url('https://user-images.githubusercontent.com/36086876/167264136-62f44173-33e5-4515-9c8e-515560aae494.png'); background-size: cover;">
                     <div class="col-10 col-lg-8 m-auto mt-7">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('registrar.store') }}">
                             @csrf
+                            <input name="id_plan" class="hidden" type="hidden" value="{{$id}}"/>
                             <div class="card mb-5">
                                 <div class="card-body">
                                     <h5 class="font-weight-bolder mb-0">Ingresa tu Información</h5>
@@ -136,8 +137,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="text" hidden name="id_rol" value="7">
-
+                                    
 
                                     <div class="button-row d-flex mt-4">
                                         <a href="#empresa">
@@ -156,6 +156,13 @@
                                     </h5>
                                     <p class="mb-0 text-sm">Datos que ayuden a identificar tu empresa</p>
                                     <div class="row mt-3">
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group input-group-static my-2">
+                                                <label>Indentificador</label>
+                                                <input name="identificador" class="multisteps-form__input form-control"
+                                                    type="text" />
+                                            </div>
+                                        </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="input-group input-group-static my-2">
                                                 <label>Nombre</label>

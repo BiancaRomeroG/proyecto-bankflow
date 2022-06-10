@@ -15,4 +15,8 @@ class Planes extends Model
         'tipo_plan',
         'id_detalle'
     ];
+
+    public function detalle(){
+        return $this->belongsTo('App\Models\Detalle', 'id_detalle', 'id');
+    }
 }

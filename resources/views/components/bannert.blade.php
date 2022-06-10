@@ -25,7 +25,7 @@
                     <span class="nav-link-text ms-1">Home</span>
                 </a>
             </li>
-            <?php use App\Models\roles;$id_rol = Auth::user()->id_rol;$rol = roles::findOrFail($id_rol);if ($rol->nombre != "Cliente") {?>
+            {{-- <?php use App\Models\roles;$id_rol = Auth::user()->id_rol;$rol = roles::findOrFail($id_rol);if ($rol->nombre != "Cliente") {?> --}}
             <li>
                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
@@ -47,7 +47,7 @@
                         </li>
                 </ul>
             </li>
-            <?php } if ($rol->nombre != "Cliente") {?>
+           {{--  <?php } if ($rol->nombre != "Cliente") {?> --}}
             <li class="nav-item">
                 <a class="nav-link text-white " href="{{ route('usuarios.index', tenant('id')) }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -80,7 +80,7 @@
                         </li>
                 </ul>
             </li>
-            <?php } if ($rol->nombre == "Cliente") {?>
+            {{-- <?php } if ($rol->nombre == "Cliente") {?> --}}
                 <li class="nav-item">
                     <a class="nav-link text-white " href="{{ route('info_creditos', tenant('id')) }}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -97,7 +97,7 @@
                         <span class="nav-link-text ms-1">Mis Créditos</span>
                     </a>
                 </li>
-            <?php } if ($rol->nombre == "Administrador" || $rol->nombre == "Administrador de empresa") {?>
+            {{-- <?php } if ($rol->nombre == "Administrador" || $rol->nombre == "Administrador de empresa") {?> --}}
             <li>
                 <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
@@ -133,7 +133,7 @@
                     <span class="nav-link-text ms-1">Bitacora</span>
                 </a>
             </li>
-            <?php } if ($rol->nombre == "Administrador de empresa") {?>
+            {{-- <?php } if ($rol->nombre == "Administrador de empresa") {?> --}}
             <li>
                 <a href="#submenu4" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
@@ -149,12 +149,12 @@
                                     class="nav-link-item ms-4">Factura</span></a>
                         </li>
                         <li class="w-100">
-                            <a href="{{ route('general.index') }}" class="nav-link "> <span
+                            {{-- <a href="{{ route('general.index') }}" class="nav-link "> <span --}}
                                     class="nav-link-item ms-4">Personalizar</span></a>
                         </li>
                 </ul>
             </li>
-            <?php }?>
+            {{-- <?php }?> --}}
                             
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas
