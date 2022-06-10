@@ -14,6 +14,8 @@ use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\SolicitudCreditoController;
 use App\Http\Controllers\TipoCreditoController;
 use App\Http\Controllers\PersonalizarController;
+use App\Http\Controllers\RegistrarController;
+use App\Models\Planes;
 use App\Models\Tenant;
 use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
 
@@ -32,12 +34,16 @@ use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
 //SISTEMA CENTRAL
 
 Route::get('/', function () {
-    return view('welcome');
+    $planes = Planes::get();
+    return view('welcome', compact('planes'));
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])
     ->name('logout');
 
+
+Route::get('registrar/{id}', [RegistrarController::class, 'index'])->name('registrar.index');
+Route::post('registrar', [RegistrarController::class, 'store'])->name('registrar.store');
 
 Route::middleware([
     'auth:sanctum',
