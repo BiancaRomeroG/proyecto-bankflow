@@ -27,7 +27,7 @@ class DocumentosController extends Controller
     
     public function create($id)
     {
-        return view('procesos.documentos.create', compact('id') );
+        return view('tenant.procesos.documentos.create', compact('id') );
     }
 
     /**

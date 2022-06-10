@@ -1,7 +1,7 @@
 @section('title', 'Empleado')
-<x-app-layout>
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-4">
-        <a href="{{ route('empleados.index') }}">
+        <a href="{{ route('empleados.index', tenant('id')) }}">
             <button class="btn btn-dark btn-sm" type="button" style="display: inline-block"><i
                     class="fas fa-arrow-left"></i> Atrás</button>
         </a>
@@ -20,11 +20,11 @@
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            {{ $empleado->user->name }} {{ $empleado->user->ap_paterno }}
+                            {{ $empleado->user->name .' '. $empleado->user->ap_paterno }}
                             {{ $empleado->user->ap_materno }}
                         </h5>
                         <p class="mb-0 font-weight-normal text-sm">
-                            <span>{{ $empleado->user->rol->nombre }}</span>
+                            
                         </p>
                     </div>
                 </div>
@@ -89,7 +89,8 @@
                                 <ul class="list-group">
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                             class="text-dark">Rol:</strong> &nbsp;
-                                        {{ $empleado->user->rol->nombre }}</li>
+                                        {{ __('Aqui debe ir el rol') }}   
+                                    </li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                             class="text-dark">Area:</strong> &nbsp;
                                         {{ $empleado->area->nombre }}</li>

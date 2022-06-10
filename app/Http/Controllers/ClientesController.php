@@ -16,9 +16,8 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = clientes::where('id_empresa', '=', ClientesController::id_empresa())->get();
-        $clientes = clientes::paginate(6);
-        return view('clientes.index', compact('clientes'))->with('i');
+        $clientes = clientes::paginate(20);
+        return view('tenant.clientes.index', compact('clientes'))->with('i');
     }
 
     /**
@@ -29,7 +28,7 @@ class ClientesController extends Controller
     public function create()
     {
         //
-        return view('clientes.create');
+        return view('tenant.clientes.create');
     }
 
     /**
@@ -64,7 +63,7 @@ class ClientesController extends Controller
      */
     public function show(clientes $cliente)
     {
-        return view('clientes.show', compact('cliente'))->with('i');
+        return view('tenant.clientes.show', compact('cliente'))->with('i');
     }
 
     /**
@@ -75,7 +74,7 @@ class ClientesController extends Controller
      */
     public function edit(clientes $cliente)
     {
-        return view('clientes.edit', compact('cliente'));
+        return view('tenant.clientes.edit', compact('cliente'));
     }
 
     /**
@@ -118,7 +117,4 @@ class ClientesController extends Controller
         //
     }
 
-    private static function id_empresa() {
-        return Auth::user()->id_empresa;
-    }
 }

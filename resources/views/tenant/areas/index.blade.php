@@ -1,4 +1,5 @@
-<x-app-layout>
+@section('title', 'Areas')
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
             <div class="card-header p-4 pb-2">
@@ -7,7 +8,7 @@
                         <h4 class="text-dark" class="card-title">Areas</h4>
                     </div>
                     <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <a href="{{ route('areas.create') }}" class="btn btn-sm btn-dark">Agregar</a>
+                        <a href="{{ route('areas.create', tenant('id')) }}" class="btn btn-sm btn-dark">Agregar</a>
                     </div>
                 </div>
             </div>
@@ -52,13 +53,13 @@
                                         </td>
             
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('areas.edit', $area->id) }}">
+                                            <a href="{{ route('areas.edit', [tenant('id'), $area->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
                                                     title="Editar">
                                                     <i class="fas fa-pen m-auto"></i>
                                                 </button>
                                             </a>
-                                            <a href="{{ route('areas.show', $area->id) }}">
+                                            <a href="{{ route('areas.show', [tenant('id'), $area->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
                                                     title="Ver informacion">
                                                     <i class="far fa-eye"></i>
@@ -78,7 +79,7 @@
         </div>
     </div>
     
-</x-app-layout>
+</x-app-tenant-layout>
 {{--
 <x-app-layout>
     <h1>Areas uWu</h1>

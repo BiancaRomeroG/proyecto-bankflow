@@ -1,9 +1,9 @@
 @section('title', 'Empleados')
-<x-app-layout>
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
             <div class="card-header mb-0 pt-3 pb-2">
-                <a href="{{ route('creditos.index') }}">
+                <a href="{{ route('creditos.index', tenant('id')) }}">
                     <button class="btn btn-dark btn-sm mt-2" type="button" style="display: inline-block"><i
                             class="fas fa-arrow-left"></i> Atrás</button>
                 </a>
@@ -44,7 +44,6 @@
                                 Detalles Especificos</h5>
                             <blockquote class="blockquote text-white mb-0">
                                 <p class="text-dark ms-3">Descripcion: {{ $solicitud_credito->detalles->descripcion }}</p>
-                                <p class="text-dark ms-3">Custodia {{ $solicitud_credito->detalles->custodia->nombre_cliente }}</p>
                                 <p class="text-dark ms-3">Numero de Cuotas: {{ $solicitud_credito->detalles->numero_cuotas }}</p>
                                 <p class="text-dark ms-3">Estado: {{ $solicitud_credito->detalles->estado }}</p>
                                 <p class="text-dark ms-3">Interes: {{ $solicitud_credito->detalles->interes * 100 }}</p>
@@ -58,4 +57,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-tenant-layout>

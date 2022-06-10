@@ -118,7 +118,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/rtl.html">
+                <a class="nav-link text-white " href="#">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">post_add</i>
                     </div>
@@ -149,12 +149,11 @@
                                     class="nav-link-item ms-4">Factura</span></a>
                         </li>
                         <li class="w-100">
-                            {{-- <a href="{{ route('general.index') }}" class="nav-link "> <span --}}
+                            <a href="{{ route('general.index', tenant('id')) }}" class="nav-link "> <span --}}
                                     class="nav-link-item ms-4">Personalizar</span></a>
                         </li>
                 </ul>
             </li>
-            {{-- <?php }?> --}}
                             
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas

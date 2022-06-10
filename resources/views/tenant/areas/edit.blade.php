@@ -11,7 +11,7 @@
             <hr class="m-0">
             <div class="card-body">
                 <div class="card bg-gray-100 shadow-lg">
-                    <form method="POST" action="{{ route('areas.update', $area) }}">
+                    <form method="POST" action="{{ route('areas.update', [tenant('id'), $area]) }}">
                         @csrf
                         @method('PUT')
                         <div>

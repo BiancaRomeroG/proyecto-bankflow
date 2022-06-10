@@ -1,8 +1,9 @@
-<x-app-layout>
+@section('title', 'Editar Cliente')
+<x-app-tenant-layout>
     <section>
         <div class="card mb-4">
             <div class="card-header mb-0 pt-3 pb-2">
-                <a href="{{ route('clientes.index') }}">
+                <a href="{{ route('clientes.index', tenant('id')) }}">
                     <button class="btn btn-dark btn-sm mt-2" type="button" style="display: inline-block"><i
                             class="fas fa-arrow-left"></i> Atrás</button>
                 </a>
@@ -10,7 +11,7 @@
             </div>
             <hr class="m-0">
             <div class="card-body mt-0 pt-0">
-                <form method="POST" action="{{ route('clientes.update', $cliente) }}">
+                <form method="POST" action="{{ route('clientes.update', [tenant('id'), $cliente]) }}">
                     @csrf
                     @method('put')
                     <input hidden type="text" name="id_usuario" value="{{ $cliente->id_usuario }}">
@@ -73,4 +74,4 @@
             </div>
         </div>
     </section>
-</x-app-layout>
+</x-app-tenant-layout>
