@@ -1,7 +1,7 @@
 @section('title', 'Clientes')
-<x-app-layout>
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-4">
-        <a href="{{ route('clientes.index') }}">
+        <a href="{{ route('clientes.index', tenant('id')) }}">
             <button class="btn btn-dark btn-sm" type="button" style="display: inline-block"><i
                     class="fas fa-arrow-left"></i> Atrás</button>
         </a>
@@ -24,7 +24,7 @@
                             {{ $cliente->user->ap_materno }}
                         </h5>
                         <p class="mb-0 font-weight-normal text-sm">
-                            <span>{{ $cliente->user->rol->nombre }}</span>
+                            <span>{{ __('Aqui el rol') }}</span>
                         </p>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                                 <ul class="list-group">
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                             class="text-dark">Rol:</strong> &nbsp;
-                                        {{ $cliente->user->rol->nombre }}</li>
+                                        {{ __('Aqui el rol') }}</li>
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                             class="text-dark">Telefono:</strong> &nbsp;
                                         {{ $cliente->user->telefono }}</li>
@@ -299,4 +299,4 @@
                 </div>
             </div>
         </div>
-</x-app-layout>
+</x-app-tenant-layout>

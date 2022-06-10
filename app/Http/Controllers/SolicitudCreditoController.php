@@ -11,6 +11,7 @@ use App\Models\empleados;
 use App\Models\gestion_credito;
 use App\Models\solicitud_credito;
 use App\Models\tipo_credito;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,13 +27,13 @@ class SolicitudCreditoController extends Controller
     {
         $empleado = empleados::find(Auth::user()->id);
         $creditos = $empleado->creditos;
-        return view('procesos.index', compact('creditos'))->with('i');
+        return view('tenant.procesos.index', compact('creditos'))->with('i');
     }
 
     public function documentos($id){
         $carpeta = carpeta_credito::find($id);
         $documentos = documentos::where('id_carpeta', $id)->get();
-        return view('procesos.documentos.index', compact('documentos', 'carpeta'))->with('i');
+        return view('tenant.procesos.documentos.index', compact('documentos', 'carpeta'))->with('i');
     }
 
     /**
@@ -42,9 +43,9 @@ class SolicitudCreditoController extends Controller
      */
     public function create()
     {
-        $clientes = clientes::where('id_empresa', Auth::user()->id_empresa)->get();
-        $tipos = tipo_credito::where('id_empresa', Auth::user()->id_empresa)->get();
-        return view('procesos.create', compact('clientes', 'tipos'));
+        $clientes = clientes::get();
+        $tipos = tipo_credito::get();
+        return view('tenant.procesos.create', compact('clientes', 'tipos'));
     }
 
     /**
@@ -69,11 +70,6 @@ class SolicitudCreditoController extends Controller
             $carpeta->info_cliente = $request->info_cliente;
             $carpeta->requisito_prestamo = $request->requisito_prestamo;
             $carpeta->save();
-            
-            $custodia = new custodias();
-            $custodia->nombre_cliente = $request->nombre_cliente;
-            $custodia->id_empresa = $empresa;
-            $custodia->save();
 
             $detalle = new credito_detalle();
             $detalle->fecha_inicio = now();
@@ -84,7 +80,6 @@ class SolicitudCreditoController extends Controller
             $detalle->interes = (float) $request->interes;
             $detalle->capital = (float) $request->capital;
             $detalle->numero_cuotas = (int) $request->numero_cuotas;
-            $detalle->id_custodia = $custodia->id;
             $detalle->save();
             
             $proceso->id_carpeta_credito = $carpeta->id;
@@ -116,7 +111,7 @@ class SolicitudCreditoController extends Controller
     public function show($id)
     {
         $solicitud_credito = solicitud_credito::find($id);
-        return view('procesos.show', compact('solicitud_credito'));
+        return view('tenant.procesos.show', compact('solicitud_credito'));
     }
 
     /**
@@ -127,10 +122,10 @@ class SolicitudCreditoController extends Controller
      */
     public function edit($id)
     {
-        $clientes = clientes::where('id_empresa', Auth::user()->id_empresa)->get();
-        $tipos = tipo_credito::where('id_empresa', Auth::user()->id_empresa)->get();
+        $clientes = clientes::get();
+        $tipos = tipo_credito::get();
         $proceso = solicitud_credito::find($id);
-        return view('procesos.edit', compact('proceso', 'tipos', 'clientes'));
+        return view('tenant.procesos.edit', compact('proceso', 'tipos', 'clientes'));
     }
 
     /**

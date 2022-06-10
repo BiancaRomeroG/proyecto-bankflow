@@ -55,11 +55,6 @@ Route::middleware([
     })->name('dashboard');
 
 
-
-    Route::get('users/informacion-creditos', function () {
-        return view('informacion.info_creditos');
-    })->name('info_creditos');
-
     /*  Route::resource('roles', RolesController::class);
     Route::resource('areas', AreasController::class);
     Route::resource('usuarios', UsuariosController::class);
@@ -124,6 +119,9 @@ Route::group([
 
             Route::resource('empleados', EmpleadosController::class);
 
+            Route::get('/users/informacion-creditos', function () {
+                return view('tenant.informacion.info_creditos');
+            })->name('info_creditos');
             Route::get('creditos/{id}/documentos', [SolicitudCreditoController::class, 'documentos'])->name('credito.documentos'); //index de documentos
             Route::resource('creditos', SolicitudCreditoController::class);
             Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');

@@ -1,4 +1,5 @@
-<x-app-layout>
+@section('title', 'Ver Areas')
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
             <div class="card-header p-4 pb-2">
@@ -61,7 +62,7 @@
                                         </td>
                                         <td>
                                             <span
-                                                class="text-secondary text-xs font-weight-normal">{{ $empleado->user->rol->nombre }}</span>
+                                                class="text-secondary text-xs font-weight-normal">{{ __('Aqui el rol') }}</span>
                                         </td>
                                         <td>
                                             <span
@@ -72,13 +73,13 @@
                                                 class="text-secondary text-xs font-weight-normal">{{ $empleado->user->telefono }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('empleados.edit', $empleado) }}">
+                                            <a href="{{ route('empleados.edit', [tenant('id'), $empleado]) }}">
                                                 <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
                                                     title="Editar">
                                                     <i class="fas fa-pen m-auto"></i>
                                                 </button>
                                             </a>
-                                            <a href="{{ route('empleados.show', $empleado) }}">
+                                            <a href="{{ route('empleados.show', [tenant('id'), $empleado]) }}">
                                                 <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
                                                     title="Ver informacion">
                                                     <i class="far fa-eye"></i>
@@ -94,4 +95,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-tenant-layout>

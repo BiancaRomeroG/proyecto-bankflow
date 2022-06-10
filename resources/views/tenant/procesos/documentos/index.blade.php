@@ -1,5 +1,5 @@
 @section('title', 'Documentos')
-<x-app-layout>
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
             <div class="card-header p-4 pb-2">
@@ -8,7 +8,7 @@
                         <h4 class="text-dark" class="card-title">Documentos Presentados</h4>
                     </div>
                     <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <a href="{{ route('documentos.create', $carpeta->id) }}" class="btn btn-sm btn-dark">Agregar</a>
+                        <a href="{{ route('documentos.create', [tenant('id'), $carpeta->id]) }}" class="btn btn-sm btn-dark">Agregar</a>
                     </div>
                     <p class="mb-0">{{$carpeta->info_cliente}}</p>
                     <p>{{$carpeta->requisito_prestamo}}</p>
@@ -73,4 +73,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-tenant-layout>

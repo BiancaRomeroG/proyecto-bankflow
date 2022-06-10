@@ -19,10 +19,10 @@ class AreasController extends Controller
      */
     public function index()
     {
-        $areas = DB::table('areas')->where('id_empresa', '=', AreasController::id_empresa())->get();
+        $areas = DB::table('areas')->get();
         $areas = areas::paginate(8);
 
-        return view('areas.index', compact('areas'))->with('i');
+        return view('tenant.areas.index', compact('areas'))->with('i');
     }
 
     /**
@@ -32,7 +32,7 @@ class AreasController extends Controller
      */
     public function create()
     {
-        return view('areas.create');
+        return view('tenant.areas.create');
     }
 
     /**
@@ -81,7 +81,7 @@ class AreasController extends Controller
         } catch (\Exception $e) {
             //retornar alerta de ha ocurrido un error
         }
-        return view('areas.show', compact('empleados', 'area'))->with('i');
+        return view('tenant.areas.show', compact('empleados', 'area'))->with('i');
     }
 
     /**
@@ -93,7 +93,7 @@ class AreasController extends Controller
     public function edit($area)
     {
         $area = areas::findOrFail($area);
-        return view('areas.edit', compact('area'));
+        return view('tenant.areas.edit', compact('area'));
     }
 
     /**
@@ -137,8 +137,5 @@ class AreasController extends Controller
         //
     }
 
-    private static function id_empresa() {
-        return Auth::user()->id_empresa;
-    }
 
 }

@@ -1,9 +1,9 @@
 @section('title', 'Empleado')
-<x-app-layout>
+<x-app-tenant-layout>
     <section>
         <div class="card mb-4">
             <div class="card-header mb-0 pt-3 pb-2">
-                <a href="{{ route('empleados.index') }}">
+                <a href="{{ route('empleados.index', tenant('id')) }}">
                     <button class="btn btn-dark btn-sm mt-2" type="button" style="display: inline-block"><i
                             class="fas fa-arrow-left"></i> Atrás</button>
                 </a>
@@ -11,7 +11,7 @@
             </div>
             <hr class="m-0">
             <div class="card-body mt-0 pt-0">
-                <form method="POST" action="{{ route('empleados.update', $empleado) }}">
+                <form method="POST" action="{{ route('empleados.update', [tenant('id'), $empleado]) }}">
                     @csrf
                     @method('put')
                     <input hidden type="text" name="id_usuario" value="{{ $empleado->id_usuario }}">
@@ -45,17 +45,7 @@
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Rol: </label>
-                            <select class="form-select" name="id_rol">
-                                @foreach ($roles as $rol)
-                                @if ($rol->nombre != "Administrador" && $rol->nombre != "Administrador de empresa")
-                                    @if ($empleado->user->id_rol == $rol->id)
-                                        <option selected value="{{ $rol->id }}">{{ $rol->nombre }}</option>
-                                    @else
-                                        <option value="{{ $rol->id }}">{{ $rol->nombre }}</option>
-                                    @endif
-                                @endif
-                                @endforeach
-                            </select>
+                                {{ __('Aqui el rol') }}
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Area: </label>
@@ -100,4 +90,4 @@
             </div>
         </div>
     </section>
-</x-app-layout>
+</x-app-tenant-layout>

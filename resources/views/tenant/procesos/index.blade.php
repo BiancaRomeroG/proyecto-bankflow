@@ -1,5 +1,5 @@
 @section('title', 'Procesos Crediticios')
-<x-app-layout>
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
             <div class="card-header p-4 pb-2">
@@ -23,9 +23,6 @@
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Tipo de Credito</th>
-                                    <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Fecha</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Monto</th>
@@ -57,11 +54,6 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">
-                                                {{ $credito->tiempo }}
-                                            </p>
-                                        </td>
-                                        <td>
                                             <p class="text-xs text-center font-weight-bold mb-0">
                                                 {{ $credito->monto }}
                                             </p>
@@ -77,19 +69,19 @@
                                         </td>
 
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('credito.documentos', $credito->id_carpeta_credito) }}">
+                                            <a href="{{ route('credito.documentos', [tenant('id'), $credito->id_carpeta_credito]) }}">
                                                 <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
                                                     title="Documentos">
                                                     <span class="material-icons ">folder</span>
                                                 </button>
                                             </a>
-                                            <a href="{{ route('creditos.show', $credito->id) }}">
+                                            <a href="{{ route('creditos.show', [tenant('id'), $credito->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
                                                     title="Ver informacion">
                                                     <i class="far fa-eye"></i>
                                                 </button>
                                             </a>
-                                            <a href="{{ route('creditos.edit', $credito->id) }}">
+                                            <a href="{{ route('creditos.edit', [tenant('id'), $credito->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-warning m-auto" type="button"
                                                     title="Ver informacion">
                                                     <span class="material-icons">edit</span>
@@ -108,4 +100,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-tenant-layout>

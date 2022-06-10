@@ -1,4 +1,5 @@
-<x-app-layout>
+@section('title', 'Editar Area')
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3 ">
         <div class="card shadow-lg">
             <div class="card-header p-4 pb-2">
@@ -11,7 +12,7 @@
             <hr class="m-0">
             <div class="card-body">
                 <div class="card bg-gray-100 shadow-lg">
-                    <form method="POST" action="{{ route('areas.store') }}">
+                    <form method="POST" action="{{ route('areas.store', tenant('id')) }}">
                         @csrf
                         <div>
                             
@@ -39,4 +40,4 @@
         </div>
     </div>
 
-</x-app-layout>
+</x-app-tenant-layout>
