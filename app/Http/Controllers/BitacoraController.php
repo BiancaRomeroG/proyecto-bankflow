@@ -41,7 +41,7 @@ class BitacoraController extends Controller
         $bitacora->accion = $accion;
         $bitacora->descripcion = $descripcion;
         $bitacora->id_area = $empleado->id_area;
-        $bitacora->id_empresa = $empleado->id_empresa;
+        $bitacora->id_usuario = $empleado->id_usuario;
         $bitacora->save();
         }
          

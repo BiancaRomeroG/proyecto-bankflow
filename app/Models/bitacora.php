@@ -14,6 +14,7 @@ class bitacora extends Model
         'accion',
         'descripcion',
         'id_area',
+        'id_usuario',
     ];
 
 
@@ -22,8 +23,8 @@ class bitacora extends Model
         return $this->belongsTo('App\Models\areas', 'id_area');
     }
 
-    public function empresa()
+    public function usuario()
     {
-        return $this->belongsTo('App\Models\empresa', 'id_empresa');
+        return $this->belongsTo('App\Models\User', 'id_usuario');
     }
 }

@@ -48,9 +48,10 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
+        
         $datosEmpleados = request()->except('_token', 'id_area');
         $usuario = User::create($datosEmpleados);
-        //return $usuario;
+         
         $empleado = new empleados();
         $empleado->id_usuario = $usuario->id;
         $empleado->id_area = $request->id_area;
