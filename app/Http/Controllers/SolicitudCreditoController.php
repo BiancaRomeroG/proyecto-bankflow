@@ -99,7 +99,7 @@ class SolicitudCreditoController extends Controller
             DB::rollBack();
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
-        return redirect()->route('creditos.index');
+        return redirect()->route('creditos.index',tenant('id'));
     }
 
     /**
@@ -152,7 +152,7 @@ class SolicitudCreditoController extends Controller
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
 
-        return redirect()->route('creditos.index'); //con una alerta que se hizo todo chido
+        return redirect()->route('creditos.index', tenant('id')); //con una alerta que se hizo todo chido
     }
 
     /**

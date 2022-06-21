@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\empresa;
 use App\Models\roles;
 use App\Models\User;
-use App\Models\usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,11 +17,11 @@ class UsuariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($usuarios)
     {
-        $usuarios = User::join('roles', 'users.id_rol', 'roles.id')
-                        ->where('roles.nombre', "Administrador de empresa")
-                        ->get();
+        // $usuarios = User::join( 'users.id_rol', 'roles.id')
+        //                 ->where('roles.nombre', "Administrador de empresa")
+        //                 ->get();
         
         return view('tenant.usuarios.index',compact('usuarios'))->with('i');
     }
@@ -74,7 +73,7 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(usuarios $usuarios)
+    public function show(user $usuarios)
     {
         // $usuario = user::findOrFail($usuarios);
         // try {
@@ -101,7 +100,7 @@ class UsuariosController extends Controller
     public function edit($usuarios)
     {
         $usuario = user::findOrFail($usuarios);
-        if($usuario->id_rol)
+        //if($usuario->id_rol)
         
         return view('usuarios.edit', compact('usuario'));
     }
@@ -113,7 +112,7 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuarios $usuarios)
+    public function update(Request $request, user $usuarios)
     {
         // try {
         //     $usuario = user::findOrFail($usuarios);   

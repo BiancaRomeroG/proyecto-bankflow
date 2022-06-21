@@ -8,7 +8,7 @@
                         <h4 class="text-dark" class="card-title">Tipos de creditos</h4>
                     </div>
                     <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <a href="{{ route('tipos.create') }}" class="btn btn-sm btn-dark">Agregar</a>
+                        <a href="{{ route('tipos.create' , tenant('id')) }}" class="btn btn-sm btn-dark">Agregar</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                                             </p>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('tipos.edit', $tipo->id) }}">
+                                            <a href="{{ route('tipos.edit', tenant('id'), $tipo->id) }}">
                                                 <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
                                                     title="Documentos">
                                                     <span class="material-icons">edit</span>

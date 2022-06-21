@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('bitacoras', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('usuario_id');
-            $table->datetime('fecha_hora_serv');
-            $table->datetime('fecha_hora_hard');
+            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_area');
+            $table->datetime('fecha_hora_serv')->nullable();
+            $table->datetime('fecha_hora_hard')->nullable();
             $table->string('accion');
-            $table->string('descripcion');
-            $table->string('direccion_ip');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->string('descripcion')->nullable();
+            $table->string('direccion_ip')->nullable();
+            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->foreign('id_area')->references('id')->on('areas');
             $table->timestamps();
         });
     }

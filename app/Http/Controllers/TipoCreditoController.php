@@ -16,8 +16,8 @@ class TipoCreditoController extends Controller
      */
     public function index()
     {
-        $tipos = tipo_credito::where('id_empresa', Auth::user()->id_empresa)->get();
-        return view('procesos.tipos.index', compact('tipos'))->with('i');
+        
+        return view('procesos.tipos.index', tenant('id'))->with('i');
     }
 
     /**
@@ -52,7 +52,7 @@ class TipoCreditoController extends Controller
             DB::rollBack();
             //retorna una vista indicando hubo algun error
         }
-        return redirect()->route('tipos.index');
+        return redirect()->route('tipos.index', tenant('id'));
     }
 
     /**
@@ -99,7 +99,7 @@ class TipoCreditoController extends Controller
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
 
-        return redirect()->route('tipos.index'); //con una alerta que se hizo todo chido
+        return redirect()->route('tipos.index',tenant('id')); //con una alerta que se hizo todo chido
     }
 
     /**

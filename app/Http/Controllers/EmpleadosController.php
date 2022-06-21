@@ -48,9 +48,10 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
+        
         $datosEmpleados = request()->except('_token', 'id_area');
         $usuario = User::create($datosEmpleados);
-        //return $usuario;
+         
         $empleado = new empleados();
         $empleado->id_usuario = $usuario->id;
         $empleado->id_area = $request->id_area;
@@ -60,7 +61,7 @@ class EmpleadosController extends Controller
         BitacoraController::create(Auth::user()->id, 'Creación de empleado',
             'El usuario con id: '.Auth::user()->id.' creó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno.' con id: '.$empleado->id);
 
-        return redirect()->route('tenant.empleados.index')->with('info', 'El aprobado');
+        return redirect()->route('empleados.index', tenant('id'))->with('info', 'El aprobado');
     }
 
     /**
@@ -103,9 +104,7 @@ class EmpleadosController extends Controller
         $usuario->ci = $request->ci;
         $usuario->ap_paterno = $request->ap_paterno;
         $usuario->ap_materno = $request->ap_materno;
-        $usuario->id_rol = $request->id_rol;
         $usuario->update();
-        //return $usuario;
         $empleado = empleados::find($request->id);
         $empleado->id_usuario = $usuario->id;
         $empleado->id_area = $request->id_area;
@@ -114,7 +113,7 @@ class EmpleadosController extends Controller
         //registrar en bitacora esta accion
         BitacoraController::create(Auth::user()->id, 'Edición de empleado',
             'El usuario con id: '.Auth::user()->id.' editó los datos del empleado: '.$usuario->name.' '.$usuario->ap_paterno.' '.$usuario->ap_materno.' con id: '.$empleado->id);
-        return redirect()->route('tenant.empleados.index');
+        return redirect()->route('empleados.index', tenant('id'));
     }
 
     /**

@@ -64,7 +64,7 @@ class AreasController extends Controller
         //registrar esta accion en bitacora
        
 
-        return redirect()->route('areas.index');
+        return redirect()->route('areas.index', tenant('id'));
     }
 
     /**
@@ -123,7 +123,7 @@ class AreasController extends Controller
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
 
-        return redirect()->route('areas.index'); //con una alerta que se hizo todo chido
+        return redirect()->route('areas.index', tenant('id')); //con una alerta que se hizo todo chido
     }
 
     /**
