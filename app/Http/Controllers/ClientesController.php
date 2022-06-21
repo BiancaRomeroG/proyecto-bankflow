@@ -53,7 +53,7 @@ class ClientesController extends Controller
         BitacoraController::create(Auth::user()->id,'Creación de cliente',
          'El usuario con id: '.Auth::user()->id.' creó el cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
-        return redirect()->route('clientes.create')->with('info', 'El aprobado');
+        return redirect()->route('clientes.create', tenant('id'))->with('info', 'El aprobado');
     }
     /**
      * Display the specified resource.
@@ -103,7 +103,7 @@ class ClientesController extends Controller
         BitacoraController::create(Auth::user()->id,'Edición de Cliente',
         'El usuario con id: '.Auth::user()->id.' editó los del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index', tenant('id'));
     }
 
     /**

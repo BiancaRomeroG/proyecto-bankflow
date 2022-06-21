@@ -30,9 +30,9 @@
                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
+                        <i class="material-icons">group</i>
                     </div>
-                    <span class="nav-link-text ms-1">Registro</span>
+                    <span class="nav-link-text ms-1">Usuarios</span>
                 </a>
 
                 <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu1" data-bs-parent="#menu">
@@ -48,14 +48,15 @@
                 </ul>
             </li>
            {{--  <?php } if ($rol->nombre != "Cliente") {?> --}}
-            <li class="nav-item">
+           
+            {{-- <li class="nav-item">
                 <a class="nav-link text-white " href="{{ route('usuarios.index', tenant('id')) }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons">group</i>
                     </div>
                     <span class="nav-link-text ms-1">Usuarios</span>
                 </a>
-            </li>
+            </li> --}}
             
             <li>
                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
@@ -134,26 +135,8 @@
                 </a>
             </li>
             {{-- <?php } if ($rol->nombre == "Administrador de empresa") {?> --}}
-            <li>
-                <a href="#submenu4" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
-                    data-bs-toggle="collapse" aria-expanded="false">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">settings</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Configurar</span>
-                </a>
-                <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu4" data-bs-parent="#menu">
-                    <div class="">
-                        <li class="w-100">
-                            <a href="#" class="nav-link "> <span
-                                    class="nav-link-item ms-4">Factura</span></a>
-                        </li>
-                        <li class="w-100">
-                            <a href="{{ route('general.index', tenant('id')) }}" class="nav-link "> <span --}}
-                                    class="nav-link-item ms-4">Personalizar</span></a>
-                        </li>
-                </ul>
-            </li>
+            
+            
                             
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas

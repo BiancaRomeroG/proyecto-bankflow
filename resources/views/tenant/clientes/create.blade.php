@@ -30,7 +30,7 @@
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Apellido Materno</label>
-                                <input name="ap_materno" class="multisteps-form__input form-control" type="text" />
+                                <input name="ap_materno" class="multisteps-form__input form-control" type="text"  />
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
@@ -49,20 +49,20 @@
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Fecha de Nacimiento</label>
-                                <input name="fecha_nac" type="date" class="form-control">
+                                <input name="fecha_nac" type="date" class="form-control" />
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Email</label>
                                 <input name="email" class="form-control" type="email"
-                                    placeholder="ejemplo@gmail.com" />
+                                    placeholder="ejemplo@gmail.com"  />
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Contraseña</label>
-                                <input name="password" class="form-control" type="password"/>
+                                <input name="password" class="form-control" type="password" />
                             </div>
                         </div>
                         

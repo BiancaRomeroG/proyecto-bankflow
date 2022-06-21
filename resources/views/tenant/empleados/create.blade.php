@@ -38,10 +38,10 @@
                                 <input name="ci" class="multisteps-form__input form-control" type="number" />
                             </div>
                         </div>
-                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        {{-- <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Rol: </label>
                             {{ __('Aqui rol xD') }}
-                        </div>
+                        </div> --}}
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Area: </label>
                             <select class="form-select" name="id_area">
