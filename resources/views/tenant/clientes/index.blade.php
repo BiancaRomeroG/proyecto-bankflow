@@ -7,9 +7,11 @@
                     <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                         <h4 class="text-dark" class="card-title">Clientes</h4>
                     </div>
-                    <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <a href="{{ route('clientes.create', tenant('id')) }}" class="btn btn-sm btn-dark">Agregar</a>
-                    </div>
+                    @can('Crear clientes')
+                        <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <a href="{{ route('clientes.create', tenant('id')) }}" class="btn btn-sm btn-dark">Agregar</a>
+                        </div>
+                    @endcan
                 </div>
 
                 <div class="row">
@@ -80,18 +82,22 @@
                                                 class="text-secondary text-xs font-weight-normal">{{ $cliente->user->telefono }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('clientes.edit', [tenant('id'), $cliente->id]) }}">
-                                                <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
-                                                    title="Editar">
-                                                    <i class="fas fa-pen m-auto"></i>
-                                                </button>
-                                            </a>
-                                            <a href="{{ route('clientes.show', [tenant('id'), $cliente->id]) }}">
-                                                <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
-                                                    title="Ver informacion">
-                                                    <i class="far fa-eye"></i>
-                                                </button>
-                                            </a>
+                                            @can('Editar clientes')
+                                                <a href="{{ route('clientes.edit', [tenant('id'), $cliente->id]) }}">
+                                                    <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
+                                                        title="Editar">
+                                                        <i class="fas fa-pen m-auto"></i>
+                                                    </button>
+                                                </a>
+                                            @endcan
+                                            @can('Ver clientes')
+                                                <a href="{{ route('clientes.show', [tenant('id'), $cliente->id]) }}">
+                                                    <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
+                                                        title="Ver informacion">
+                                                        <i class="far fa-eye"></i>
+                                                    </button>
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

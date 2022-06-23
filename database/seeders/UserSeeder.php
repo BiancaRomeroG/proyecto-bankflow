@@ -28,9 +28,9 @@ class UserSeeder extends Seeder
         ]);
 
         $user = User::create([
-            'name' => 'Edson Alain Sacaca Flores',
-            'ap_paterno' => 'Flores',
-            'ap_materno' => 'Sarmiento',
+            'name' => 'Edson Alain',
+            'ap_paterno' => 'Sacaca',
+            'ap_materno' => 'Flores',
             'ci' => '12345678',
             'fecha_nac' => '2001-01-01',
             'telefono' => '69172849',

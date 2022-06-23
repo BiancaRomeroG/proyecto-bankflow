@@ -8,6 +8,7 @@ use App\Models\roles;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Role;
 
 class EmpleadosController extends Controller
 {
@@ -18,14 +19,8 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        //$empleados = empleados::join('users', 'empleados.id_usuario','users.id')
-        //->join('areas', 'empleados.id_area', 'areas.id')
-        //->select('users.name', 'users.ap_paterno','users.ci', 'users.email', 'users.id_rol as rol', 'users.telefono', 'areas.nombre as area');
-
-        //$rol = roles::findOrFail(Auth::user()->id_rol)->nombre;
         $empleados = empleados::paginate(6);
         return view('tenant.empleados.index', compact('empleados'))->with('i');
-
     }
 
     /**
@@ -35,7 +30,6 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        //$roles=roles::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
         $areas=areas::get();
         return view('tenant.empleados.create',compact('areas'));
     }
@@ -83,9 +77,14 @@ class EmpleadosController extends Controller
      */
     public function edit(empleados $empleado)
     {
-        //$roles=roles::where('id_empresa', '=', EmpleadosController::id_empresa())->get();
-        $areas=areas::get();
-        return view('tenant.empleados.edit', compact('empleado', 'areas'));
+        $roles = Role::all();
+        $rolesEmpleado = $empleado->user->roles;
+        
+        for ($i=0; $i < count($rolesEmpleado); $i++) 
+            $roles[$rolesEmpleado[$i]->id - 1]->estado = 1;
+
+        $areas = areas::get();
+        return view('tenant.empleados.edit', compact('empleado', 'areas', 'roles'));
     }
 
     /**
@@ -95,7 +94,7 @@ class EmpleadosController extends Controller
      * @param  \App\Models\empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, empleados $empleados)
+    public function update(Request $request, empleados $empleado)
     {
         $usuario = User::find($request->id_usuario);
         $usuario->name = $request->name;
@@ -110,10 +109,12 @@ class EmpleadosController extends Controller
         $empleado->id_area = $request->id_area;
         $empleado->update();
 
+        $usuario->roles()->sync($request->roles2);
+
         //registrar en bitacora esta accion
         BitacoraController::create(Auth::user()->id, 'Edición de empleado',
             'El usuario con id: '.Auth::user()->id.' editó los datos del empleado: '.$usuario->name.' '.$usuario->ap_paterno.' '.$usuario->ap_materno.' con id: '.$empleado->id);
-        return redirect()->route('empleados.index', tenant('id'));
+        return redirect()->route('empleados.edit', [tenant('id'), $empleado])->with('info', 'Se edito correctamente el usuario, aumentar JS xD');
     }
 
     /**
@@ -131,5 +132,12 @@ class EmpleadosController extends Controller
 
     public static function findBy($campo, $value){
         return Empleados::where($campo,'=', $value)->first();
+    }
+
+    public static function existRol($roles1, $role2) {
+        foreach ($roles1 as $role1) {
+            if ($role1->id == $role2->id) return true;
+        }
+        return false;
     }
 }

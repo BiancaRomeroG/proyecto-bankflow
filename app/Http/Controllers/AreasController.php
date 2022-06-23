@@ -21,7 +21,6 @@ class AreasController extends Controller
     {
         $areas = DB::table('areas')->get();
         $areas = areas::paginate(8);
-
         return view('tenant.areas.index', compact('areas'))->with('i');
     }
 
@@ -60,10 +59,7 @@ class AreasController extends Controller
             'Error al intentar crear el area: '.$request->nombre.'por el usuario con id: '.Auth::user()->id);
             //retorna una vista indicando hubo algun error
         }
-
         //registrar esta accion en bitacora
-       
-
         return redirect()->route('areas.index', tenant('id'));
     }
 
