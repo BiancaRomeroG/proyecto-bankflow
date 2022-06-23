@@ -69,6 +69,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        
                         <div class="">
                             {{$acciones->links()}}
                         </div>

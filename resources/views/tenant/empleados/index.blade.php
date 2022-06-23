@@ -7,12 +7,26 @@
                     <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                         <h4 class="text-dark" class="card-title">Empleados</h4>
                     </div>
-                        
-                    <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <a href="{{ route('empleados.create', tenant('id')) }}" class="btn btn-sm btn-dark">Agregar</a>
-                    </div> 
+
+                    @can('Crear empleados')
+                        <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <a href="{{ route('empleados.create', tenant('id')) }}" class="btn btn-sm btn-dark">Agregar</a>
+                        </div>
+                    @endcan
 
                 </div>
+                @if (session('info'))
+                    <div class="alert alert-success fade show">
+                        <strong>
+                            {{ session('info') }}
+                        </strong>
+                        <a href="{{ route('empleados.index', tenant('id')) }}">
+                            <button class="btn btn-icon btn-sm btn-clear m-auto" type="button" title="X">
+                                <i class="close"></i>
+                            </button>
+                        </a>
+                    </div>
+                @endif
             </div>
             <hr class="m-0">
             <div class="card-body">
@@ -77,25 +91,29 @@
                                                 class="text-secondary text-xs font-weight-normal">{{ $empleado->user->telefono }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('empleados.edit', [tenant('id'), $empleado->id]) }}">
-                                                <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
-                                                    title="Editar">
-                                                    <i class="fas fa-pen m-auto"></i>
-                                                </button>
-                                            </a>
-                                            <a href="{{ route('empleados.show', [tenant('id'), $empleado->id]) }}">
-                                                <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
-                                                    title="Ver informacion">
-                                                    <i class="far fa-eye"></i>
-                                                </button>
-                                            </a>
+                                            @can('Editar empleados')
+                                                <a href="{{ route('empleados.edit', [tenant('id'), $empleado->id]) }}">
+                                                    <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
+                                                        title="Editar">
+                                                        <i class="fas fa-pen m-auto"></i>
+                                                    </button>
+                                                </a>
+                                            @endcan
+                                            @can('Ver empleados')
+                                                <a href="{{ route('empleados.show', [tenant('id'), $empleado->id]) }}">
+                                                    <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
+                                                        title="Ver informacion">
+                                                        <i class="far fa-eye"></i>
+                                                    </button>
+                                                </a>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         <div>
-                            {{$empleados->links()}}
+                            {{ $empleados->links() }}
                         </div>
                     </div>
                 </div>

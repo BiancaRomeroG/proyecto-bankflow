@@ -1,5 +1,5 @@
 @section('title', 'Roles')
-<x-app-layout>
+<x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
             <div class="card-header p-4 pb-2">
@@ -8,7 +8,7 @@
                         <h4 class="text-dark" class="card-title">Roles</h4>
                     </div>
                     <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <a href="{{ route('roles.create') }}" class="btn btn-sm btn-dark">Agregar</a>
+                        <a href="{{ route('roles.create', tenant('id')) }}" class="btn btn-sm btn-dark">Agregar</a>
                     </div>
                 </div>
             </div>
@@ -25,14 +25,14 @@
                                         Nombre</th>
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Descripcion</th>
+                                        Guard Name</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($roles as $rol)
+                                @foreach ($roles as $role)
                                     <tr>
                                         <td class="align-center text-center">
                                             <div class="d-flex px-2 py-1">
@@ -43,23 +43,23 @@
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-xs">{{ $rol->nombre }}</h6>
+                                                    <h6 class="mb-0 text-xs">{{ $role->name }}</h6>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">
-                                                {{ $rol->descripcion}}
+                                                {{ $role->guard_name}}
                                             </p>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('roles.edit', $rol->id) }}">
+                                            <a href="{{ route('roles.edit', [tenant('id'), $role]) }}">
                                                 <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
                                                     title="Editar">
                                                     <i class="fas fa-pen m-auto"></i>
                                                 </button>
                                             </a>
-                                            <a href="{{ route('roles.show', $rol->id) }}">
+                                            <a href="{{ route('roles.show', [tenant('id'), $role]) }}">
                                                 <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
                                                     title="Ver informacion">
                                                     <i class="far fa-eye"></i>
@@ -78,5 +78,5 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-tenant-layout>
 
