@@ -38,6 +38,7 @@ class DocumentosController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request;
         try {
             DB::beginTransaction();
             documentos::store($request);
