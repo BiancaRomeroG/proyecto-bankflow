@@ -129,8 +129,8 @@ Route::group([
             Route::post('documento/store', [DocumentosController::class, 'store'])->name('documentos.store');
             Route::resource('tipos', TipoCreditoController::class);
             Route::resource('usuarios', UsuariosController::class);
-            Route::get('general', [PersonalizarController::class, 'index'])->name('general.index');
-            Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
+            // Route::get('general', [PersonalizarController::class, 'index'])->name('general.index');
+            // Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
             Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
         }
     );

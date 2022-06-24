@@ -95,6 +95,8 @@ class SolicitudCreditoController extends Controller
             $pro_empl->save();
 
             DB::commit();
+            BitacoraController::registrar(Auth::user()->id, 'Solicitud Credito',
+        'Se creo una solicitud de credito para el cliente '.$request->id_cliente);
         } catch (\Exception $e) {
             DB::rollBack();
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
@@ -147,6 +149,8 @@ class SolicitudCreditoController extends Controller
             //dd($proceso);
             $proceso->update();
             DB::commit();
+            BitacoraController::registrar(Auth::user()->id, 'Actualización',
+            'Actualización de solicitud de credito para el cliente '.$request->id_cliente);
         } catch (\Exception $e) {
             DB::rollBack();
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";

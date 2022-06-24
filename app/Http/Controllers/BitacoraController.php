@@ -32,7 +32,7 @@ class BitacoraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public static function create($id_user, $accion, $descripcion)
+    public static function registrar($id_user, $accion, $descripcion)
     {   
         $user = UsuariosController::find($id_user);
         $empleado = EmpleadosController::findBy('id_usuario', $user->id);
@@ -40,7 +40,7 @@ class BitacoraController extends Controller
         $bitacora = new bitacora();
         $bitacora->accion = $accion;
         $bitacora->descripcion = $descripcion;
-        $bitacora->id_area = $empleado->id_area;
+        //$bitacora->id_area = $empleado->id_area;
         $bitacora->id_usuario = $empleado->id_usuario;
         $bitacora->save();
         }

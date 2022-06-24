@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use function PHPUnit\Framework\at;
+
 class TipoCreditoController extends Controller
 {
     /**
@@ -48,8 +50,12 @@ class TipoCreditoController extends Controller
                 $tipo->save();
             });     
             DB::commit();
+            BitacoraController::registrar(Auth::user()->id, 'Creación',
+            'Se creó el tipo de crédito: ' . $request->nombre);
         } catch (\Exception $e) {
             DB::rollBack();
+            BitacoraController::registrar(Auth::user()->id, 'Error',
+            'Se intentó crear el tipo de crédito: ' . $request->nombre);
             //retorna una vista indicando hubo algun error
         }
         return redirect()->route('tipos.index', tenant('id'));

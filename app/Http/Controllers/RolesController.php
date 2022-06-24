@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Contracts\Permission;
 use Spatie\Permission\Models\Permission as ModelsPermission;
 use Spatie\Permission\Models\Role;
@@ -36,6 +37,8 @@ class RolesController extends Controller
             $permission = ModelsPermission::findById($permissions[$i]);
             $permission->assignRole($role);
         }
+        BitacoraController::registrar(Auth::user()->id, 'Creación de rol', 
+        'Se creó el rol: '.$request->nombre);
         return redirect()->route('roles.index', tenant('id'))->with('info', 'Nuevo Rol registrado');
     }
 
@@ -46,6 +49,7 @@ class RolesController extends Controller
         for ($i=0; $i < count($role_permissions); $i++) 
             $permissions[$role_permissions[$i]->id - 1]->estado = 1;
         //return $permissions;
+
         return view('tenant.roles.edit', compact('role', 'permissions'));
     }
 
@@ -65,7 +69,9 @@ class RolesController extends Controller
             else
                 $permission_elem->removeRole($role);
         }
-
+        
+        BitacoraController::registrar(Auth::user()->id, 'Edición de rol',
+        'Se editó el rol: '.$role->name);
         return redirect()->route('roles.index', tenant('id'));
     }
 }
