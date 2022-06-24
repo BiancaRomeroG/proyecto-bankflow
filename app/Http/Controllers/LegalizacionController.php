@@ -7,7 +7,7 @@ use App\Models\documentos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class DocumentosController extends Controller
+class LegalizacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,9 @@ class DocumentosController extends Controller
      */
     public function index($id)
     {
-        //
+        $carpeta = carpeta_credito::find($id);
+        $documentos = documentos::where('id_carpeta', $id)->where('formato', 'legal')->get();
+        return view('tenant.procesos.documentos.legales.index', compact('documentos', 'carpeta'))->with('i');
     }
 
     /**
@@ -24,10 +26,9 @@ class DocumentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
     public function create($id)
     {
-        return view('tenant.procesos.documentos.create', compact('id') );
+        return view('tenant.procesos.documentos.legales.create', compact('id'));
     }
 
     /**
@@ -42,28 +43,20 @@ class DocumentosController extends Controller
             DB::beginTransaction();
             documentos::store($request);
             DB::commit();
-            return redirect()->route('credito.documentos', [tenant('id') ,$request->id_carpeta]);
+            return redirect()->route('legalizacion.index', [tenant('id') ,$request->id_carpeta]);
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->route('credito.documentos', [tenant('id') ,$request->id_carpeta]);
-        }
-    }
-
-    public function descargar($id){
-        $documento = documentos::find($id);
-        if($documento->archivo_ruta != null){
-        $path = storage_path("app/public/".$documento->archivo_ruta);
-        return response()->download($path);
+            return redirect()->route('legalizacion.index', [tenant('id') ,$request->id_carpeta]);
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\documentos  $documentos
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(documentos $documentos)
+    public function show($id)
     {
         //
     }
@@ -71,10 +64,10 @@ class DocumentosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\documentos  $documentos
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(documentos $documentos)
+    public function edit($id)
     {
         //
     }
@@ -83,10 +76,10 @@ class DocumentosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\documentos  $documentos
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, documentos $documentos)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -94,10 +87,10 @@ class DocumentosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\documentos  $documentos
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(documentos $documentos)
+    public function destroy($id)
     {
         //
     }

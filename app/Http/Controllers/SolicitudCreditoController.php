@@ -25,8 +25,8 @@ class SolicitudCreditoController extends Controller
      */
     public function index()
     {
-        $empleado = empleados::find(Auth::user()->id);
-        $creditos = $empleado->creditos;
+        $creditos = solicitud_credito::join('gestion_creditos', 'solicitud_creditos.id', 'gestion_creditos.id_solicitud_credito')
+        ->where('gestion_creditos.id_empleado', Auth::user()->id)->paginate(8);
         return view('tenant.procesos.index', compact('creditos'))->with('i');
     }
 

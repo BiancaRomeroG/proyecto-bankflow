@@ -25,5 +25,6 @@ class Nuviaseeder extends Seeder
         $this->call(Nuvia\CreditoDetallesSeeder::class);
         $this->call(Nuvia\SolicitudCreditosSeeder::class);
         $this->call(Nuvia\GestionCreditosSeeder::class);
+        $this->call(Nuvia\RequisitosSeeder::class);
     }
 }

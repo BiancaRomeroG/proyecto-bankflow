@@ -30,7 +30,6 @@ class documentos extends Model
             $documento->archivo_ruta = $path;
 
         $documento->id_carpeta = (int) $request->id_carpeta;
-        $documento->id_empresa = (int) $request->id_empresa;
         $documento->save();
     }
 }

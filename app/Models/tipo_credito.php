@@ -14,4 +14,8 @@ class tipo_credito extends Model
         'nombre',
         'descripcion',
     ];
+
+    public function requisitos(){
+        return $this->hasMany('App\Models\requisitos', 'id_tipo_credito', 'id');
+    }
 }
