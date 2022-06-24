@@ -14,12 +14,15 @@
             <div class="container container-mx">
                 <div class="m-2">
                     <h4>
-                        Permisos del rol
+                        Permisos 
                     </h4>
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        @for ($i = 0; $i < count($permissions) / 2; $i++)
+                <div class="card bg-gray-200 shadow-lg">
+                    <div class="row my-3 mx-2">
+                    <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        <h6 class="font-weight-bolder mb-3" style="display: inline-block">&nbsp;&nbsp;
+                            Barra de Tareas</h6>
+                        @for ($i = 0; $i < 6; $i++)
                             <div>
                                 <span class='material-icons'><?php if ($permissions[$i]->estado == 1) echo "done"; else echo "close"?></span>
                                 <strong>{{ $permissions[$i]->name }}</strong>
@@ -27,14 +30,51 @@
                         @endfor
                     </div>
                     
-                    <div class="col-6">
-                        @for ($i = count($permissions) / 2 + 1; $i < count($permissions); $i++)
+                    <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        <h6 class="font-weight-bolder mb-3" style="display: inline-block">&nbsp;&nbsp;
+                            Gestionar Empleados</h6>
+                        @for ($i = 6; $i < 11; $i++)
                             <div>
                                 <span class='material-icons'><?php if ($permissions[$i]->estado == 1) echo "done"; else echo "close"?></span>
                                 <strong>{{ $permissions[$i]->name }}</strong>
                             </div>
                         @endfor
                     </div>
+
+                    <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        <h6 class="font-weight-bolder mb-3" style="display: inline-block">&nbsp;&nbsp;
+                            Gestionar Empleados</h6>
+                        @for ($i = 11; $i < 16; $i++)
+                            <div>
+                                <span class='material-icons'><?php if ($permissions[$i]->estado == 1) echo "done"; else echo "close"?></span>
+                                <strong>{{ $permissions[$i]->name }}</strong>
+                            </div>
+                        @endfor
+                    </div>
+
+                    <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        <h6 class="font-weight-bolder mb-3" style="display: inline-block">&nbsp;&nbsp;
+                            Gestionar Areas</h6>
+                        @for ($i = 16; $i < 21; $i++)
+                            <div>
+                                <span class='material-icons'><?php if ($permissions[$i]->estado == 1) echo "done"; else echo "close"?></span>
+                                <strong>{{ $permissions[$i]->name }}</strong>
+                            </div>
+                        @endfor
+                    </div>
+
+                    <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        <h6 class="font-weight-bolder mb-3" style="display: inline-block">&nbsp;&nbsp;
+                            Gestionar Roles</h6>
+                        @for ($i = 21; $i < 26; $i++)
+                            <div>
+                                <span class='material-icons'><?php if ($permissions[$i]->estado == 1) echo "done"; else echo "close"?></span>
+                                <strong>{{ $permissions[$i]->name }}</strong>
+                            </div>
+                        @endfor
+                    </div>
+
+
                 </div>
             </div>
         </div>
