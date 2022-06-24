@@ -29,7 +29,7 @@
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Cliente</th>
-                                        <th
+                                    <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Motivo</th>
                                     <th
@@ -69,7 +69,8 @@
                                         </td>
 
                                         <td class="align-middle text-center">
-                                            <a href="{{ route('credito.documentos', [tenant('id'), $credito->id_carpeta_credito]) }}">
+                                            <a
+                                                href="{{ route('credito.documentos', [tenant('id'), $credito->id_carpeta_credito]) }}">
                                                 <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
                                                     title="Documentos">
                                                     <span class="material-icons ">folder</span>
@@ -87,14 +88,20 @@
                                                     <span class="material-icons">edit</span>
                                                 </button>
                                             </a>
+                                            <a href="{{ route('legalizacion.index', [tenant('id'), $credito->id_carpeta_credito]) }}">
+                                                <button class="btn btn-icon btn-sm btn-success m-auto" type="button"
+                                                    title="Legalizacion">
+                                                    <span class="material-icons">verified_user</span>    
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- <div class="">
-                            {{$creditos->links()}}
-                        </div> --}}
+                        <div>
+                            {{ $creditos->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

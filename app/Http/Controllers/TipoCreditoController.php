@@ -16,8 +16,8 @@ class TipoCreditoController extends Controller
      */
     public function index()
     {
-        
-        return view('procesos.tipos.index', tenant('id'))->with('i');
+        $tipos = tipo_credito::get();
+        return view('tenant.procesos.tipos.index', compact('tipos'))->with('i');
     }
 
     /**
@@ -27,7 +27,7 @@ class TipoCreditoController extends Controller
      */
     public function create()
     {
-        return view('procesos.tipos.create');
+        return view('tenant.procesos.tipos.create');
     }
 
     /**
@@ -43,7 +43,6 @@ class TipoCreditoController extends Controller
                 $tipo = tipo_credito::create([
                     'nombre' => $request->nombre,
                     'descripcion' => $request->descripcion,
-                    'id_empresa' => $request->id_empresa
                 ]);
                 $tipo->save();
             });     
@@ -75,7 +74,7 @@ class TipoCreditoController extends Controller
     public function edit($id)
     {
         $tipo = tipo_credito::find($id);
-        return view('procesos.tipos.edit', compact('tipo'));
+        return view('tenant.procesos.tipos.edit', compact('tipo'));
     }
 
     /**
@@ -91,7 +90,7 @@ class TipoCreditoController extends Controller
             $tipo = tipo_credito::findOrFail($request->id);   
             $tipo->nombre = $request->nombre;
             $tipo->descripcion = $request->descripcion;
-            $tipo->save();
+            $tipo->update();
 
             DB::commit();
         } catch (\Exception $e) {

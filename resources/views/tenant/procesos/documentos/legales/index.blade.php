@@ -5,11 +5,11 @@
             <div class="card-header p-4 pb-2">
                 <div class="row">
                     <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                        <h4 class="text-dark" class="card-title">Documentos Presentados</h4>
+                        <h4 class="text-dark" class="card-title">Documentos legales</h4>
                     </div>
                     <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                         <a href="{{ route('creditos.index', tenant('id')) }}" class="btn btn-sm btn-dark"><i class="fas fa-arrow-left"></i>Atras</a>
-                        &nbsp;<a href="{{ route('documentos.create', [tenant('id'), $carpeta->id]) }}" class="btn btn-sm btn-dark">Agregar</a>
+                        &nbsp;<a href="{{ route('legalizacion.create', [tenant('id'), $carpeta->id]) }}" class="btn btn-sm btn-dark">Agregar</a>
                     </div>
                     <p class="mb-0">{{$carpeta->info_cliente}}</p>
                     <p>{{$carpeta->requisito_prestamo}}</p>

@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\DocumentosController;
 use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\LegalizacionController;
 use App\Http\Controllers\SolicitudCreditoController;
 use App\Http\Controllers\TipoCreditoController;
 use App\Http\Controllers\PersonalizarController;
 use App\Http\Controllers\RegistrarController;
+use App\Http\Controllers\RequisitosController;
 use App\Models\Planes;
 use App\Models\Tenant;
 use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
@@ -122,6 +124,9 @@ Route::group([
             Route::get('/users/informacion-creditos', function () {
                 return view('tenant.informacion.info_creditos');
             })->name('info_creditos');
+            Route::get('creditos/{id}/legalizacion', [LegalizacionController::class, 'index'])->name('legalizacion.index');
+            Route::get('creditos/{id}/crearDocLegal', [LegalizacionController::class, 'create'])->name('legalizacion.create');
+            Route::post('creditos/store', [LegalizacionController::class, 'store'])->name('legalizacion.store');
             Route::get('creditos/{id}/documentos', [SolicitudCreditoController::class, 'documentos'])->name('credito.documentos'); //index de documentos
             Route::resource('creditos', SolicitudCreditoController::class);
             Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
@@ -132,6 +137,11 @@ Route::group([
             Route::get('general', [PersonalizarController::class, 'index'])->name('general.index');
             Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
             Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
+            Route::get('/requisitos/{id}', [RequisitosController::class, 'index'])->name('requisitos.index');
+            Route::get('/requisitos/{id}/create', [RequisitosController::class, 'create'])->name('requisitos.create');
+            Route::post('/requisitos/store', [RequisitosController::class, 'store'])->name('requisitos.store');
+            Route::get('/requisitos/{id}/edit', [RequisitosController::class, 'edit'])->name('requisitos.edit');
+            Route::put('requisitos/{id}/update', [RequisitosController::class, 'update'])->name('requisitos.update');
         }
     );
 });
