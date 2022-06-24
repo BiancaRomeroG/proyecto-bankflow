@@ -25,5 +25,6 @@ class AlasSeeder extends Seeder
         $this->call(Alas\CreditoDetallesSeeder::class);
         $this->call(Alas\SolicitudCreditosSeeder::class);
         $this->call(Alas\GestionCreditosSeeder::class);
+        $this->call(Alas\DocumentosSeeder::class);
     }
 }
