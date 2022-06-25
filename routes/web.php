@@ -19,6 +19,7 @@ use App\Http\Controllers\RegistrarController;
 use App\Http\Controllers\RequisitosController;
 use App\Models\Planes;
 use App\Models\Tenant;
+use Illuminate\Http\Request;
 use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
 
 /*
@@ -43,6 +44,18 @@ Route::get('/', function () {
 Route::post('/logout', [LoginController::class, 'logout'])
     ->name('logout');
 
+Route::get('/log-empresa', function(){
+    return view('auth.log_empresa');
+})->name('log-empresa');
+
+Route::post('get-login', function(Request $request){
+    if($request->empresa == null){
+        return redirect()->route('login');
+    }else{
+        return redirect(url(''.$request->empresa.'/login'));
+    }
+
+})->name('go-login');
 
 Route::get('registrar/{id}', [RegistrarController::class, 'index'])->name('registrar.index');
 Route::post('registrar', [RegistrarController::class, 'store'])->name('registrar.store');
