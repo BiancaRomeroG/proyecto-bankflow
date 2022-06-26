@@ -67,7 +67,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
+            BitacoraController::registrar(Auth::user()->id, 'Inicio de sesión',
+             'Se inició sesión en el sistema');
             return redirect(tenant('id').'/dashboard');
         }
 
@@ -77,12 +78,18 @@ class LoginController extends Controller
     }
 
 
+    /*The users was authenticated.*/
+
+
+
 
 
     public function logout(Request $request)
     {
         //  BitacoraController::create(Auth::user()->id, 'Cerró sesión',
         //    'Cerró sesión en el sistema el usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
+        BitacoraController::registrar(Auth::user()->id, 'Cierre de Sessión',
+        'Se cerró sesión en el sistema');
         $this->guard()->logout();
 
         $request->session()->invalidate();

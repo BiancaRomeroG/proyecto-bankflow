@@ -51,7 +51,7 @@ class ClientesController extends Controller
 
         //registrar la accion en la bitacora
         BitacoraController::create(Auth::user()->id,'Creación de cliente',
-         'El usuario con id: '.Auth::user()->id.' creó el cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
+         'Se creó el cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
         return redirect()->route('clientes.create', tenant('id'))->with('info', 'El aprobado');
     }
@@ -101,7 +101,7 @@ class ClientesController extends Controller
 
         //registrar en bitacora esta accion
         BitacoraController::create(Auth::user()->id,'Edición de Cliente',
-        'El usuario con id: '.Auth::user()->id.' editó los del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
+        'Se editó los del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
         return redirect()->route('clientes.index', tenant('id'));
     }
