@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\Controller;
+use App\Models\Sc_Bitacora;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
@@ -67,7 +68,6 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
             return redirect(tenant('id').'/dashboard');
         }
 
@@ -81,8 +81,13 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        //  BitacoraController::create(Auth::user()->id, 'Cerró sesión',
-        //    'Cerró sesión en el sistema el usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
+        /* Sc_Bitacora::create([
+        'fecha' => now(),
+        'accion' => 'Cerró sesión',
+        'descripcion' => 'Cerró sesión en el sistema el usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id,
+        'id_usuario' => Auth::user()->id
+        ]); */
+        
         $this->guard()->logout();
 
         $request->session()->invalidate();

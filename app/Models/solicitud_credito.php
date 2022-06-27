@@ -13,6 +13,7 @@ class solicitud_credito extends Model
     protected $fillable = [
         'monto',
         'motivo',
+        'estado',
         'id_cliente',
         'id_tipo_credito',
         'id_carpeta_credito',
@@ -23,7 +24,7 @@ class solicitud_credito extends Model
         return $this->belongsTo('App\Models\tipo_credito', 'id_tipo_credito', 'id');
     }
 
-    public function creditos(){
+    public function empleados(){
         return $this->belongsToMany('App\Models\empleados', 'gestion_creditos', 'id_solicitud_credito', 'id_empleado');
     }
 

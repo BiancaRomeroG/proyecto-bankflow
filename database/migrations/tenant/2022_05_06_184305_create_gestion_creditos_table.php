@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('gestion_creditos', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('condicion')->default(0);
             $table->unsignedBigInteger('id_empleado');
             $table->unsignedBigInteger('id_solicitud_credito');
             $table->foreign('id_empleado')->references('id')->on('empleados');

@@ -36,7 +36,7 @@
                     </a>
 
                     <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu1" data-bs-parent="#menu">
-                        <div class="">
+                        <div>
                             <li class="w-100">
                                 <a class="nav-link" href="{{ route('empleados.index', tenant('id')) }}"><span
                                         class="nav-link-item ms-4">Empleado</span></a>
@@ -45,6 +45,7 @@
                                 <a class="nav-link" href="{{ route('clientes.index', tenant('id')) }}"><span
                                         class="nav-link-item ms-4">Cliente</span></a>
                             </li>
+                        </div>
                     </ul>
                 </li>
             @endcan
@@ -108,6 +109,10 @@
                                 <a href="{{ route('creditos.index', tenant('id')) }}" class="nav-link "> <span
                                         class="nav-link-item ms-4">Procesos asignados</span></a>
                             </li>
+                            {{-- <li class="w-100">
+                                <a href="{{ route('tipos.index', tenant('id')) }}" class="nav-link "> <span
+                                        class="nav-link-item ms-4">Creditos Concluidos</span></a>
+                            </li> --}}
                             <li class="w-100">
                                 <a href="{{ route('tipos.index', tenant('id')) }}" class="nav-link "> <span
                                         class="nav-link-item ms-4">Tipos de Creditos</span></a>

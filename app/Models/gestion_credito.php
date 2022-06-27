@@ -13,6 +13,7 @@ class gestion_credito extends Model
     protected $fillable = [
         'id_empleado',
         'id_solicitud_credito',
+        'condicion'
     ];
 
     

@@ -19,16 +19,16 @@
                                     <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nº
                                     </th>
                                     <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Fecha</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Acción</th>
                                     <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Descripción</th>
+                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Descripcion</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Area</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Empresa
+                                        Identificador del Usuario
                                     </th>
                                 </tr>
                             </thead>
@@ -44,25 +44,25 @@
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <span
+                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->fecha }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex px-2 py-1">
+                                                <span
                                                     class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->accion }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->descripcion }}</span>
+                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{$accion->descripcion }}</span>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="d-flex px-2 py-1">
+                                            <div class="text-center">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{$accion->area->nombre }}</span>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp{{ $accion->empresa->nombre }}</span>
+                                                    class="text-secondary text-xs font-weight-normal">{{ $accion->id_usuario }}</span>
                                             </div>
                                         </td>
                                     </tr>

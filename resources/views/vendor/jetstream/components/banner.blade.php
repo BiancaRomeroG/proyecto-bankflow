@@ -1,6 +1,6 @@
 @props(['style' => session('flash.bannerStyle', 'success'), 'message' => session('flash.banner')])
 
-   
+
 <aside
     class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
     id="sidenav-main">
@@ -8,16 +8,14 @@
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="#!" target="_blank">
-            <img src="{{asset('assets')}}/img/logo.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold text-white">
-                {{--  <?php use App\Models\empresa;$empresa = empresa::findOrFail(Auth::user()->id_empresa);echo $empresa->nombre;?>  --}}
-            </span>
+            <img src="{{ asset('assets') }}/img/logo.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="text-white">&nbsp;WorkFlow System</span>       
         </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse w-auto h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            {{--  <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link text-white" href="{{route('dashboard')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
@@ -25,116 +23,43 @@
                     <span class="nav-link-text ms-1">Home</span>
                 </a>
             </li>
-            <?php use App\Models\roles;$id_rol = Auth::user()->id_rol;$rol = roles::findOrFail($id_rol);if ($rol->nombre != "Cliente") {?>
-            <li>
-                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
-                    data-bs-toggle="collapse" aria-expanded="false">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Registro</span>
-                </a>
-
-                <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu1" data-bs-parent="#menu">
-                    <div class="">
-                        <li class="w-100">
-                            <a class="nav-link" href="{{ route('empleados.index') }}"><span
-                                    class="nav-link-item ms-4">Empleado</span></a>
-                        </li>
-                        <li class="w-100">
-                            <a class="nav-link" href="{{ route('clientes.index') }}"><span
-                                    class="nav-link-item ms-4">Cliente</span></a>
-                        </li>
-                </ul>
-            </li>
-            <?php } if ($rol->nombre != "Cliente") {?>
+           
             <li class="nav-item">
-                <a class="nav-link text-white " href="{{ route('usuarios.index') }}">
+                <a class="nav-link text-white " href="{{ route('empresas.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons">group</i>
+                        <span class="material-icons">business</span>
+                    </div>
+                    <span class="nav-link-text ms-1">Empresas</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-white " href="{{ route('sc_usuarios.index') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <span class="material-icons">group</span>
                     </div>
                     <span class="nav-link-text ms-1">Usuarios</span>
                 </a>
             </li>
-            
-            <li>
-                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
-                    data-bs-toggle="collapse" aria-expanded="false">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">work</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Empresa</span>
-                </a>
-                <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu2" data-bs-parent="#menu">
-                    <div class="">
-                        <li class="w-100">
-                            <a class="nav-link "> <span class="nav-link-item ms-4">Politica de Negocio</span></a>
-                        </li>
-                        <li class="w-100">
-                            <a href="{{ route('areas.index') }}" class="nav-link "> <span
-                                    class="nav-link-item ms-4">Areas</span></a>
-                        </li>
-                        <li class="w-100">
-                            <a href="{{ route('roles.index') }}" class="nav-link "> <span
-                                    class="nav-link-item ms-4">Roles</span></a>
-                        </li>
-                </ul>
-            </li>
-            <?php } if ($rol->nombre == "Cliente") {?>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="{{ route('info_creditos') }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">description</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Requisitos</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">post_add</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Mis Créditos</span>
-                    </a>
-                </li>
-            <?php } if ($rol->nombre == "Administrador" || $rol->nombre == "Administrador de empresa") {?>
-            <li>
-                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
-                    data-bs-toggle="collapse" aria-expanded="false">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">work</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Procesos Crediticios</span>
-                </a>
-                <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu3" data-bs-parent="#menu">
-                    <div class="">
-                        <li class="w-100">
-                            <a href="{{route('creditos.index')}}" class="nav-link "> <span class="nav-link-item ms-4">Procesos asignados</span></a>
-                        </li>
-                        <li class="w-100">
-                            <a href="{{route('tipos.index')}}" class="nav-link "> <span
-                                    class="nav-link-item ms-4">Tipos de Creditos</span></a>
-                        </li>
-                </ul>
-            </li>
+           
             <li class="nav-item">
-                <a class="nav-link text-white " href="../pages/rtl.html">
+                <a class="nav-link text-white " href="{{ route('planes.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">post_add</i>
                     </div>
-                    <span class="nav-link-text ms-1">Reportes</span>
+                    <span class="nav-link-text ms-1">Planes</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="{{route('bitacora.index')}}">
+                <a class="nav-link text-white " href="{{route('sc_bitacora.index')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">description</i>
                     </div>
                     <span class="nav-link-text ms-1">Bitacora</span>
                 </a>
             </li>
-            <?php } if ($rol->nombre == "Administrador de empresa") {?>
-            <li>
+          
+            {{-- <li>
                 <a href="#submenu4" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
                     data-bs-toggle="collapse" aria-expanded="false">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -153,8 +78,8 @@
                                     class="nav-link-item ms-4">Personalizar</span></a>
                         </li>
                 </ul>
-            </li>
-            <?php }?>
+            </li> --}}
+           
                             
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas
@@ -168,7 +93,8 @@
                     </div>
                     <span class="nav-link-text ms-1">Perfil</span>
                 </a>
-            </li>  --}}
+            </li>
+
             <li class="nav-item">
                 <form style="display: inline" method="POST" action="{{ route('logout') }}">
                     @csrf

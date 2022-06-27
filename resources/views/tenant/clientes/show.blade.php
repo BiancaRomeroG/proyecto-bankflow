@@ -60,17 +60,17 @@
                                     <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
                                             class="text-dark">Nombre:</strong> &nbsp; {{ $cliente->user->name }}
                                     </li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Apellido Paterno:</strong> &nbsp;
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Apellido
+                                            Paterno:</strong> &nbsp;
                                         {{ $cliente->user->ap_paterno }}</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Apellido Materno:</strong> &nbsp;
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Apellido
+                                            Materno:</strong> &nbsp;
                                         {{ $cliente->user->ap_materno }}</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Carnet de Identidad:</strong> &nbsp;
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Carnet
+                                            de Identidad:</strong> &nbsp;
                                         {{ $cliente->user->ci }}</li>
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Fecha de Nacimiento:</strong> &nbsp;
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fecha de
+                                            Nacimiento:</strong> &nbsp;
                                         {{ $cliente->user->fecha_nac }}</li>
                                 </ul>
                             </div>
@@ -172,7 +172,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($cliente->creditos as $credito)
+                                            @foreach ($creditos as $credito)
                                                 <tr>
                                                     <td class="align-center text-center">
                                                         <div class="d-flex px-2 py-1">
@@ -206,12 +206,14 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    <div>
+                                        {{ $creditos->links() }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="fixed-plugin">
