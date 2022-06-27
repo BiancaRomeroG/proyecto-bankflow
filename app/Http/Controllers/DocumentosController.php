@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\carpeta_credito;
 use App\Models\documentos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DocumentosController extends Controller
@@ -54,6 +55,9 @@ class DocumentosController extends Controller
         $documento = documentos::find($id);
         if($documento->archivo_ruta != null){
         $path = storage_path("app/public/".$documento->archivo_ruta);
+        BitacoraController::registrar(Auth::user()->id, 'Descargar documento', 
+        'El usuario '.Auth::user()->nombre.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.
+        ' descargó el documento con ruta: '.$documento->archivo_ruta);
         return response()->download($path);
         }
     }

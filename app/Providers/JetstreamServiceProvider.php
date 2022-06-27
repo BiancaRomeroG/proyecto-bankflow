@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Fortify\Fortify;
 use App\Models\User;
-use App\Http\Controllers\BitacoraController;
+use App\Http\Controllers\SCBitacoraController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +44,7 @@ class JetstreamServiceProvider extends ServiceProvider
                 config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class,
                 RedirectIfTwoFactorAuthenticatable::class,
                 AttemptToAuthenticate::class,
-              //  BitacoraController::class,
+               // SCBitacoraController::class,
                 PrepareAuthenticatedSession::class,
             ]);
         });

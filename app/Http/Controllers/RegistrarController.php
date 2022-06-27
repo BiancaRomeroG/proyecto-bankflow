@@ -71,7 +71,7 @@ class RegistrarController extends Controller
                     'id_rol' => $rol->id
                 ]);
             });
-
+         //   BitacoraController::registrarCentral(null,'Registro de Empresa', 'Se registró la empresa: '.$input['nombre'].' con id: '.$input['identificador']);
             return redirect(url($input['identificador'] . '/login'));
         }
         return redirect()->route('registrar.index', $input['id_plan']);

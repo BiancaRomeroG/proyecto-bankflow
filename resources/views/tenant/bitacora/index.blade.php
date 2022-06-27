@@ -25,11 +25,12 @@
                                         Descripción</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Area</th>
+                                        Usuario</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Empresa
-                                    </th>
+                                        Fecha-Hora</th>
+                              
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,25 +45,26 @@
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->accion }}</span>
+                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->funcionalidad }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->descripcion }}</span>
+                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->info_detalle }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{$accion->area->nombre }}</span>
+                                                        class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{
+                                                             $accion->usuario->name.' '.$accion->usuario->ap_paterno.' '.$accion->usuario->ap_materno }}</span>
                                             </div>
                                         </td>
-                                        <td class="text-center">
+                                        <td>
                                             <div class="d-flex px-2 py-1">
                                                 <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp{{ $accion->empresa->nombre }}</span>
+                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->created_at }}</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -70,7 +72,7 @@
                             </tbody>
                         </table>
                         <div class="">
-                            {{$acciones->links()}}
+                            {{ $acciones->links() }}
                         </div>
                     </div>
                 </div>

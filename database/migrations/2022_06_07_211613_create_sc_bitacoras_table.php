@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('sc_bitacoras', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha');
             $table->string('accion');
             $table->string('descripcion');
-            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('users');
             $table->timestamps();
         });
