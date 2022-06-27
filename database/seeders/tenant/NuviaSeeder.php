@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\Tenant\Nuvia ;
 
-class Nuviaseeder extends Seeder
+class NuviaSeeder extends Seeder
 {
     /**
      * Seed the application's database.

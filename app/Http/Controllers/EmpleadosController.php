@@ -53,7 +53,7 @@ class EmpleadosController extends Controller
         $empleado->save();
 
         //registrar en bitacora esta accion
-        BitacoraController::create(Auth::user()->id, 'Creación de empleado',
+        BitacoraController::registrar(Auth::user()->id, 'Creación de empleado',
             'Se creó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno);
 
         return redirect()->route('empleados.index', tenant('id'))->with('info', 'El aprobado');
@@ -115,7 +115,7 @@ class EmpleadosController extends Controller
         $usuario->roles()->sync($request->roles2);
 
         //registrar en bitacora esta accion
-        BitacoraController::create(Auth::user()->id, 'Edición de empleado',
+        BitacoraController::registrar(Auth::user()->id, 'Edición de empleado',
             'Se editó los datos del empleado: '.$usuario->name.' '.$usuario->ap_paterno.' '.$usuario->ap_materno);
         return redirect()->route('empleados.edit', [tenant('id'), $empleado])->with('info', 'Se edito correctamente el usuario, aumentar JS xD');
     }
@@ -131,7 +131,7 @@ class EmpleadosController extends Controller
         $empleado = User::find($id);
         $empleado->delete();
         //registrar en bitacora esta accion
-        BitacoraController::create(Auth::user()->id, 'Eliminación de empleado',
+        BitacoraController::registrar(Auth::user()->id, 'Eliminación de empleado',
             'Se eliminó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno);
         return redirect('tenant.empleados.index');
     }

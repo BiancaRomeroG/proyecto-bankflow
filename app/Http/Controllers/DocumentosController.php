@@ -44,6 +44,10 @@ class DocumentosController extends Controller
             DB::beginTransaction();
             documentos::store($request);
             DB::commit();
+
+            BitacoraController::registrar(Auth::user()->id, 'Nuevo docuemento ingresado', 
+                'Se ingresó el documento de : '.$request->descripcion . ' para la carpeta con ID: '. $request->id_carpeta);
+
             return redirect()->route('credito.documentos', [tenant('id') ,$request->id_carpeta]);
         } catch (\Exception $e) {
             DB::rollBack();
