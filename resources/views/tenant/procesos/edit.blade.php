@@ -15,11 +15,12 @@
                     @method('put')
                     <div class="row mt-3">
                         <input name="id" class="form-control" type="hidden" value="{{ $proceso->id }}" />
-                        
+
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Monto: </label>
-                                <input name="monto" class="form-control" type="text" value="{{ $proceso->monto }}" />
+                                <input name="monto" class="form-control" type="text"
+                                    value="{{ $proceso->monto }}" />
                             </div>
                         </div>
                         <div class="col-12 col-sm-8 mt-sm-0 mb-3">
@@ -35,9 +36,13 @@
                             <select class="form-select" name="id_cliente">
                                 @foreach ($clientes as $cliente)
                                     @if ($cliente->id == $proceso->id_cliente)
-                                        <option selected value="{{ $cliente->id }}">{{ $cliente->user->name }} {{ $cliente->user->ap_paterno }} {{ $cliente->user->ap_materno }}</option>
+                                        <option selected value="{{ $cliente->id }}">{{ $cliente->user->name }}
+                                            {{ $cliente->user->ap_paterno }} {{ $cliente->user->ap_materno }}
+                                        </option>
                                     @else
-                                        <option value="{{ $cliente->id }}">{{ $cliente->user->name }} {{ $cliente->user->ap_paterno }} {{ $cliente->user->ap_materno }}</option>
+                                        <option value="{{ $cliente->id }}">{{ $cliente->user->name }}
+                                            {{ $cliente->user->ap_paterno }} {{ $cliente->user->ap_materno }}
+                                        </option>
                                     @endif
                                 @endforeach
                             </select>
@@ -52,6 +57,26 @@
                                         <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                                     @endif
                                 @endforeach
+                            </select>
+                        </div>
+                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                            <label>Estado: </label>
+                            <select class="form-select" name="estado">
+                                @if ($proceso->estado == 'en proceso')
+                                    <option selected value="en proceso">En proceso</option>
+                                    <option value="aprobado">Aprobado</option>
+                                    <option value="rechazado">Rechazado</option>
+                                @endif
+                                @if ($proceso->estado == 'aprobado')
+                                    <option value="en proceso">En proceso</option>
+                                    <option selected value="aprobado">Aprobado</option>
+                                    <option value="rechazado">Rechazado</option>
+                                @endif
+                                @if ($proceso->estado == 'rechazado')
+                                    <option value="en proceso">En proceso</option>
+                                    <option value="aprobado">Aprobado</option>
+                                    <option selected value="rechazado">Rechazado</option>
+                                @endif
                             </select>
                         </div>
                     </div>

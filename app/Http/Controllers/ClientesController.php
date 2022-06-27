@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\clientes;
+use App\Models\solicitud_credito;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,7 +64,8 @@ class ClientesController extends Controller
      */
     public function show(clientes $cliente)
     {
-        return view('tenant.clientes.show', compact('cliente'))->with('i');
+        $creditos = solicitud_credito::where('id_cliente', $cliente->id)->paginate(5);
+        return view('tenant.clientes.show', compact('cliente', 'creditos'))->with('i');
     }
 
     /**

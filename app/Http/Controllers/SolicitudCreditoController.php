@@ -26,14 +26,38 @@ class SolicitudCreditoController extends Controller
     public function index()
     {
         $creditos = solicitud_credito::join('gestion_creditos', 'solicitud_creditos.id', 'gestion_creditos.id_solicitud_credito')
-        ->where('gestion_creditos.id_empleado', Auth::user()->id)->paginate(8);
+            ->where('gestion_creditos.id_empleado', Auth::user()->id)
+            /* ->where('solicitud_creditos.estado', 'en proceso') */
+            ->select(
+                'solicitud_creditos.id',
+                'solicitud_creditos.monto',
+                'solicitud_creditos.motivo',
+                'solicitud_creditos.estado',
+                'solicitud_creditos.id_cliente',
+                'solicitud_creditos.id_tipo_credito',
+                'solicitud_creditos.id_credito_detalle',
+                'solicitud_creditos.id_carpeta_credito',
+                'gestion_creditos.id_empleado',
+                'gestion_creditos.id_solicitud_credito',
+                'gestion_creditos.condicion as condicion',
+                'gestion_creditos.id as id_gestion'
+            )->orderBy('solicitud_creditos.updated_at', 'ASC')
+            ->paginate(8);
         return view('tenant.procesos.index', compact('creditos'))->with('i');
     }
 
-    public function documentos($id){
+    public function documentos($id)
+    {
         $carpeta = carpeta_credito::find($id);
         $documentos = documentos::where('id_carpeta', $id)->get();
         return view('tenant.procesos.documentos.index', compact('documentos', 'carpeta'))->with('i');
+    }
+
+    public function marcar($id){
+        $gestion = gestion_credito::find($id);
+        $gestion->condicion = ($gestion->condicion == 0)? 1 : 0;
+        $gestion->update();
+        return redirect()->route('creditos.index', tenant('id'));
     }
 
     /**
@@ -75,19 +99,19 @@ class SolicitudCreditoController extends Controller
             $detalle->fecha_inicio = now();
             $detalle->fecha_fin = $request->fecha_fin;
             $detalle->descripcion = $request->descripcion;
-            $detalle->estado = $request->estado;            
+            $detalle->estado = $request->estado;
             $detalle->pago_estado = $request->estado;
             $detalle->interes = (float) $request->interes;
             $detalle->capital = (float) $request->capital;
             $detalle->numero_cuotas = (int) $request->numero_cuotas;
             $detalle->save();
-            
+
             $proceso->id_carpeta_credito = $carpeta->id;
             $proceso->id_credito_detalle = $detalle->id;
-            
+
             //dd($proceso);
             $proceso->save();
-            
+
             $empleado = empleados::find(Auth::user()->id);
             $pro_empl = new gestion_credito();
             $pro_empl->id_empleado = $empleado->id;
@@ -101,7 +125,7 @@ class SolicitudCreditoController extends Controller
             DB::rollBack();
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
-        return redirect()->route('creditos.index',tenant('id'));
+        return redirect()->route('creditos.index', tenant('id'));
     }
 
     /**
@@ -141,11 +165,12 @@ class SolicitudCreditoController extends Controller
     {
         try {
             $proceso = solicitud_credito::find($request->id);
-           
+
             $proceso->id_cliente = (int) $request->id_cliente;
             $proceso->id_tipo_credito = (int) $request->id_tipo_credito;
             $proceso->monto = $request->monto;
             $proceso->motivo = $request->motivo;
+            $proceso->estado = $request->estado;
             //dd($proceso);
             $proceso->update();
             DB::commit();

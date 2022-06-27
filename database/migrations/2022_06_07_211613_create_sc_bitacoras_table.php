@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('descripcion');
             $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('users');
-            $table->unsignedBigInteger('id_sc_empresa');
-            $table->foreign('id_sc_empresa')->references('id')->on('sc_empresas');
             $table->timestamps();
         });
     }

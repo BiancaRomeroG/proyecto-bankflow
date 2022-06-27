@@ -34,7 +34,13 @@
                                         Motivo</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Estado</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Opciones</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Condición de Tarea</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,14 +64,31 @@
                                                 {{ $credito->monto }}
                                             </p>
                                         </td>
+
                                         <td class="text-center">
                                             <span
                                                 class="text-secondary text-xs font-weight-normal">{{ $credito->cliente->user->name }}
                                                 {{ $credito->cliente->user->ap_paterno }}</span>
                                         </td>
+
                                         <td>
                                             <span
                                                 class="text-secondary text-xs font-weight-normal">{{ $credito->motivo }}</span>
+                                        </td>
+
+                                        <td>
+                                            @if ($credito->estado == "en proceso")
+                                                <span class="badge"
+                                                    style="background-color: blueviolet">{{ $credito->estado }}</span>
+                                            @endif
+                                            @if ($credito->estado == "aprobado")
+                                                <span class="badge"
+                                                    style="background-color: rgb(43, 226, 61)">{{ $credito->estado }}</span>
+                                            @endif
+                                            @if ($credito->estado == "rechazado")
+                                                <span class="badge"
+                                                    style="background-color: rgb(240, 44, 44)">{{ $credito->estado }}</span>
+                                            @endif
                                         </td>
 
                                         <td class="align-middle text-center">
@@ -84,17 +107,44 @@
                                             </a>
                                             <a href="{{ route('creditos.edit', [tenant('id'), $credito->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-warning m-auto" type="button"
-                                                    title="Ver informacion">
+                                                    title="Editar">
                                                     <span class="material-icons">edit</span>
                                                 </button>
                                             </a>
-                                            <a href="{{ route('legalizacion.index', [tenant('id'), $credito->id_carpeta_credito]) }}">
+                                            <a
+                                                href="{{ route('legalizacion.index', [tenant('id'), $credito->id_carpeta_credito]) }}">
                                                 <button class="btn btn-icon btn-sm btn-success m-auto" type="button"
                                                     title="Legalizacion">
-                                                    <span class="material-icons">verified_user</span>    
+                                                    <span class="material-icons">verified_user</span>
+                                                </button>
+                                            </a>
+                                            <a href="{{ route('asociados.index', [tenant('id'), $credito->id]) }}">
+                                                <button class="btn btn-icon btn-sm btn-secondary m-auto" type="button"
+                                                    title="Asociados">
+                                                    <span class="material-icons">group</span>
                                                 </button>
                                             </a>
                                         </td>
+                                        <td class="text-center">
+                                            @if ($credito->condicion == 0)
+                                                <a
+                                                    href="{{ route('creditos.marcar', [tenant('id'), $credito->id_gestion]) }}">
+                                                    <button class="btn btn-icon btn-sm bg-gradient-primary m-auto"
+                                                        type="button" title="Terminar tarea">
+                                                        <span class="material-icons">check</span>
+                                                    </button>
+                                                </a>
+                                            @else
+                                                <a
+                                                    href="{{ route('creditos.marcar', [tenant('id'), $credito->id_gestion]) }}">
+                                                    <button class="btn btn-icon btn-sm bg-gradient-danger m-auto"
+                                                        type="button" title="Marcar no terminado">
+                                                        <span class="material-icons">close</span>
+                                                    </button>
+                                                </a>
+                                            @endif
+                                        </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -19,16 +19,16 @@
                                     <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nº
                                     </th>
                                     <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Fecha</th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Acción</th>
                                     <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Descripción</th>
+                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Descripcion</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Area</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Empresa
+                                        Identificador del Usuario
                                     </th>
                                 </tr>
                             </thead>

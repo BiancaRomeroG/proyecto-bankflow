@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\areas;
 use App\Models\empleados;
 use App\Models\roles;
+use App\Models\solicitud_credito;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -66,7 +67,9 @@ class EmpleadosController extends Controller
      */
     public function show(empleados $empleado)
     {
-        return view('tenant.empleados.show', compact('empleado'))->with('i');
+        $creditos = solicitud_credito::join('gestion_creditos', 'solicitud_creditos.id', 'gestion_creditos.id_solicitud_credito')
+        ->where('gestion_creditos.id_empleado', $empleado->id)->paginate(5);
+        return view('tenant.empleados.show', compact('empleado', 'creditos'))->with('i');
     }
 
     /**

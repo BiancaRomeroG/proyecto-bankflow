@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AreasController;
+use App\Http\Controllers\AsociadosController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\Auth\LoginController;
@@ -18,7 +19,13 @@ use App\Http\Controllers\TipoCreditoController;
 use App\Http\Controllers\PersonalizarController;
 use App\Http\Controllers\RegistrarController;
 use App\Http\Controllers\RequisitosController;
+use App\Http\Controllers\SC_BitacoraController;
+use App\Http\Controllers\SC_EmpresasController;
+use App\Http\Controllers\SC_PlanesController;
+use App\Http\Controllers\SC_UsuariosController;
+use App\Models\empresa;
 use App\Models\Planes;
+use App\Models\SC_Dashboard;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
 use Stancl\Tenancy\Middleware\InitializeTenancyByPath;
@@ -67,10 +74,14 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $datos = new SC_Dashboard();
+        return view('dashboard', compact('datos'));
     })->name('dashboard');
 
-
+    Route::resource('sc_usuarios', SC_UsuariosController::class);
+    Route::resource('empresas', SC_EmpresasController::class);
+    Route::resource('planes', SC_PlanesController::class);
+    Route::resource('sc_bitacora', SC_BitacoraController::class);
     /*  Route::resource('roles', RolesController::class);
     Route::resource('areas', AreasController::class);
     Route::resource('usuarios', UsuariosController::class);
@@ -138,6 +149,8 @@ Route::group([
             Route::get('/users/informacion-creditos', function () {
                 return view('tenant.informacion.info_creditos');
             })->name('info_creditos');
+
+            Route::get('creditos/{id}/marcar', [SolicitudCreditoController::class, 'marcar'])->name('creditos.marcar');
             Route::get('creditos/{id}/legalizacion', [LegalizacionController::class, 'index'])->name('legalizacion.index');
             Route::get('creditos/{id}/crearDocLegal', [LegalizacionController::class, 'create'])->name('legalizacion.create');
             Route::post('creditos/store', [LegalizacionController::class, 'store'])->name('legalizacion.store');
@@ -156,6 +169,8 @@ Route::group([
             Route::post('/requisitos/store', [RequisitosController::class, 'store'])->name('requisitos.store');
             Route::get('/requisitos/{id}/edit', [RequisitosController::class, 'edit'])->name('requisitos.edit');
             Route::put('requisitos/{id}/update', [RequisitosController::class, 'update'])->name('requisitos.update');
+            Route::post('/asociados/store', [AsociadosController::class, 'store'])->name('asociados.store');
+            Route::get('/asociados/{id}', [AsociadosController::class, 'index'])->name('asociados.index');
         }
     );
 });
