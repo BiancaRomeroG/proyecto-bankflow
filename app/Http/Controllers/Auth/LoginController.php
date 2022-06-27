@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\BitacoraController;
+use App\Http\Controllers\SCBitacoraController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -88,7 +89,12 @@ class LoginController extends Controller
     {
         //  BitacoraController::create(Auth::user()->id, 'Cerró sesión',
         //    'Cerró sesión en el sistema el usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
-        BitacoraController::registrar(Auth::user()->id, 'Cierre de Sessión',
+      
+        if(!empty(tenant('id')))
+        //      SCBitacoraController::registrar(Auth::user()->id, 'Cierre de Sessión',
+        //     'Se cerró sesión en el sistema');
+        // else
+            BitacoraController::registrar(Auth::user()->id, 'Cierre de Sessión',
         'Se cerró sesión en el sistema');
         $this->guard()->logout();
 

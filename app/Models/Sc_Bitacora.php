@@ -11,7 +11,6 @@ class Sc_Bitacora extends Model
 
     protected $table = 'sc_bitacoras';
     protected $fillable = [
-        'fecha',
         'accion',
         'descripcion',
         'id_usuario'

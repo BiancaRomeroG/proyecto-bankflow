@@ -5,6 +5,7 @@ use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BitacoraController;
+use App\Http\Controllers\SCBitacoraController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -85,8 +86,8 @@ Route::middleware([
     Route::resource('tipos', TipoCreditoController::class);
     Route::resource('usuarios', UsuariosController::class);
     Route::get('general', [PersonalizarController::class, 'index'])->name('general.index');
-    Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
-    Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');*/
+    Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');*/
+    Route::get('/bitacora', [SCBitacoraController::class, 'index'])->name('bitacoraCentral.index');
 });
 
 

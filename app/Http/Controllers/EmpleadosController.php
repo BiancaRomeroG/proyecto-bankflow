@@ -53,7 +53,7 @@ class EmpleadosController extends Controller
 
         //registrar en bitacora esta accion
         BitacoraController::create(Auth::user()->id, 'Creación de empleado',
-            'El usuario con id: '.Auth::user()->id.' creó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno.' con id: '.$empleado->id);
+            'Se creó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno);
 
         return redirect()->route('empleados.index', tenant('id'))->with('info', 'El aprobado');
     }
@@ -113,7 +113,7 @@ class EmpleadosController extends Controller
 
         //registrar en bitacora esta accion
         BitacoraController::create(Auth::user()->id, 'Edición de empleado',
-            'El usuario con id: '.Auth::user()->id.' editó los datos del empleado: '.$usuario->name.' '.$usuario->ap_paterno.' '.$usuario->ap_materno.' con id: '.$empleado->id);
+            'Se editó los datos del empleado: '.$usuario->name.' '.$usuario->ap_paterno.' '.$usuario->ap_materno);
         return redirect()->route('empleados.edit', [tenant('id'), $empleado])->with('info', 'Se edito correctamente el usuario, aumentar JS xD');
     }
 
@@ -125,8 +125,11 @@ class EmpleadosController extends Controller
      */
     public function destroy($id)
     {
-        $empleado = empleados::find($id);
+        $empleado = User::find($id);
         $empleado->delete();
+        //registrar en bitacora esta accion
+        BitacoraController::create(Auth::user()->id, 'Eliminación de empleado',
+            'Se eliminó el empleado: '.$empleado->nombre.' '.$empleado->ap_paterno.' '.$empleado->ap_materno);
         return redirect('tenant.empleados.index');
     }
 

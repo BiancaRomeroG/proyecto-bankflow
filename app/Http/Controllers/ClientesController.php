@@ -101,7 +101,7 @@ class ClientesController extends Controller
 
         //registrar en bitacora esta accion
         BitacoraController::create(Auth::user()->id,'Edición de Cliente',
-        'Se editó los del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
+        'Se editó datos del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
         return redirect()->route('clientes.index', tenant('id'));
     }
