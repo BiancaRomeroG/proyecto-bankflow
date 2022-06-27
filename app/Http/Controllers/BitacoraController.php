@@ -19,32 +19,36 @@ class BitacoraController extends Controller
         return view('tenant.bitacora.index',compact('acciones'))->with('i');
     }
 
-    public function __invoke($request, $next)
-    {
-        $this->create(Auth::user()->id, 'Inicio de sesión', 
-        'Inicio de sesión exitoso en el sistema del usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id, Auth::user()->id_empresa );
-
-        return $next($request);
-    }
+   
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public static function create($id_user, $accion, $descripcion)
+    public static function registrar($id_user, $accion, $descripcion)
     {   
         $user = UsuariosController::find($id_user);
-        $empleado = EmpleadosController::findBy('id_usuario', $user->id);
-        if($empleado){
+  
         $bitacora = new bitacora();
-        $bitacora->accion = $accion;
-        $bitacora->descripcion = $descripcion;
-        $bitacora->id_area = $empleado->id_area;
-        $bitacora->id_usuario = $empleado->id_usuario;
-        $bitacora->save();
-        }
-         
+        $bitacora->funcionalidad = $accion;
+        $bitacora->info_detalle = $descripcion;
+        $bitacora->id_usuario = $user->id;
+        $bitacora->save();    
+    }
+
+    public static function registrarCentral($id_user, $accion, $descripcion)
+    {   
+        $user = UsuariosController::find($id_user);
+  
+        $bitacora = new bitacora();
+        $bitacora->funcionalidad = $accion;
+        $bitacora->info_detalle = $descripcion;
+        if($id_user != null)
+            $bitacora->id_usuario = $user->id;
+        else
+            $bitacora->id_usuario = null;
+        $bitacora->save();    
     }
 
     /**

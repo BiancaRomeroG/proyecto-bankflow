@@ -34,39 +34,40 @@
                             </thead>
                             <tbody>
                                 @foreach ($acciones as $accion)
-                                    <tr>
-                                        <td class="align-center text-center">
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ ++$i }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->accion }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->descripcion }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{$accion->area->nombre }}</span>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp{{ $accion->empresa->nombre }}</span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                <tr>
+                                    <td class="align-center text-center">
+                                        <div class="d-flex px-2 py-1">
+                                            <span
+                                                class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ ++$i }}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <span
+                                                class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->funcionalidad }}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <span
+                                                class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->info_detalle }}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <span
+                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{
+                                                         $accion->usuario->name.' '.$accion->usuario->ap_paterno.' '.$accion->usuario->ap_materno }}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <span
+                                                class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ $accion->created_at }}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                         

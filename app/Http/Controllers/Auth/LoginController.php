@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\BitacoraController;
+use App\Http\Controllers\SCBitacoraController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -67,7 +68,8 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
+            BitacoraController::registrar(Auth::user()->id, 'Inicio de sesión',
+             'Se inició sesión en el sistema');
             return redirect(tenant('id').'/dashboard');
         }
 
@@ -77,12 +79,23 @@ class LoginController extends Controller
     }
 
 
+    /*The users was authenticated.*/
+
+
+
 
 
     public function logout(Request $request)
     {
         //  BitacoraController::create(Auth::user()->id, 'Cerró sesión',
         //    'Cerró sesión en el sistema el usuario: '. Auth::user()->name.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.' con id: '.Auth::user()->id);
+      
+        if(!empty(tenant('id')))
+        //      SCBitacoraController::registrar(Auth::user()->id, 'Cierre de Sessión',
+        //     'Se cerró sesión en el sistema');
+        // else
+            BitacoraController::registrar(Auth::user()->id, 'Cierre de Sessión',
+        'Se cerró sesión en el sistema');
         $this->guard()->logout();
 
         $request->session()->invalidate();

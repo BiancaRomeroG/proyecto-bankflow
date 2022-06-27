@@ -50,13 +50,13 @@ class AreasController extends Controller
                 ]);
                 $areas->save();
                 BitacoraController::create(Auth::user()->id, 'Creación de area', 
-                'El usuario con id: '.Auth::user()->id.' creó el area: '.$areas->nombre.' con id: '.$areas->id);
+                'Se creó el area: '.$request->nombre);
             });     
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            BitacoraController::create(Auth::user()->id, 'Error al crear', 
-            'Error al intentar crear el area: '.$request->nombre.'por el usuario con id: '.Auth::user()->id);
+            BitacoraController::create(Auth::user()->id, 'Error', 
+            'Error al intentar crear el area: '.$request->nombre);
             //retorna una vista indicando hubo algun error
         }
         //registrar esta accion en bitacora
@@ -111,11 +111,11 @@ class AreasController extends Controller
 
             //se guarda en bitacora esta accion
             BitacoraController::create(Auth::user()->id, 'Edición de area',
-            'El usuario con id: '.Auth::user()->id.' editó el area: '.$area->nombre.' con id: '.$area->id);
+           'Se editó el area: '.$request->nombre);
         } catch (\Exception $e) {
             DB::rollBack();
-            BitacoraController::create(Auth::user()->id, 'Error al editar',
-            'Error al intentar editar el area: '.$area->nombre.'por el usuario con id: '.Auth::user()->id);
+            BitacoraController::create(Auth::user()->id, 'Error',
+            'Error al intentar crear el area: '.$request->nombre);
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
 
