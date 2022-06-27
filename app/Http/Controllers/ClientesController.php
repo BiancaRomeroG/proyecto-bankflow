@@ -51,7 +51,7 @@ class ClientesController extends Controller
 
 
         //registrar la accion en la bitacora
-        BitacoraController::create(Auth::user()->id,'Creación de cliente',
+        BitacoraController::registrar(Auth::user()->id,'Creación de cliente',
          'Se creó el cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
         return redirect()->route('clientes.create', tenant('id'))->with('info', 'El aprobado');
@@ -102,7 +102,7 @@ class ClientesController extends Controller
         $cliente->update();
 
         //registrar en bitacora esta accion
-        BitacoraController::create(Auth::user()->id,'Edición de Cliente',
+        BitacoraController::registrar(Auth::user()->id,'Edición de Cliente',
         'Se editó datos del cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
         return redirect()->route('clientes.index', tenant('id'));

@@ -15,7 +15,6 @@
                     @csrf
                     <div class="row mt-3">
                         <input name="id_carpeta" class="form-control" type="hidden" value="{{$id}}" />
-                        <input name="id_empresa" class="form-control" type="hidden" value="{{Auth::user()->id_empresa}}" />
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Formato: </label>

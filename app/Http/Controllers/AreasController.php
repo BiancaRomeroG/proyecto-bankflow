@@ -49,13 +49,13 @@ class AreasController extends Controller
                     'descripcion' => $request->descripcion,
                 ]);
                 $areas->save();
-                BitacoraController::create(Auth::user()->id, 'Creación de area', 
+                BitacoraController::registrar(Auth::user()->id, 'Creación de area', 
                 'Se creó el area: '.$request->nombre);
             });     
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            BitacoraController::create(Auth::user()->id, 'Error', 
+            BitacoraController::registrar(Auth::user()->id, 'Error', 
             'Error al intentar crear el area: '.$request->nombre);
             //retorna una vista indicando hubo algun error
         }
@@ -110,11 +110,11 @@ class AreasController extends Controller
             DB::commit();
 
             //se guarda en bitacora esta accion
-            BitacoraController::create(Auth::user()->id, 'Edición de area',
+            BitacoraController::registrar(Auth::user()->id, 'Edición de area',
            'Se editó el area: '.$request->nombre);
         } catch (\Exception $e) {
             DB::rollBack();
-            BitacoraController::create(Auth::user()->id, 'Error',
+            BitacoraController::registrar(Auth::user()->id, 'Error',
             'Error al intentar crear el area: '.$request->nombre);
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
