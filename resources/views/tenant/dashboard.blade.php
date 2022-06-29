@@ -4,7 +4,10 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
+    @can('SideBar Mis Procesos')
+        
+    @endcan
+    @can('SideBar Usuarios')
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -585,6 +588,7 @@
             </div>
         </footer>
     </div>
+    @endcan
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

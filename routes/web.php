@@ -124,6 +124,10 @@ Route::group([
                 return view('tenant.dashboard');
             })->name('dashboard.tenant');
 
+            Route::get('/dashboardcliente', function () {
+                return view('tenant.dashboardcliente');
+            })->name('dashboardcliente.tenant');
+
             Route::post('/logout', [LoginController::class, 'logout'])
                 ->name('logout.tenant');
             //RUTAS DE EMPRESA
