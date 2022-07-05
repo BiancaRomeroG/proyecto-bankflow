@@ -41,8 +41,7 @@ class SolicitudCreditoController extends Controller
                 'gestion_creditos.id_solicitud_credito',
                 'gestion_creditos.condicion as condicion',
                 'gestion_creditos.id as id_gestion'
-            )->orderBy('solicitud_creditos.updated_at', 'ASC')
-            ->paginate(8);
+            )->orderBy('solicitud_creditos.updated_at', 'ASC')->get();
         return view('tenant.procesos.index', compact('creditos'))->with('i');
     }
 

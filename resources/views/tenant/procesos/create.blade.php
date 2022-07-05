@@ -29,18 +29,20 @@
                             </div>
                         </div>
 
-                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        <div class="col-12 col-sm-8 col-lg-4 mt-sm-0 mb-3">
                             <label>Cliente: </label>
-                            <select class="form-select" name="id_cliente">
+                            <select class="mi-selector form-select" name="id_cliente">      
+                                <option value=""></option>  
                                 @foreach ($clientes as $cliente)
                                     <option value="{{ $cliente->id }}">{{ $cliente->user->name }}
                                         {{ $cliente->user->ap_paterno }} {{ $cliente->user->ap_materno }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                        <div class="col-12 col-sm-8 col-lg-4 mt-sm-0 mb-3">
                             <label>Tipo de credito: </label>
-                            <select class="form-select" name="id_tipo_credito">
+                            <select class="form-select mi-selector" name="id_tipo_credito">
+                                <option value=""></option>
                                 @foreach ($tipos as $tipo)
                                     <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                                 @endforeach

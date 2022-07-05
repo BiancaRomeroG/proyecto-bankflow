@@ -68,7 +68,8 @@
                                 @csrf
                                 <div class="card-body m-2 p-1 mb-3">
                                     <input name="id_solicitud_credito" class="form-control" type="hidden" value="{{ $id }}" />
-                                    <select class="form-select" name="id_empleado">
+                                    <select class="form-select mi-selector" name="id_empleado">
+                                        <option value=""></option>
                                         @foreach ($empleados as $empleado)
                                             <option value="{{ $empleado->id }}">
                                                 {{ $empleado->user->name . ' ' . $empleado->user->ap_paterno . ' - ' }}

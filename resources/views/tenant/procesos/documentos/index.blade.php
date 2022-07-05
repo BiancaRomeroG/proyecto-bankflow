@@ -3,23 +3,41 @@
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
             <div class="card-header p-4 pb-2">
-                <div class="row">
-                    <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                <div class="row justify-content-between">
+                    <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                         <h4 class="text-dark" class="card-title">Documentos Presentados</h4>
+                        <p class="mb-0">{{ $carpeta->info_cliente }}</p>
+                        <p>{{ $carpeta->requisito_prestamo }}</p>
                     </div>
-                    <div class="d-md-flex justify-content-md-end col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <a href="{{ route('creditos.index', tenant('id')) }}" class="btn btn-sm btn-dark"><i class="fas fa-arrow-left"></i>Atras</a>
-                        &nbsp;<a href="{{ route('documentos.create', [tenant('id'), $carpeta->id]) }}" class="btn btn-sm btn-dark">Agregar</a>
+                    <div class="col-12 col-sm-12 col-md-auto col-lg-3 col-xl-3">
+                        {{-- <a href="{{ route('creditos.index', tenant('id')) }}" class="btn btn-sm btn-dark"><i
+                                class="fas fa-arrow-left"></i>Atras</a> --}}
+                        &nbsp;
+                        @can('Crear documento digital')
+                            <a href="{{ route('documentos.create', [tenant('id'), $carpeta->id]) }}"
+                                class="btn btn-sm btn-dark">Agregar</a>
+                        @endcan
                     </div>
-                    <p class="mb-0">{{$carpeta->info_cliente}}</p>
-                    <p>{{$carpeta->requisito_prestamo}}</p>
+                    <div class="col-12 col-lg-3 col-sm-12 col-md-12 col-xl-3">
+                        <div class="input-group">
+                            <div class="form-outline">
+                                <input type="text" id="buscar"
+                                    class="border border-gray-400 form-control bg-gray-100" placeholder="Buscar" />
+                            </div>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
             <hr class="m-0">
             <div class="card-body">
-                <div class="card bg-gray-100 shadow-lg">
+                <div class="card bg-gray-200 shadow-lg">
                     <div class="table-responsive">
-                        <table class="table align-items-center mb-0">
+                        <table class="table align-items-center mb-0" id="tabla">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nº
@@ -29,7 +47,7 @@
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Descripcion</th>
-                                        <th
+                                    <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Opcion</th>
                                 </tr>
@@ -52,23 +70,21 @@
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0">
-                                                {{ $documento->descripcion}}
+                                                {{ $documento->descripcion }}
                                             </p>
                                         </td>
                                         <td>
-                                            <a type="button" title="Descargar documento"
-                                                class="btn btn-danger btn-sm"
-                                                href="{{ route('documentos.descargar', [tenant('id'), $documento->id]) }}">
-                                                <span class="material-icons">sim_card_download</span>
-                                            </a>
+                                            @can('Descargar documentos digitales')
+                                               <a type="button" title="Descargar documento" class="btn btn-danger btn-sm"
+                                                    href="{{ route('documentos.descargar', [tenant('id'), $documento->id]) }}">
+                                                    <span class="material-icons">sim_card_download</span>
+                                                </a> 
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- <div class="">
-                            {{$creditos->links()}}
-                        </div> --}}
                     </div>
                 </div>
             </div>

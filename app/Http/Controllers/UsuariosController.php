@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\clientes;
+use App\Models\empleados;
 use App\Models\empresa;
 use App\Models\roles;
+use App\Models\solicitud_credito;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -73,22 +76,27 @@ class UsuariosController extends Controller
      * @param  \App\Models\usuarios  $usuarios
      * @return \Illuminate\Http\Response
      */
-    public function show(user $usuarios)
+    public function show(user $usuario)
     {
-        // $usuario = user::findOrFail($usuarios);
-        // try {
-        //     $usuarios = User::join('empleados', 'empleados.id_usuario', 'users.id')
-        //                     ->join('clientes', 'clientes.id_usuario', 'users.id')
-        //                     ->join('roles', 'users.id_rol', 'roles.id')
-        //                     ->select('users.name', 'users.ap_paterno', 'users.ap_materno', 'users.ci', 'roles.nombre As nombre_rol')
-        //                     ->get();
-        // } catch (\Exception $e) {
-        //     //retornar alerta de ha ocurrido un error
-        // }
-        // return view('usuarios.show')->with('i');
-       
-        $resultado = empty(tenant('id')) ? '0' : tenant('id');
-        return $resultado;
+        $cliente = clientes::where('id_usuario', $usuario->id)->first();
+        $empleado = empleados::where('id_usuario', $usuario->id)->first();
+
+        $creditos = null;
+        $title = "Créditos";
+
+        if ($cliente != null) {
+            $creditos = solicitud_credito::where('id_cliente', $cliente->id)
+                                         ->get();
+            $title = "Creditos Solicitados";
+        }else if ($empleado != null) {
+            $creditos = solicitud_credito::join('gestion_creditos', 'solicitud_creditos.id', 'gestion_creditos.id_solicitud_credito')
+                                         ->where('gestion_creditos.id_empleado', $empleado->id)
+                                         ->get();
+            $title = "Procesos Crediticios";
+        }else
+            $creditos = [];
+
+        return view('tenant.usuarios.show', compact('usuario', 'creditos', 'title'))->with('i');
     }
 
     /**

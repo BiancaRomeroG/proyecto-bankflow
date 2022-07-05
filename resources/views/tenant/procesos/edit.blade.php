@@ -33,7 +33,8 @@
 
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Cliente: </label>
-                            <select class="form-select" name="id_cliente">
+                            <select class="form-select mi-selector" name="id_cliente">
+                                <option value=""></option>
                                 @foreach ($clientes as $cliente)
                                     @if ($cliente->id == $proceso->id_cliente)
                                         <option selected value="{{ $cliente->id }}">{{ $cliente->user->name }}
@@ -49,7 +50,8 @@
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Tipo de credito: </label>
-                            <select class="form-select" name="id_tipo_credito">
+                            <select class="form-select mi-selector" name="id_tipo_credito">
+                                <option value=""></option>
                                 @foreach ($tipos as $tipo)
                                     @if ($tipo->id == $proceso->id_tipo_credito)
                                         <option selected value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
@@ -61,7 +63,8 @@
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Estado: </label>
-                            <select class="form-select" name="estado">
+                            <select class="form-select mi-selector" name="estado">
+                                <option value=""></option>
                                 @if ($proceso->estado == 'en proceso')
                                     <option selected value="en proceso">En proceso</option>
                                     <option value="aprobado">Aprobado</option>

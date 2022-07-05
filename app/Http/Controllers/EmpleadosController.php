@@ -20,7 +20,7 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        $empleados = empleados::paginate(6);
+        $empleados = empleados::all();
         return view('tenant.empleados.index', compact('empleados'))->with('i');
     }
 

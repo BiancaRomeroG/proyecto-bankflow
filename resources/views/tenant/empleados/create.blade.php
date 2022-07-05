@@ -38,13 +38,10 @@
                                 <input name="ci" class="multisteps-form__input form-control" type="number" />
                             </div>
                         </div>
-                        {{-- <div class="col-6 col-sm-4 mt-sm-0 mb-3">
-                            <label>Rol: </label>
-                            {{ __('Aqui rol xD') }}
-                        </div> --}}
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Area: </label>
-                            <select class="form-select" name="id_area">
+                            <select class="form-select mi-selector" name="id_area">
+                                <option value=""></option>
                                 @foreach ($areas as $area)
                                     <option value="{{ $area->id }}">{{ $area->nombre }}</option>
                                 @endforeach
