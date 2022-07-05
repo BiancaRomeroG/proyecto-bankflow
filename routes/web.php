@@ -143,8 +143,10 @@ Route::group([
             Route::resource('areas', AreasController::class);
             Route::resource('usuarios', UsuariosController::class);
             Route::resource('clientes', ClientesController::class);
-
             Route::resource('empleados', EmpleadosController::class);
+            Route::resource('tipos', TipoCreditoController::class);
+            Route::resource('usuarios', UsuariosController::class);
+            Route::resource('creditos', SolicitudCreditoController::class);
 
             Route::get('/users/informacion-creditos', function () {
                 return view('tenant.informacion.info_creditos');
@@ -155,12 +157,9 @@ Route::group([
             Route::get('creditos/{id}/crearDocLegal', [LegalizacionController::class, 'create'])->name('legalizacion.create');
             Route::post('creditos/store', [LegalizacionController::class, 'store'])->name('legalizacion.store');
             Route::get('creditos/{id}/documentos', [SolicitudCreditoController::class, 'documentos'])->name('credito.documentos'); //index de documentos
-            Route::resource('creditos', SolicitudCreditoController::class);
             Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
             Route::get('documentos/{id}/create', [DocumentosController::class, 'create'])->name('documentos.create');
-            Route::post('documento/store', [DocumentosController::class, 'store'])->name('documentos.store');
-            Route::resource('tipos', TipoCreditoController::class);
-            Route::resource('usuarios', UsuariosController::class);
+            Route::post('documento/store', [DocumentosController::class, 'store'])->name('documentos.store');    
             // Route::get('general', [PersonalizarController::class, 'index'])->name('general.index');
             // Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
             Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');

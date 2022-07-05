@@ -143,24 +143,13 @@
                     administrativas</h6>
             </li>
             <li class="nav-item">
-                @can('SideBar Mis Procesos')
-                    <a class="nav-link text-white "
-                        href="{{ route('clientes.show', [tenant('id'), Auth::user()->id]) }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">person</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Perfil</span>
-                    </a>
-                @endcan
-                @can('SideBar Usuarios')
-                    <a class="nav-link text-white "
-                        href="{{ route('empleados.show', [tenant('id'), Auth::user()->id]) }}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">person</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Perfil</span>
-                    </a>
-                @endcan
+                <a class="nav-link text-white "
+                    href="{{ route('usuarios.show', [tenant('id'), Auth::user()->id]) }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Perfil</span>
+                </a>
             </li>
             <li class="nav-item">
                 <form style="display: inline" method="POST" action="{{ route('logout.tenant', tenant('id')) }}">

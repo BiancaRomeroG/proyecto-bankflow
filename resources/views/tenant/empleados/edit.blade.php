@@ -43,13 +43,11 @@
                                 value="{{ $empleado->user->ci }}" />
                         </div>
                     </div>
-                    <div class="col-6 col-sm-4 mt-sm-0 mb-3">
-                        <label>Rol: </label>
-                        {{ __('Aqui el rol') }}
-                    </div>
+
                     <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                         <label>Area: </label>
-                        <select class="form-select" name="id_area">
+                        <select class="form-select mi-selector" name="id_area">
+                            <option value=""></option>
                             @foreach ($areas as $area)
                                 @if ($empleado->id_area == $area->id)
                                     <option selected value="{{ $area->id }}">{{ $area->nombre }}</option>
@@ -80,7 +78,7 @@
                                 value="{{ $empleado->user->email }}" />
                         </div>
                     </div>
-                    <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                    <div class="col-12 col-sm-4 col-lg-12 mt-sm-0 mb-3">
                         <div class="input-group input-group-static my-2">
                             <h5 class="font-weight-bolder mb-3" style="display: inline-block">&nbsp;&nbsp; Roles</h5>
                             @foreach ($roles as $role)
