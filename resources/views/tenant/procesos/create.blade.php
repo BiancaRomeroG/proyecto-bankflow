@@ -243,28 +243,4 @@
             $('#email').val(email);
         }
     </script>
-
-
-
-    {{-- <script>
-        $(document).ready(function() {
-            $('#select').on('click', function() {
-                var value = $(this).val();
-                console.log(value);
-                $('#ci').val(value);
-            });
-        })
-    </script> --}}
-
-    {{-- <script>
-        $(function(){
-          $(document).on('change','#select',function(){
-            var value = $(this).val();
-          $('#ci').val(value);
-        });
-      });
-    
-    </script> --}}
-
-
 </x-app-tenant-layout>
