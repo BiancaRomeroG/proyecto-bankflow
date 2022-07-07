@@ -95,14 +95,20 @@ class SolicitudCreditoController extends Controller
             $carpeta->save();
 
             $detalle = new credito_detalle();
+            $detalle->fecha_inicio = now();
+            $detalle->fecha_fin = $request->fecha_fin;
             $detalle->descripcion = $request->descripcion;
-            // $detalle->monto = $request->monto;
-            // $detalle->estado = $request->estado;
-            // $detalle->pago_estado = $request->estado;
-            $detalle->tasa_interes = (float) $request->tasa_interes;
-            $detalle->duracion = (int) $request->duracion;
-            $detalle->tipo_credito = $request->nombre;
+            $detalle->estado = $request->estado;
+            $detalle->pago_estado = $request->estado;
+            $detalle->interes = (float) $request->interes;
+            $detalle->capital = (float) $request->capital;
+            $detalle->numero_cuotas = (int) $request->numero_cuotas;
+            $detalle->duracion = $request->duracion;
             $detalle->save();
+
+            $tipo = new tipo_credito();
+            $tipo->nombre = $request->nombre;
+            $tipo->save();
 
             $proceso->id_carpeta_credito = $carpeta->id;
             $proceso->id_credito_detalle = $detalle->id;
@@ -121,7 +127,7 @@ class SolicitudCreditoController extends Controller
         'Se creo una solicitud de credito para el cliente '.$request->id_cliente);
         } catch (\Exception $e) {
             DB::rollBack();
-           // return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
+            return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
         }
         return redirect()->route('creditos.index', tenant('id'));
     }

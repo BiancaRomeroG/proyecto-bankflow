@@ -28,7 +28,8 @@
                                         @foreach ($clientes as $cliente)
                                             <option value="{{ $cliente->id }}" parametro="{{ $cliente->user->ci }}"
                                                 parametro2="{{ $cliente->user->telefono }}"
-                                                parametro3="{{ $cliente->user->email }}">
+                                                parametro3="{{ $cliente->user->email }}"
+                                                parametro4="{{ $cliente->user->domicilio}}">
                                                 {{ $cliente->user->name }}
                                                 {{ $cliente->user->ap_paterno }} {{ $cliente->user->ap_materno }}
                                             </option>
@@ -65,7 +66,8 @@
                             <div class="col-12 col-sm-8 mt-sm-0 mb-3">
                                 <div class="input-group input-group-static my-2">
                                     <label>Domicilio: </label>
-                                    <input name="domicilio" class="form-control" type="text" />
+                                    <input name="email" class="form-control" type="text" id="domicilio"
+                                        value="" />
                                 </div>
                             </div>
 
@@ -79,7 +81,7 @@
                                 </div>
                                 <div class="col-12 col-sm-8 mt-sm-0 mb-3">
                                     <div class="input-group input-group-static my-2">
-                                        <label>Motivo: </label>
+                                        <label>Descripcion: </label>
                                         <input name="requisito_prestamo" class="form-control" type="text" />
                                     </div>
                                 </div>
@@ -127,12 +129,15 @@
             var ci = $('option:selected', el).attr('parametro');
             var telefono = $('option:selected', el).attr('parametro2');
             var email = $('option:selected', el).attr('parametro3');
+            var domicilio = $('option:selected', el).attr('parametro4');
             console.log(ci);
             console.log(telefono);
             console.log(email);
+            console.log(domicilio);
             $('#ci').val(ci);
             $('#telefono').val(telefono);
             $('#email').val(email);
+            $('#domicilio').val(domicilio);
         }
     </script>
 </x-app-tenant-layout>

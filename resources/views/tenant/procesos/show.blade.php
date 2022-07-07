@@ -30,7 +30,7 @@
                                     {{ $solicitud_credito->cliente->user->email }}
                                 </p>
                                 <p class="text-dark ms-3"> Domicilio:
-
+                                    {{ $solicitud_credito->cliente->user->domicilio }}
                                 </p>
                             </blockquote>
                         </div>
@@ -40,24 +40,30 @@
                 <br>
                 <br>
                 <div class="card bg-gray-100 shadow-lg">
-                            <div class="card bg-gradient-default">
-                                <div class="card-body">
-                                    <h5 class="font-weight-normal text-info text-gradient">
-                                        Detalles Especificos</h5>
-                                    <blockquote class="blockquote text-white mb-0">
-                                        <p class="text-dark ms-3">Descripcion:
-                                            {{ $solicitud_credito->detalles->descripcion }}</p>
-                                        <p class="text-dark ms-3">Monto:
-                                            {{ $solicitud_credito->monto}}</p>
-                                        <p class="text-dark ms-3">Interes:
-                                            {{ $solicitud_credito->detalles->tasa_interes}}</p>
-                                        <p class="text-dark ms-3">Tipo de Credito:
-                                            {{ $solicitud_credito->detalles->tipo_credito }}</p>
-                                        <p class="text-dark ms-3">Duracion:
-                                            {{ $solicitud_credito->detalles->duracion }}</p>
-                                    </blockquote>
-                                </div>
-                            </div>
+                    <div class="card bg-gradient-default">
+                        <div class="card-body">
+                            <h5 class="font-weight-normal text-info text-gradient">
+                                Detalles Especificos</h5>
+                            <blockquote class="blockquote text-white mb-0">
+                                <p class="text-dark ms-3">Descripcion:
+                                    {{ $solicitud_credito->detalles->descripcion }}</p>
+                                <p class="text-dark ms-3">Monto:
+                                    {{ $solicitud_credito->monto }}</p>
+                                <p class="text-dark ms-3">Fecha Inicio:
+                                    {{ $solicitud_credito->detalles->fecha_inicio }}</p>
+                                <p class="text-dark ms-3">Interes:
+                                    {{ $solicitud_credito->detalles->tasa_interes }}</p>
+                                <p class="text-dark ms-3">Tipo de Credito:
+                                    {{ $solicitud_credito->tipo->nombre }}</p>
+                                <p class="text-dark ms-3">Duracion:
+                                    {{ $solicitud_credito->detalles->duracion }}</p>
+                                <p class="text-dark ms-3">Estado:
+                                    {{ $solicitud_credito->detalles->estado }}</p>
+                                <p class="text-dark ms-3">Coutas Canceladas:
+                                    {{ $solicitud_credito->detalles->numero_cuotas }}</p>
+                            </blockquote>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
