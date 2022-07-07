@@ -12,49 +12,53 @@
             <hr class="m-0">
             <div class="card-body">
                 <div class="card bg-gray-100 shadow-lg">
-
-                    <div class="card bg-gradient-default mb-3">
-                        <div class="card-body">
-                            <h5 class="font-weight-normal text-info text-gradient">
-                                {{ $solicitud_credito->cliente->user->name }}
-                                {{ $solicitud_credito->cliente->user->ap_paterno }}
-                                {{ $solicitud_credito->cliente->user->ap_materno }}</h5>
-                            <blockquote class="blockquote text-white mb-0">
-                                <div class="row mt-3">
-                                    <div class="col-12 col-sm-8 mt-sm-0 mb-0">
-                                        <div class="input-group input-group-static">
-                                            <p class="text-dark ms-3">{{ $solicitud_credito->motivo }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-sm-4 mt-sm-0 mb-0">
-                                        <div class="input-group input-group-static">
-                                            <p class="text-warning ms-3">Monto solicitado:
-                                                {{ $solicitud_credito->monto }}$</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text-dark ms-3">Fecha: {{ $solicitud_credito->tiempo }}</p>
-                            </blockquote>
-                        </div>
-                    </div>
-
                     <div class="card bg-gradient-default">
                         <div class="card-body">
                             <h5 class="font-weight-normal text-info text-gradient">
-                                Detalles Especificos</h5>
+                                Informacion General</h5>
                             <blockquote class="blockquote text-white mb-0">
-                                <p class="text-dark ms-3">Descripcion: {{ $solicitud_credito->detalles->descripcion }}</p>
-                                <p class="text-dark ms-3">Numero de Cuotas: {{ $solicitud_credito->detalles->numero_cuotas }}</p>
-                                <p class="text-dark ms-3">Estado: {{ $solicitud_credito->detalles->estado }}</p>
-                                <p class="text-dark ms-3">Interes: {{ $solicitud_credito->detalles->interes * 100 }}</p>
-                                <p class="text-dark ms-3">Fecha de Incio: {{ $solicitud_credito->detalles->fecha_inicio }}</p>
-                                <p class="text-dark ms-3">Fecha de Incio: {{ $solicitud_credito->detalles->fecha_fin }}</p>
+                                <p class="text-dark ms-3">Nombre:
+                                    {{ $solicitud_credito->cliente->user->name }}
+                                    {{ $solicitud_credito->cliente->user->ap_paterno }}
+                                    {{ $solicitud_credito->cliente->user->ap_materno }} </p>
+                                <p class="text-dark ms-3">Carnet de Identidad:
+                                    {{ $solicitud_credito->cliente->user->ci }}</p>
+                                <p class="text-dark ms-3">Telefono:
+                                    {{ $solicitud_credito->cliente->user->telefono }}
+                                </p>
+                                <p class="text-dark ms-3"> Correo:
+                                    {{ $solicitud_credito->cliente->user->email }}
+                                </p>
+                                <p class="text-dark ms-3"> Domicilio:
+
+                                </p>
                             </blockquote>
                         </div>
-                    </div>
 
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="card bg-gray-100 shadow-lg">
+                            <div class="card bg-gradient-default">
+                                <div class="card-body">
+                                    <h5 class="font-weight-normal text-info text-gradient">
+                                        Detalles Especificos</h5>
+                                    <blockquote class="blockquote text-white mb-0">
+                                        <p class="text-dark ms-3">Descripcion:
+                                            {{ $solicitud_credito->detalles->descripcion }}</p>
+                                        <p class="text-dark ms-3">Monto:
+                                            {{ $solicitud_credito->monto}}</p>
+                                        <p class="text-dark ms-3">Interes:
+                                            {{ $solicitud_credito->detalles->tasa_interes}}</p>
+                                        <p class="text-dark ms-3">Tipo de Credito:
+                                            {{ $solicitud_credito->detalles->tipo_credito }}</p>
+                                        <p class="text-dark ms-3">Duracion:
+                                            {{ $solicitud_credito->detalles->duracion }}</p>
+                                    </blockquote>
+                                </div>
+                            </div>
                 </div>
             </div>
         </div>
-    </div>
 </x-app-tenant-layout>

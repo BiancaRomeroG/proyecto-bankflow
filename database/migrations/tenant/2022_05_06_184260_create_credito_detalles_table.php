@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('estado');
             $table->float('tasa_interes');
             $table->string('pago_estado');
-            $table->integer('numero_cuotas');
+            $table->integer('duracion');
             $table->unsignedBigInteger('id_carpeta');
             $table->foreign('id_carpeta')->references('id')->on('carpeta_creditos');
             $table->timestamps();
