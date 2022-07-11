@@ -23,6 +23,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 1
             ]);
             
@@ -34,6 +35,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 19,
+                'duracion' => '3 años',
                 'id_carpeta' => 2
             ]);
             
@@ -45,6 +47,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 22,
+                'duracion' => '3 años',
                 'id_carpeta' => 3
             ]);
             
@@ -56,6 +59,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 14,
+                'duracion' => '4 años',
                 'id_carpeta' => 4
             ]);
             
@@ -67,6 +71,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 23,
+                'duracion' => '3 años',
                 'id_carpeta' => 5
             ]);
             
@@ -78,6 +83,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 14,
+                'duracion' => '3 años',
                 'id_carpeta' => 6
             ]);
             
@@ -89,6 +95,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 7
             ]);
             
@@ -100,6 +107,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 25,
+                'duracion' => '3 años',
                 'id_carpeta' => 8
             ]);
             
@@ -111,6 +119,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 25,
+                'duracion' => '3 años',
                 'id_carpeta' => 9
             ]);
             
@@ -122,6 +131,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 10
             ]);
             
@@ -133,6 +143,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 13,
+                'duracion' => '3 años',
                 'id_carpeta' => 11
             ]);
             
@@ -144,6 +155,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 12
             ]);
             
@@ -155,6 +167,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 25,
+                'duracion' => '3 años',
                 'id_carpeta' => 13
             ]);
             
@@ -166,6 +179,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 10,
+                'duracion' => '3 años',
                 'id_carpeta' => 14
             ]);
             
@@ -177,6 +191,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 15
             ]);
             
@@ -188,6 +203,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 16
             ]);
             
@@ -199,6 +215,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 17,
+                'duracion' => '3 años',
                 'id_carpeta' => 17
             ]);
             
@@ -210,6 +227,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 14,
+                'duracion' => '3 años',
                 'id_carpeta' => 18
             ]);
             
@@ -221,6 +239,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 10,
+                'duracion' => '3 años',
                 'id_carpeta' => 19
             ]);
             
@@ -232,6 +251,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 22,
+                'duracion' => '3 años',
                 'id_carpeta' => 20
             ]);
             
@@ -243,6 +263,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 21
             ]);
             
@@ -254,6 +275,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 22
             ]);
             
@@ -265,6 +287,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 23,
+                'duracion' => '3 años',
                 'id_carpeta' => 23
             ]);
             
@@ -276,6 +299,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 19,
+                'duracion' => '3 años',
                 'id_carpeta' => 24
             ]);
             
@@ -287,6 +311,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 25
             ]);
             
@@ -298,6 +323,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 24,
+                'duracion' => '3 años',
                 'id_carpeta' => 26
             ]);
             
@@ -309,6 +335,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 19,
+                'duracion' => '3 años',
                 'id_carpeta' => 27
             ]);
             
@@ -320,6 +347,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 28
             ]);
             
@@ -331,6 +359,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 13,
+                'duracion' => '3 años',
                 'id_carpeta' => 29
             ]);
             
@@ -342,6 +371,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 10,
+                'duracion' => '3 años',
                 'id_carpeta' => 30
             ]);
             
@@ -353,6 +383,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 31
             ]);
             
@@ -364,6 +395,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 11,
+                'duracion' => '3 años',
                 'id_carpeta' => 32
             ]);
             
@@ -375,6 +407,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 10,
+                'duracion' => '3 años',
                 'id_carpeta' => 33
             ]);
             
@@ -386,6 +419,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 11,
+                'duracion' => '3 años',
                 'id_carpeta' => 34
             ]);
             
@@ -397,6 +431,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 17,
+                'duracion' => '3 años',
                 'id_carpeta' => 35
             ]);
             
@@ -408,6 +443,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 36
             ]);
             
@@ -419,6 +455,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 14,
+                'duracion' => '3 años',
                 'id_carpeta' => 37
             ]);
             
@@ -430,6 +467,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 14,
+                'duracion' => '3 años',
                 'id_carpeta' => 38
             ]);
             
@@ -441,6 +479,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 11,
+                'duracion' => '3 años',
                 'id_carpeta' => 39
             ]);
             
@@ -452,6 +491,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 16,
+                'duracion' => '3 años',
                 'id_carpeta' => 40
             ]);
             
@@ -463,6 +503,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 17,
+                'duracion' => '3 años',
                 'id_carpeta' => 41
             ]);
             
@@ -474,6 +515,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 42
             ]);
             
@@ -485,6 +527,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 23,
+                'duracion' => '3 años',
                 'id_carpeta' => 43
             ]);
             
@@ -496,6 +539,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 25,
+                'duracion' => '3 años',
                 'id_carpeta' => 44
             ]);
             
@@ -507,6 +551,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 15,
+                'duracion' => '3 años',
                 'id_carpeta' => 45
             ]);
             
@@ -518,6 +563,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 46
             ]);
             
@@ -529,6 +575,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 47
             ]);
             
@@ -540,6 +587,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 48
             ]);
             
@@ -551,6 +599,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 49
             ]);
             
@@ -562,6 +611,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 15,
+                'duracion' => '3 años',
                 'id_carpeta' => 50
             ]);
             
@@ -573,6 +623,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 51
             ]);
             
@@ -584,6 +635,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 52
             ]);
             
@@ -595,6 +647,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 53
             ]);
             
@@ -606,6 +659,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 23,
+                'duracion' => '3 años',
                 'id_carpeta' => 54
             ]);
             
@@ -617,6 +671,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 14,
+                'duracion' => '3 años',
                 'id_carpeta' => 55
             ]);
             
@@ -628,6 +683,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 56
             ]);
             
@@ -639,6 +695,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 57
             ]);
             
@@ -650,6 +707,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 24,
+                'duracion' => '3 años',
                 'id_carpeta' => 58
             ]);
             
@@ -661,6 +719,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 59
             ]);
             
@@ -672,6 +731,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 17,
+                'duracion' => '3 años',
                 'id_carpeta' => 60
             ]);
             
@@ -683,6 +743,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 61
             ]);
             
@@ -694,6 +755,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 17,
+                'duracion' => '3 años',
                 'id_carpeta' => 62
             ]);
             
@@ -705,6 +767,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 63
             ]);
             
@@ -716,6 +779,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 16,
+                'duracion' => '3 años',
                 'id_carpeta' => 64
             ]);
             
@@ -727,6 +791,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 23,
+                'duracion' => '3 años',
                 'id_carpeta' => 65
             ]);
             
@@ -738,6 +803,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 66
             ]);
             
@@ -749,6 +815,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 67
             ]);
             
@@ -760,6 +827,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 10,
+                'duracion' => '3 años',
                 'id_carpeta' => 68
             ]);
             
@@ -771,6 +839,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 16,
+                'duracion' => '3 años',
                 'id_carpeta' => 69
             ]);
             
@@ -782,6 +851,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 70
             ]);
             
@@ -793,6 +863,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 71
             ]);
             
@@ -804,6 +875,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 14,
+                'duracion' => '3 años',
                 'id_carpeta' => 72
             ]);
             
@@ -815,6 +887,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 16,
+                'duracion' => '3 años',
                 'id_carpeta' => 73
             ]);
             
@@ -826,6 +899,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 25,
+                'duracion' => '3 años',
                 'id_carpeta' => 74
             ]);
             
@@ -837,6 +911,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 13,
+                'duracion' => '3 años',
                 'id_carpeta' => 75
             ]);
             
@@ -848,6 +923,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 15,
+                'duracion' => '3 años',
                 'id_carpeta' => 76
             ]);
             
@@ -859,6 +935,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 77
             ]);
             
@@ -870,6 +947,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 78
             ]);
             
@@ -881,6 +959,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 13,
+                'duracion' => '3 años',
                 'id_carpeta' => 79
             ]);
             
@@ -892,6 +971,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 80
             ]);
             
@@ -903,6 +983,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 16,
+                'duracion' => '3 años',
                 'id_carpeta' => 81
             ]);
             
@@ -914,6 +995,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 22,
+                'duracion' => '3 años',
                 'id_carpeta' => 82
             ]);
             
@@ -925,6 +1007,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 15,
+                'duracion' => '3 años',
                 'id_carpeta' => 83
             ]);
             
@@ -936,6 +1019,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 23,
+                'duracion' => '3 años',
                 'id_carpeta' => 84
             ]);
             
@@ -947,6 +1031,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 85
             ]);
             
@@ -958,6 +1043,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 19,
+                'duracion' => '3 años',
                 'id_carpeta' => 86
             ]);
             
@@ -969,6 +1055,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 87
             ]);
             
@@ -980,6 +1067,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 20,
+                'duracion' => '3 años',
                 'id_carpeta' => 88
             ]);
             
@@ -991,6 +1079,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 25,
+                'duracion' => '3 años',
                 'id_carpeta' => 89
             ]);
             
@@ -1002,6 +1091,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 19,
+                'duracion' => '3 años',
                 'id_carpeta' => 90
             ]);
             
@@ -1013,6 +1103,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 12,
+                'duracion' => '3 años',
                 'id_carpeta' => 91
             ]);
             
@@ -1024,6 +1115,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 21,
+                'duracion' => '3 años',
                 'id_carpeta' => 92
             ]);
             
@@ -1035,6 +1127,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 93
             ]);
             
@@ -1046,6 +1139,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 1.5,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 23,
+                'duracion' => '3 años',
                 'id_carpeta' => 94
             ]);
             
@@ -1057,6 +1151,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 18,
+                'duracion' => '3 años',
                 'id_carpeta' => 95
             ]);
             
@@ -1068,6 +1163,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 2.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 17,
+                'duracion' => '3 años',
                 'id_carpeta' => 96
             ]);
             
@@ -1079,6 +1175,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'En espera',
                 'numero_cuotas' => 24,
+                'duracion' => '3 años',
                 'id_carpeta' => 97
             ]);
             
@@ -1090,6 +1187,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 4.0,
                 'pago_estado' => 'Desembolsado',
                 'numero_cuotas' => 13,
+                'duracion' => '3 años',
                 'id_carpeta' => 98
             ]);
             
@@ -1101,6 +1199,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.0,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 13,
+                'duracion' => '3 años',
                 'id_carpeta' => 99
             ]);
             
@@ -1112,6 +1211,7 @@ class CreditoDetallesSeeder extends Seeder
                 'tasa_interes' => 3.5,
                 'pago_estado' => 'En proceso',
                 'numero_cuotas' => 22,
+                'duracion' => '3 años',
                 'id_carpeta' => 100
             ]);
     }

@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('credito_detalles', function (Blueprint $table) {
             $table->id();
             $table->date('fecha_inicio');
-            $table->date('fecha_fin');
-            $table->string('descripcion');
-            $table->string('estado');
+            $table->date('fecha_fin')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->string('estado')->nullable();
             $table->float('tasa_interes');
-            $table->string('pago_estado');
-            $table->integer('numero_cuotas');
+            $table->string('pago_estado')->nullable();
+            $table->integer('numero_cuotas')->nullable();
+            $table->String('duracion');
             $table->unsignedBigInteger('id_carpeta');
             $table->foreign('id_carpeta')->references('id')->on('carpeta_creditos');
             $table->timestamps();

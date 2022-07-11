@@ -103,6 +103,7 @@ class EmpleadosController extends Controller
         $usuario->name = $request->name;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;
+        $usuario->domicilio = $request->domicilio;
         $usuario->ci = $request->ci;
         $usuario->ap_paterno = $request->ap_paterno;
         $usuario->ap_materno = $request->ap_materno;

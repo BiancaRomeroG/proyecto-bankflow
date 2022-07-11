@@ -36,6 +36,7 @@ class User extends Authenticatable
         'ci',
         'fecha_nac',
         'telefono',
+        'domicilio',
         'email',
         'password',
     ];

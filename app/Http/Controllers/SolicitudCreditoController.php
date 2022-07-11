@@ -52,9 +52,10 @@ class SolicitudCreditoController extends Controller
         return view('tenant.procesos.documentos.index', compact('documentos', 'carpeta'))->with('i');
     }
 
-    public function marcar($id){
+    public function marcar($id)
+    {
         $gestion = gestion_credito::find($id);
-        $gestion->condicion = ($gestion->condicion == 0)? 1 : 0;
+        $gestion->condicion = ($gestion->condicion == 0) ? 1 : 0;
         $gestion->update();
         return redirect()->route('creditos.index', tenant('id'));
     }
@@ -79,51 +80,55 @@ class SolicitudCreditoController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $empresa = Auth::user()->id_empresa;
+        $empresa = Auth::user()->id_empresa;
 
-            $proceso = new solicitud_credito();
-            $proceso->id_cliente = (int) $request->id_cliente;
-            $proceso->id_tipo_credito = (int) $request->id_tipo_credito;
-            $proceso->monto = $request->monto;
-            $proceso->motivo = $request->motivo;
-            $proceso->tiempo = now();
+        $proceso = new solicitud_credito();
+        $proceso->id_cliente = (int) $request->id_cliente;
+        $proceso->id_tipo_credito = (int) $request->id_tipo_credito;
+        $proceso->monto = $request->monto;
+        $proceso->motivo = $request->motivo;
 
-            $carpeta = new carpeta_credito();
-            $carpeta->info_cliente = $request->info_cliente;
-            $carpeta->requisito_prestamo = $request->requisito_prestamo;
-            $carpeta->save();
+        $carpeta = new carpeta_credito();
+        $carpeta->id_cliente = (int) $request->id_cliente;
+        // $carpeta->requisito_prestamo = //$request->requisito_prestamo;
+        $carpeta->save();
 
-            $detalle = new credito_detalle();
-            $detalle->fecha_inicio = now();
-            $detalle->fecha_fin = $request->fecha_fin;
-            $detalle->descripcion = $request->descripcion;
-            $detalle->estado = $request->estado;
-            $detalle->pago_estado = $request->estado;
-            $detalle->interes = (float) $request->interes;
-            $detalle->capital = (float) $request->capital;
-            $detalle->numero_cuotas = (int) $request->numero_cuotas;
-            $detalle->save();
+        $detalle = new credito_detalle();
+        $detalle->fecha_inicio = now();
+        // $detalle->fecha_fin = $request->fecha_fin;
+        // $detalle->descripcion = $request->motivo;
+        // $detalle->estado = $request->estado;
+        // $detalle->pago_estado = $request->estado;
+        $detalle->tasa_interes = (float) $request->interes;
+        // $detalle->capital = (float) $request->capital;
+        // $detalle->numero_cuotas = (int) $request->numero_cuotas;
+        $detalle->duracion = $request->duracion;
+        $detalle->id_carpeta = $carpeta->id;
+        $detalle->save();
 
-            $proceso->id_carpeta_credito = $carpeta->id;
-            $proceso->id_credito_detalle = $detalle->id;
+        // $tipo = new tipo_credito();
+        // $tipo->nombre = $request->nombre;
+        // $tipo->save();
 
-            //dd($proceso);
-            $proceso->save();
+        $proceso->id_carpeta_credito = $carpeta->id;
+        $proceso->id_credito_detalle = $detalle->id;
 
-            $empleado = empleados::find(Auth::user()->id);
-            $pro_empl = new gestion_credito();
-            $pro_empl->id_empleado = $empleado->id;
-            $pro_empl->id_solicitud_credito = $proceso->id;
-            $pro_empl->save();
+        //dd($proceso);
+        $proceso->save();
 
-            DB::commit();
-            BitacoraController::registrar(Auth::user()->id, 'Solicitud Credito',
-        'Se creo una solicitud de credito para el cliente '.$request->id_cliente);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
-        }
+        $empleado = empleados::find(Auth::user()->id);
+        $pro_empl = new gestion_credito();
+        $pro_empl->id_empleado = $empleado->id;
+        $pro_empl->id_solicitud_credito = $proceso->id;
+        $pro_empl->save();
+
+        DB::commit();
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Solicitud Credito',
+            'Se creo una solicitud de credito para el cliente ' . $request->id_cliente
+        );
+
         return redirect()->route('creditos.index', tenant('id'));
     }
 
@@ -169,12 +174,15 @@ class SolicitudCreditoController extends Controller
             $proceso->id_tipo_credito = (int) $request->id_tipo_credito;
             $proceso->monto = $request->monto;
             $proceso->motivo = $request->motivo;
-            $proceso->estado = $request->estado;
+            // $proceso->estado = $request->estado;
             //dd($proceso);
             $proceso->update();
             DB::commit();
-            BitacoraController::registrar(Auth::user()->id, 'Actualización',
-            'Actualización de solicitud de credito para el cliente '.$request->id_cliente);
+            BitacoraController::registrar(
+                Auth::user()->id,
+                'Actualización',
+                'Actualización de solicitud de credito para el cliente ' . $request->id_cliente
+            );
         } catch (\Exception $e) {
             DB::rollBack();
             return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";

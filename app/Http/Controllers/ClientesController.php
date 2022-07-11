@@ -54,7 +54,7 @@ class ClientesController extends Controller
         BitacoraController::registrar(Auth::user()->id,'Creación de cliente',
          'Se creó el cliente: '.$cliente->nombre.' '.$cliente->ap_paterno.' '.$cliente->ap_materno.' con id: '.$cliente->id);
 
-        return redirect()->route('clientes.create', tenant('id'))->with('info', 'El aprobado');
+        return redirect()->route('clientes.index', tenant('id'))->with('info', 'El aprobado');
     }
     /**
      * Display the specified resource.
@@ -92,6 +92,7 @@ class ClientesController extends Controller
         $usuario->name = $request->name;
         $usuario->telefono = $request->telefono;
         $usuario->email = $request->email;
+        $usuario->domicilio = $request->domicilio;
         $usuario->ci = $request->ci;
         $usuario->ap_paterno = $request->ap_paterno;
         $usuario->ap_materno = $request->ap_materno;
