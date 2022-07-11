@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('carpeta_creditos', function (Blueprint $table) {
             $table->id();
-            $table->string('requisito_prestamo');
+            $table->string('id_cliente')->nullable();
+            $table->string('requisito_prestamo')->nullable();
             $table->timestamps();
         });
     }

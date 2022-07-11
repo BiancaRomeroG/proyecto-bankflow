@@ -76,13 +76,13 @@
                                 <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                                     <div class="input-group input-group-static my-2">
                                         <label>Monto Solicitado: </label>
-                                        <input name="info_cliente" class="form-control" type="text" />
+                                        <input name="monto" class="form-control" type="text" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-8 mt-sm-0 mb-3">
                                     <div class="input-group input-group-static my-2">
                                         <label>Descripcion: </label>
-                                        <input name="requisito_prestamo" class="form-control" type="text" />
+                                        <input name="motivo" class="form-control" type="text" />
                                     </div>
                                 </div>
                                 <div class="col-6 col-sm-4 mt-sm-0 mb-3">
@@ -108,7 +108,7 @@
                                 <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                                     <div class="input-group input-group-static my-2">
                                         <label>Duracion: </label>
-                                        <input name="interes" class="form-control" type="text" />
+                                        <input name="duracion" class="form-control" type="text" />
                                     </div>
                                 </div>
 

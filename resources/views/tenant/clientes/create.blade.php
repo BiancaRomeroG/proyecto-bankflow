@@ -52,11 +52,19 @@
                                 <input name="fecha_nac" type="date" class="form-control" />
                             </div>
                         </div>
+                        
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Email</label>
                                 <input name="email" class="form-control" type="email"
                                     placeholder="ejemplo@gmail.com"  />
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-8 mt-sm-0 mb-3">
+                            <div class="input-group input-group-static my-2">
+                                <label>Domicilio: </label>
+                                <input name="domicilio" class="form-control" type="text" id="domicilio"
+                                    value="" />
                             </div>
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
