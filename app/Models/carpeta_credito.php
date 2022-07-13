@@ -14,4 +14,8 @@ class carpeta_credito extends Model
         'id_cliente',
         'requisito_prestamo',
     ];
+
+    public function cliente() {
+        return $this->belongsTo('App\Models\clientes', 'id_cliente');
+    }
 }

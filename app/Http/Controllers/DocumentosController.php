@@ -7,6 +7,7 @@ use App\Models\documentos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentosController extends Controller
 {
@@ -17,7 +18,9 @@ class DocumentosController extends Controller
      */
     public function index($id)
     {
-        //
+        $carpeta = carpeta_credito::find($id);
+        $documentos = documentos::where('id_carpeta', $id)->where('tipo', 'normal')->get();
+        return view('tenant.procesos.documentos.index', compact('documentos', 'carpeta'))->with('i');
     }
 
     /**
@@ -39,30 +42,28 @@ class DocumentosController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request;
-        try {
-            DB::beginTransaction();
-            documentos::store($request);
-            DB::commit();
+        $img = $request->file('archivo_ruta')->store('public');
+        $url = Storage::url($img);
 
-            BitacoraController::registrar(Auth::user()->id, 'Nuevo docuemento ingresado', 
-                'Se ingresó el documento de : '.$request->descripcion . ' para la carpeta con ID: '. $request->id_carpeta);
+        documentos::create([
+            'descripcion' => $request->descripcion,
+            'formato' => $request->formato,
+            'archivo_ruta' => $url,
+            'id_carpeta' => $request->id_carpeta,
+            'tipo' => 'normal',
+        ]);
 
-            return redirect()->route('credito.documentos', [tenant('id') ,$request->id_carpeta]);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return redirect()->route('credito.documentos', [tenant('id') ,$request->id_carpeta]);
-        }
+        return redirect()->route('creditos.documentos.index', [tenant('id') , $request->id_carpeta]);
     }
 
     public function descargar($id){
         $documento = documentos::find($id);
         if($documento->archivo_ruta != null){
-        $path = storage_path("app/public/".$documento->archivo_ruta);
-        BitacoraController::registrar(Auth::user()->id, 'Descargar documento', 
-        'El usuario '.Auth::user()->nombre.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.
-        ' descargó el documento con ruta: '.$documento->archivo_ruta);
-        return response()->download($path);
+            $path = public_path($documento->archivo_ruta);
+            BitacoraController::registrar(Auth::user()->id, 'Descargar documento', 
+            'El usuario '.Auth::user()->nombre.' '.Auth::user()->ap_paterno.' '.Auth::user()->ap_materno.
+            ' descargó el documento con ruta: '.$documento->archivo_ruta);
+            return response()->download($path);
         }
     }
 
@@ -72,9 +73,11 @@ class DocumentosController extends Controller
      * @param  \App\Models\documentos  $documentos
      * @return \Illuminate\Http\Response
      */
-    public function show(documentos $documentos)
+    public function show($carpeta, $documento)
     {
-        //
+        $documento = documentos::findOrFail($documento);
+        $carpeta = carpeta_credito::findOrFail($carpeta);
+        return view('tenant.procesos.documentos.show', compact('documento', 'carpeta'));
     }
 
     /**
@@ -106,8 +109,10 @@ class DocumentosController extends Controller
      * @param  \App\Models\documentos  $documentos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(documentos $documentos)
+    public function destroy($carpeta, $documento)
     {
-        //
+        $documento = documentos::findOrFail($documento);
+        $documento->delete();
+        return redirect()->route('creditos.documentos.index', [tenant('id') , $carpeta]);
     }
 }

@@ -124,7 +124,7 @@
                                         <td class="align-middle text-center">
                                             @can('Ver lista de documentos digitales')
                                                 <a
-                                                    href="{{ route('credito.documentos', [tenant('id'), $credito->id_carpeta_credito]) }}">
+                                                    href="{{ route('creditos.documentos.index', [tenant('id'), $credito->id_carpeta_credito]) }}">
                                                     <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
                                                         title="Documentos">
                                                         <span class="material-icons ">folder</span>
@@ -149,7 +149,7 @@
                                             @endcan
                                             @can('Ver lista de documentos legales')
                                                 <a
-                                                    href="{{ route('legalizacion.index', [tenant('id'), $credito->id_carpeta_credito]) }}">
+                                                    href="{{ route('creditos.legalizacion.index', [tenant('id'), $credito->id_carpeta_credito]) }}">
                                                     <button class="btn btn-icon btn-sm btn-success m-auto" type="button"
                                                         title="Legalizacion">
                                                         <span class="material-icons">verified_user</span>
@@ -157,7 +157,7 @@
                                                 </a>
                                             @endcan
 
-                                            <a href="{{ route('asociados.index', [tenant('id'), $credito->id]) }}">
+                                            <a href="{{ route('creditos.asociados.index', [tenant('id'), $credito->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-secondary m-auto" type="button"
                                                     title="Asociados">
                                                     <span class="material-icons">group</span>

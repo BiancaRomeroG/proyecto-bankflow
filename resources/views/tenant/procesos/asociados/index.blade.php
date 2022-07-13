@@ -64,7 +64,7 @@
                             <div class="card-header p-2 bg-gray-300">
                                 <h6 class="mb-0 text-xs">Agregar usuario a flujo de trabajo...</h6>
                             </div>
-                            <form method="POST" action="{{ route('asociados.store', tenant('id')) }}">
+                            <form method="POST" action="{{ route('creditos.asociados.store', [tenant('id'), $id]) }}">
                                 @csrf
                                 <div class="card-body m-2 p-1 mb-3">
                                     <input name="id_solicitud_credito" class="form-control" type="hidden" value="{{ $id }}" />
@@ -72,12 +72,10 @@
                                         <option value=""></option>
                                         @foreach ($empleados as $empleado)
                                             <option value="{{ $empleado->id }}">
-                                                {{ $empleado->user->name . ' ' . $empleado->user->ap_paterno . ' - ' }}
-                                                @if (!empty($asociado->user->getRoleNames()))
-                                                    @foreach ($asociado->user->getRoleNames() as $rolName)
-                                                        {{ $rolName }}
-                                                    @endforeach
-                                                @endif
+                                                {{ $empleado->user->name . ' ' . $empleado->user->ap_paterno}}
+                                                @foreach ($empleado->user->roles as $role)
+                                                    {{ ' - ' . $role->name }}
+                                                @endforeach
                                             </option>
                                         @endforeach
                                     </select>

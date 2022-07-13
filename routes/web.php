@@ -82,22 +82,7 @@ Route::middleware([
     Route::resource('empresas', SC_EmpresasController::class);
     Route::resource('planes', SC_PlanesController::class);
     Route::resource('sc_bitacora', SC_BitacoraController::class);
-    /*  Route::resource('roles', RolesController::class);
-    Route::resource('areas', AreasController::class);
-    Route::resource('usuarios', UsuariosController::class);
-    Route::resource('clientes', ClientesController::class);
 
-    Route::resource('empleados', EmpleadosController::class);
-
-    Route::get('creditos/{id}/documentos', [SolicitudCreditoController::class, 'documentos'])->name('credito.documentos'); //index de documentos
-    Route::resource('creditos', SolicitudCreditoController::class);
-    Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
-    Route::get('documentos/{id}/create', [DocumentosController::class, 'create'])->name('documentos.create');
-    Route::post('documento/store', [DocumentosController::class, 'store'])->name('documentos.store');
-    Route::resource('tipos', TipoCreditoController::class);
-    Route::resource('usuarios', UsuariosController::class);
-    Route::get('general', [PersonalizarController::class, 'index'])->name('general.index');
-    Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');*/
     Route::get('/bitacora', [SCBitacoraController::class, 'index'])->name('bitacoraCentral.index');
 });
 
@@ -147,29 +132,24 @@ Route::group([
             Route::resource('tipos', TipoCreditoController::class);
             Route::resource('usuarios', UsuariosController::class);
             Route::resource('creditos', SolicitudCreditoController::class);
+            Route::resource('creditos.documentos', DocumentosController::class);
+            Route::resource('creditos.legalizacion', LegalizacionController::class);
+            Route::resource('creditos.asociados', AsociadosController::class);
+
+            Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
 
             Route::get('/users/informacion-creditos', function () {
                 return view('tenant.informacion.info_creditos');
             })->name('info_creditos');
 
             Route::get('creditos/{id}/marcar', [SolicitudCreditoController::class, 'marcar'])->name('creditos.marcar');
-            Route::get('creditos/{id}/legalizacion', [LegalizacionController::class, 'index'])->name('legalizacion.index');
-            Route::get('creditos/{id}/crearDocLegal', [LegalizacionController::class, 'create'])->name('legalizacion.create');
-            Route::post('creditos/store', [LegalizacionController::class, 'store'])->name('legalizacion.store');
-            Route::get('creditos/{id}/documentos', [SolicitudCreditoController::class, 'documentos'])->name('credito.documentos'); //index de documentos
-            Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
-            Route::get('documentos/{id}/create', [DocumentosController::class, 'create'])->name('documentos.create');
-            Route::post('documento/store', [DocumentosController::class, 'store'])->name('documentos.store');    
-            // Route::get('general', [PersonalizarController::class, 'index'])->name('general.index');
-            // Route::post('general', [PersonalizarController::class, 'store'])->name('general.store');
             Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
             Route::get('/requisitos/{id}', [RequisitosController::class, 'index'])->name('requisitos.index');
             Route::get('/requisitos/{id}/create', [RequisitosController::class, 'create'])->name('requisitos.create');
             Route::post('/requisitos/store', [RequisitosController::class, 'store'])->name('requisitos.store');
             Route::get('/requisitos/{id}/edit', [RequisitosController::class, 'edit'])->name('requisitos.edit');
             Route::put('requisitos/{id}/update', [RequisitosController::class, 'update'])->name('requisitos.update');
-            Route::post('/asociados/store', [AsociadosController::class, 'store'])->name('asociados.store');
-            Route::get('/asociados/{id}', [AsociadosController::class, 'index'])->name('asociados.index');
+
         }
     );
 });

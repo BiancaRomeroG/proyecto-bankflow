@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('archivo_ruta');
             $table->string('formato');
             $table->string('descripcion');
+            $table->string('tipo');
             $table->unsignedBigInteger('id_carpeta');
-            $table->foreign('id_carpeta')->references('id')->on('carpeta_creditos');
+            $table->foreign('id_carpeta')->references('id')->on('carpeta_creditos')
+                  ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
