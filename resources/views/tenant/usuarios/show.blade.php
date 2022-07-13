@@ -24,8 +24,18 @@
                             {{ $usuario->ap_materno }}
                         </h5>
                         <p class="mb-0 font-weight-normal text-sm">
-                            <span>{{ __('Aqui el rol') }}</span>
-                        </p>
+                            @if(Auth::user()->id_rol == 1)
+                            <span>Asesor de Credito</span>
+                            @elseif(Auth::user()->id_rol == 2)
+                            <span>Oficial de Credito</span>
+                            @elseif(Auth::user()->id_rol == 3)
+                            <span>Comite de Credito</span>
+                            @elseif(Auth::user()->id_rol == 4)
+                            <span>Departamento de Legal</span>
+                            @elseif(Auth::user()->id_rol == 5)
+                            <span>Cliente</span>
+                            @endif
+                          </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
@@ -44,6 +54,7 @@
                 </div>
             </div>
             <div class="row">
+                @can('SideBar Requisitos')
                 <div class="row">
                     <div class="col-12 col-xl-4">
                         <div class="card card-plain h-100">
@@ -88,9 +99,7 @@
                             <div class="card-body p-3">
                                 <hr class="my-2">
                                 <ul class="list-group">
-                                    <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                            class="text-dark">Rol:</strong> &nbsp;
-                                        {{ __('Aqui el rol') }}</li>
+
                                     <li class="list-group-item border-0 ps-0 text-sm"><strong
                                             class="text-dark">Telefono:</strong> &nbsp;
                                         {{ $usuario->telefono }}</li>
@@ -142,6 +151,8 @@
                         </div>
                     </div>
                 </div>
+                @endcan
+                @can('SideBar Mis Procesos')
                 <hr class="m-0">
                 <div class="row mt-3">
                     <div class="mb-4 ps-3">
@@ -236,6 +247,7 @@
                     @endif
 
                 </div>
+                @endcan
             </div>
         </div>
     </div>

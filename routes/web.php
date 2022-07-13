@@ -14,6 +14,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\DocumentosController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\LegalizacionController;
+use App\Http\Controllers\misCreditosController;
 use App\Http\Controllers\SolicitudCreditoController;
 use App\Http\Controllers\TipoCreditoController;
 use App\Http\Controllers\PersonalizarController;
@@ -142,6 +143,9 @@ Route::group([
                 return view('tenant.informacion.info_creditos');
             })->name('info_creditos');
 
+           
+
+        
             Route::get('creditos/{id}/marcar', [SolicitudCreditoController::class, 'marcar'])->name('creditos.marcar');
             Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
             Route::get('/requisitos/{id}', [RequisitosController::class, 'index'])->name('requisitos.index');
@@ -149,7 +153,7 @@ Route::group([
             Route::post('/requisitos/store', [RequisitosController::class, 'store'])->name('requisitos.store');
             Route::get('/requisitos/{id}/edit', [RequisitosController::class, 'edit'])->name('requisitos.edit');
             Route::put('requisitos/{id}/update', [RequisitosController::class, 'update'])->name('requisitos.update');
-
+            
         }
     );
 });
