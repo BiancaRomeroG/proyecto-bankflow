@@ -6,6 +6,7 @@ use App\Models\carpeta_credito;
 use App\Models\documentos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class LegalizacionController extends Controller
 {
@@ -17,7 +18,7 @@ class LegalizacionController extends Controller
     public function index($id)
     {
         $carpeta = carpeta_credito::find($id);
-        $documentos = documentos::where('id_carpeta', $id)->where('formato', 'legal')->get();
+        $documentos = documentos::where('id_carpeta', $id)->where('tipo', 'legal')->get();
         return view('tenant.procesos.documentos.legales.index', compact('documentos', 'carpeta'))->with('i');
     }
 
@@ -39,15 +40,19 @@ class LegalizacionController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            DB::beginTransaction();
-            documentos::store($request);
-            DB::commit();
-            return redirect()->route('legalizacion.index', [tenant('id') ,$request->id_carpeta]);
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return redirect()->route('legalizacion.index', [tenant('id') ,$request->id_carpeta]);
-        }
+
+        $img = $request->file('archivo_ruta')->store('public');
+        $url = Storage::url($img);
+
+        documentos::create([
+            'descripcion' => $request->descripcion,
+            'formato' => $request->formato,
+            'archivo_ruta' => $url,
+            'id_carpeta' => $request->id_carpeta,
+            'tipo' => 'legal',
+        ]);
+
+        return redirect()->route('creditos.legalizacion.index', [tenant('id'), $request->id_carpeta]);
     }
 
     /**
@@ -56,9 +61,11 @@ class LegalizacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($carpeta, $documento)
     {
-        //
+        $documento = documentos::findOrFail($documento);
+        $carpeta = carpeta_credito::findOrFail($carpeta);
+        return view('tenant.procesos.documentos.legales.show', compact('documento', 'carpeta'));
     }
 
     /**
@@ -90,8 +97,10 @@ class LegalizacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($carpeta, $documento)
     {
-        //
+        $documento = documentos::findOrFail($documento);
+        $documento->delete();
+        return redirect()->route('creditos.legalizacion.index', [tenant('id'), $carpeta]);
     }
 }

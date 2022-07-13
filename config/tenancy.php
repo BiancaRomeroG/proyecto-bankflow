@@ -96,12 +96,13 @@ return [
      * https://tenancyforlaravel.com/docs/v3/tenancy-bootstrappers/#filesystem-tenancy-boostrapper.
      */
     'filesystem' => [
+        'default' => env('FILESYSTEM_DISK', 'local'),
         /**
          * Each disk listed in the 'disks' array will be suffixed by the suffix_base, followed by the tenant_id.
          */
         'suffix_base' => 'tenant',
         'disks' => [
-            'local',
+            //'local',
             'public',
             // 's3',
         ],
@@ -113,8 +114,8 @@ return [
          */
         'root_override' => [
             // Disks whose roots should be overriden after storage_path() is suffixed.
-            'local' => '%storage_path%/app/',
-            'public' => '%storage_path%/app/public/',
+            //'local' => '%storage_path%/app/',
+            'public' => 'app/public/',
         ],
 
         /**

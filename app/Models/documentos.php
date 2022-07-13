@@ -15,6 +15,7 @@ class documentos extends Model
         'archivo_ruta',
         'formato',
         'descripcion',
+        'tipo',
         'id_carpeta',
     ];
 

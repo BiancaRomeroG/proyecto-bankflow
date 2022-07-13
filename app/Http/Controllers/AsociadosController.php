@@ -52,7 +52,8 @@ class AsociadosController extends Controller
         $gestion->id_empleado = (int) $request->id_empleado;
         $gestion->id_solicitud_credito = (int) $request->id_solicitud_credito;
         $gestion->save();
-        return redirect()->route('asociados.index', [tenant('id'), $request->id_solicitud_credito]);
+        
+        return redirect()->route('creditos.asociados.index', [tenant('id'), $request->id_solicitud_credito]);
     }
 
     /**
