@@ -26,7 +26,7 @@
 
     @stack('modals')
 
-    <x-data-table></x-data-table>
+    <x-datatable></x-datatable>
 
     <x-select2></x-select2>
 
