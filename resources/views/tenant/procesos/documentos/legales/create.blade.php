@@ -15,7 +15,12 @@
                     @csrf
                     <div class="row mt-3">
                         <input name="id_carpeta" class="form-control" type="hidden" value="{{$id}}" />
-                        <input name="formato" class="form-control" type="hidden" value="JPG"/>
+                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                            <div class="input-group input-group-static my-2">
+                                <label>Formato: </label>
+                                <input name="formato" class="form-control" type="text" placeholder="JPG, PNG, PDF" required/>
+                            </div>
+                        </div>
                         <div class="col-12 col-sm-8 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
                                 <label>Descripción: </label>
