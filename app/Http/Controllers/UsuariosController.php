@@ -98,6 +98,7 @@ class UsuariosController extends Controller
 
         return view('tenant.usuarios.show', compact('usuario', 'creditos', 'title'))->with('i');
     }
+    
 
     /**
      * Show the form for editing the specified resource.
