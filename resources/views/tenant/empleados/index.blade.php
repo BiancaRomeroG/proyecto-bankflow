@@ -17,7 +17,7 @@
                         <div class="input-group">
                             <div class="form-outline">
                                 <input type="text" id="buscar"
-                                    class="border border-gray-400 form-control bg-gray-100" placeholder="Buscar" />
+                                    class="border border-gray-400 form-control bg-gray-100" placeholder="&nbsp; Buscar" />
                             </div>
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
@@ -34,10 +34,10 @@
                     <div class="col-4 col-sm-4 col-md-4 col-lg-2 col-xl-2">
                         <label>Numero de registros</label>
                         <select class="form-control border border-gray-400" id="opcion" name="opcion">
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="-1">Todos</option>
+                            <option value="10">&nbsp; 10</option>
+                            <option value="25">&nbsp; 25</option>
+                            <option value="50">&nbsp; 50</option>
+                            <option value="-1"> &nbsp; Todos</option>
                         </select>
                     </div>
                     <div class="col-10 col-sm-8 col-md-8 col-lg-8 col-xl-8">
