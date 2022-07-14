@@ -11,6 +11,7 @@ use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\creditoClienteController;
 use App\Http\Controllers\DocumentosController;
 use App\Http\Controllers\EmpleadosController;
 use App\Http\Controllers\LegalizacionController;
@@ -136,6 +137,7 @@ Route::group([
             Route::resource('creditos.documentos', DocumentosController::class);
             Route::resource('creditos.legalizacion', LegalizacionController::class);
             Route::resource('creditos.asociados', AsociadosController::class);
+            Route::resource('miCredito', creditoClienteController::class);
 
             Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
 
