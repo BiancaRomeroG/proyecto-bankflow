@@ -6,6 +6,7 @@ use App\Models\carpeta_credito;
 use App\Models\clientes;
 use App\Models\credito_detalle;
 use App\Models\custodias;
+use App\Models\Detalle;
 use App\Models\documentos;
 use App\Models\empleados;
 use App\Models\gestion_credito;
@@ -26,8 +27,7 @@ class SolicitudCreditoController extends Controller
     public function index()
     {
         $creditos = solicitud_credito::join('gestion_creditos', 'solicitud_creditos.id', 'gestion_creditos.id_solicitud_credito')
-            ->where('gestion_creditos.id_empleado', Auth::user()->id)
-            /* ->where('solicitud_creditos.estado', 'en proceso') */
+            //->where('gestion_creditos.id_empleado', Auth::user()->id) 
             ->select(
                 'solicitud_creditos.id',
                 'solicitud_creditos.monto',
@@ -41,7 +41,7 @@ class SolicitudCreditoController extends Controller
                 'gestion_creditos.id_solicitud_credito',
                 'gestion_creditos.condicion as condicion',
                 'gestion_creditos.id as id_gestion'
-            )->orderBy('solicitud_creditos.updated_at', 'ASC')->get();
+            )->orderBy('solicitud_creditos.updated_at', 'DESC')->get();
         return view('tenant.procesos.index', compact('creditos'))->with('i');
     }
 
@@ -82,16 +82,18 @@ class SolicitudCreditoController extends Controller
     {
         //$empresa = Auth::user()->id_empresa;
 
+        //se crea la carpeta de credito
+        $carpeta = new carpeta_credito();
+        $carpeta->id_cliente = (int) $request->id_cliente;
+        $carpeta->save();
+
+        //se crea el proceso crediticio como una solicitud
         $proceso = new solicitud_credito();
         $proceso->id_cliente = (int) $request->id_cliente;
         $proceso->id_tipo_credito = (int) $request->id_tipo_credito;
         $proceso->monto = $request->monto;
         $proceso->motivo = $request->motivo;
-
-        $carpeta = new carpeta_credito();
-        $carpeta->id_cliente = (int) $request->id_cliente;
-        // $carpeta->requisito_prestamo = //$request->requisito_prestamo;
-        $carpeta->save();
+        $proceso->estado = 'En proceso';
 
         $detalle = new credito_detalle();
         $detalle->fecha_inicio = now();
@@ -99,21 +101,11 @@ class SolicitudCreditoController extends Controller
         // $detalle->descripcion = $request->motivo;
         // $detalle->estado = $request->estado;
         // $detalle->pago_estado = $request->estado;
-        //$detalle->tasa_interes = (float) $request->interes;
-        // $detalle->capital = (float) $request->capital;
-        // $detalle->numero_cuotas = (int) $request->numero_cuotas;
-        //$detalle->duracion = $request->duracion;
         $detalle->id_carpeta = $carpeta->id;
         $detalle->save();
 
-        // $tipo = new tipo_credito();
-        // $tipo->nombre = $request->nombre;
-        // $tipo->save();
-
         $proceso->id_carpeta_credito = $carpeta->id;
         $proceso->id_credito_detalle = $detalle->id;
-
-        //dd($proceso);
         $proceso->save();
 
         $empleado = empleados::find(Auth::user()->id);
@@ -167,26 +159,33 @@ class SolicitudCreditoController extends Controller
      */
     public function update(Request $request, solicitud_credito $solicitud_credito)
     {
-        try {
-            $proceso = solicitud_credito::find($request->id);
 
-            $proceso->id_cliente = (int) $request->id_cliente;
-            $proceso->id_tipo_credito = (int) $request->id_tipo_credito;
-            $proceso->monto = $request->monto;
-            $proceso->motivo = $request->motivo;
-            // $proceso->estado = $request->estado;
-            //dd($proceso);
-            $proceso->update();
-            DB::commit();
-            BitacoraController::registrar(
-                Auth::user()->id,
-                'Actualización',
-                'Actualización de solicitud de credito para el cliente ' . $request->id_cliente
-            );
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return "Ocurrio un error :(, aqui va una alerta y retorna a la vista index";
-        }
+        $proceso = solicitud_credito::find($request->id);
+
+        //$proceso->id_cliente = (int) $request->id_cliente;
+        $proceso->id_tipo_credito = (int) $request->id_tipo_credito;
+        $proceso->monto = $request->monto;
+        $proceso->estado = 'Desembolsado';
+        $proceso->motivo = $request->motivo;
+        $proceso->update();
+
+        $detalle = credito_detalle::where('credito_detalles.id_carpeta', $proceso->id_credito_detalle)->first();
+        $detalle->fecha_fin = $request->fecha_fin;
+        $detalle->descripcion = $request->motivo;
+        $detalle->estado = 'Desembolso';
+        $detalle->pago_estado = 'Desembolsado';
+        $detalle->tasa_interes = (float) $request->interes;
+        $detalle->numero_cuotas = (int) $request->numero_cuotas;
+        $detalle->duracion = $request->duracion;
+        $detalle->save();
+
+
+        BitacoraController::registrar(
+            Auth::user()->id,
+            'Actualización',
+            'Actualización de solicitud de credito para el cliente ' . $request->id_cliente
+        );
+
 
         return redirect()->route('creditos.index', tenant('id')); //con una alerta que se hizo todo chido
     }

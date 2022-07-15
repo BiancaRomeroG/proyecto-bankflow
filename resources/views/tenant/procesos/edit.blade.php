@@ -18,7 +18,7 @@
 
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <div class="input-group input-group-static my-2">
-                                <label>Monto: </label>
+                                <label>Monto (Bs.): </label>
                                 <input name="monto" class="form-control" type="text"
                                     value="{{ $proceso->monto }}" />
                             </div>
@@ -33,7 +33,7 @@
 
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Cliente: </label>
-                            <select class="form-select mi-selector" name="id_cliente">
+                            <select class="form-select mi-selector" name="id_cliente" disabled>
                                 <option value=""></option>
                                 @foreach ($clientes as $cliente)
                                     @if ($cliente->id == $proceso->id_cliente)
@@ -49,6 +49,17 @@
                             </select>
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                            <div class="input-group input-group-static my-2">
+                                <label>Interes: </label>
+                                <select class="mi-selector form-select" name="interes" id="interes">
+                                    <option value=""></option>
+                                    <option value="1">3%</option>
+                                    <option value="2">5%</option>
+                                    <option value="3">8%</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                             <label>Tipo de credito: </label>
                             <select class="form-select mi-selector" name="id_tipo_credito">
                                 <option value=""></option>
@@ -62,25 +73,22 @@
                             </select>
                         </div>
                         <div class="col-6 col-sm-4 mt-sm-0 mb-3">
-                            <label>Estado: </label>
-                            <select class="form-select mi-selector" name="estado">
-                                <option value=""></option>
-                                @if ($proceso->estado == 'en proceso')
-                                    <option selected value="en proceso">En proceso</option>
-                                    <option value="aprobado">Aprobado</option>
-                                    <option value="rechazado">Rechazado</option>
-                                @endif
-                                @if ($proceso->estado == 'aprobado')
-                                    <option value="en proceso">En proceso</option>
-                                    <option selected value="aprobado">Aprobado</option>
-                                    <option value="rechazado">Rechazado</option>
-                                @endif
-                                @if ($proceso->estado == 'rechazado')
-                                    <option value="en proceso">En proceso</option>
-                                    <option value="aprobado">Aprobado</option>
-                                    <option selected value="rechazado">Rechazado</option>
-                                @endif
-                            </select>
+                            <div class="input-group input-group-static my-2">
+                                <label>Duracion: </label>
+                                <input name="duracion" class="form-control" type="text" />
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                            <div class="input-group input-group-static my-2">
+                                <label>Fecha de finalizacion: </label>
+                                <input name="fecha_fin" class="form-control" type="date" />
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                            <div class="input-group input-group-static my-2">
+                                <label>N° de cuotas: </label>
+                                <input name="numero_cuotas" class="form-control" type="number" />
+                            </div>
                         </div>
                     </div>
                     <div class="button-row d-flex mt-4 d-md-flex">

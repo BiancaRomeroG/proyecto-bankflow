@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('monto');
             $table->string('motivo');
-            $table->string('estado')->default('en proceso')->nullable();// 1 = en espera,  2 = en proceso,  3 = rechazado,  4 = aprobado
+            $table->string('estado');// 1 = en espera,  2 = en proceso,  3 = rechazado,  4 = aprobado
             $table->unsignedBigInteger('id_cliente');
             $table->unsignedBigInteger('id_tipo_credito');
             $table->unsignedBigInteger('id_carpeta_credito');

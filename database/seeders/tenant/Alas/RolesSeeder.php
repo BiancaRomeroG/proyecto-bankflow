@@ -79,8 +79,8 @@ class RolesSeeder extends Seeder
         Permission::create(['name' => 'Eliminar roles'])->assignRole([$role1]);
 
         Permission::create(['name' => 'Ver lista de procesos'])->assignRole([$role1, $role2, $role3, $role4, $role5]);
-        Permission::create(['name' => 'Crear procesos'])->assignRole([$role1, $role2, $role3]);
-        Permission::create(['name' => 'Editar procesos'])->assignRole([$role1, $role2, $role3]);
+        Permission::create(['name' => 'Crear procesos'])->assignRole([$role1, $role2]);
+        Permission::create(['name' => 'Editar procesos'])->assignRole([$role1, $role2]);
         Permission::create(['name' => 'Ver procesos'])->assignRole([$role1, $role2, $role3, $role4, $role5]);
         Permission::create(['name' => 'Eliminar procesos'])->assignRole([$role1, $role3, $role5]);
         
@@ -93,5 +93,7 @@ class RolesSeeder extends Seeder
         Permission::create(['name' => 'Crear documentos legales'])->assignRole([$role1, $role5]);
         Permission::create(['name' => 'Eliminar documentos legales'])->assignRole([$role1, $role5]);
         Permission::create(['name' => 'Descargar documentos legales'])->assignRole([$role1, $role2, $role3, $role4, $role5]);
+
+        Permission::create(['name' => 'Aceptar creditos'])->assignRole([$role1, $role4]);
 }
 }
