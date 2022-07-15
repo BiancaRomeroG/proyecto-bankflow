@@ -19,10 +19,10 @@ return new class extends Migration
             $table->date('fecha_fin')->nullable();
             $table->string('descripcion')->nullable();
             $table->string('estado')->nullable();
-            $table->float('tasa_interes');
+            $table->float('tasa_interes')->nullable();
             $table->string('pago_estado')->nullable();
             $table->integer('numero_cuotas')->nullable();
-            $table->String('duracion');
+            $table->String('duracion')->nullable();
             $table->unsignedBigInteger('id_carpeta');
             $table->foreign('id_carpeta')->references('id')->on('carpeta_creditos');
             $table->timestamps();

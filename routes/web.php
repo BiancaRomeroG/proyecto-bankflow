@@ -138,6 +138,8 @@ Route::group([
             Route::resource('empleados', EmpleadosController::class);
             Route::resource('tipos', TipoCreditoController::class);
             Route::resource('usuarios', UsuariosController::class);
+            Route::get('creditos/{id}/editarDetalles', [SolicitudCreditoController::class, 'editDetails'])->name('creditos.editarDetalles');
+            Route::put('creditos/actualizarDetalles', [SolicitudCreditoController::class, 'updateDetails'])->name('creditos.updateDetalles');
             Route::resource('creditos', SolicitudCreditoController::class);
             Route::resource('creditos.documentos', DocumentosController::class);
             Route::resource('creditos.legalizacion', LegalizacionController::class);
