@@ -14,23 +14,20 @@
                         @endcan
                     </div>
                     <div class="col-12 col-lg-3 col-sm-12 col-md-3 col-xl-3">
-                        <div class="input-group">
+                        <div class="input-group" >
                             <div class="form-outline">
-                                <input type="text" id="buscar"
-                                    class="border border-gray-400 form-control bg-gray-100" placeholder="Buscar" />
+                                <input type="text" id="buscar" class="border border-gray-400 form-control bg-gray-100" placeholder="&nbsp; Buscar" />
                             </div>
-                            <button type="button" class="btn btn-primary">
-                                <i class="fas fa-search"></i>
-                            </button>
+
+                                <button type="button" class="btn btn-primary" >
+                                    <i class="fas fa-search"></i>
+                                </button>
+
                         </div>
                     </div>
                 </div>
             </div>
             <hr class="m-0">
-
-
-
-
 
 
             <div class="card-body">

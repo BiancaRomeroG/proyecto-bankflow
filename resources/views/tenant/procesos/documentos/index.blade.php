@@ -22,7 +22,7 @@
                         <div class="input-group">
                             <div class="form-outline">
                                 <input type="text" id="buscar"
-                                    class="border border-gray-400 form-control bg-gray-100" placeholder="Buscar" />
+                                    class="border border-gray-400 form-control bg-gray-100" placeholder="&nbsp;Buscar" />
                             </div>
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>

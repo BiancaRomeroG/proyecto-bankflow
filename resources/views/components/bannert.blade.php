@@ -61,7 +61,8 @@
                     <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu2" data-bs-parent="#menu">
                         <div class="">
                             <li class="w-100">
-                                <a class="nav-link "> <span class="nav-link-item ms-4">Politica de Negocio</span></a>
+                                <a href="{{ route('politica.index', tenant('id')) }}" class="nav-link "> <span
+                                     class="nav-link-item ms-4">Politica de Negocio</span></a>
                             </li>
                             <li class="w-100">
                                 <a href="{{ route('areas.index', tenant('id')) }}" class="nav-link "> <span
