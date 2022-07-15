@@ -1,4 +1,7 @@
 @section('title', 'Procesos Crediticios')
+
+
+
 <x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-3">
         <div class="card">
@@ -17,7 +20,7 @@
                         <div class="input-group">
                             <div class="form-outline">
                                 <input type="text" id="buscar"
-                                    class="border border-gray-400 form-control bg-gray-100" placeholder="Buscar" />
+                                    class="border border-gray-400 form-control bg-gray-100" placeholder="&nbsp; Buscar" />
                             </div>
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
@@ -30,12 +33,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                        <br>
                         <label>Numero de registros</label>
                         <select class="form-control border border-gray-400" id="opcion" name="opcion">
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="-1">Todos</option>
+                            <option value="10">&nbsp; 10</option>
+                            <option value="25">&nbsp; 25</option>
+                            <option value="50">&nbsp; 50</option>
+                            <option value="-1">&nbsp; Todos</option>
                         </select>
                     </div>
                     <div class="col-10 col-sm-8 col-md-8 col-lg-8 col-xl-8">
@@ -43,10 +47,11 @@
                     </div>
                 </div>
             </div>
+            <hr class="m-0">
             <div class="card-body">
                 <div class="card bg-gray-100 shadow-lg">
                     <div class="table-responsive">
-                        <table class="table align-items-center mb-0" id="tabla">
+                        <table class="table align-items-center mb-0 table-striped" id="tabla">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nº

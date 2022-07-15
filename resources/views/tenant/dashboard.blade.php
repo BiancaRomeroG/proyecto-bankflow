@@ -234,7 +234,7 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> $14,000 </span>
+                                            <span class="text-xs font-weight-bold"> 14,000 </span>
                                         </td>
                                         <td class="align-middle">
                                             <div class="progress-wrapper w-75 mx-auto">
@@ -277,7 +277,7 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> $3,000 </span>
+                                            <span class="text-xs font-weight-bold"> 3,000 </span>
                                         </td>
                                         <td class="align-middle">
                                             <div class="progress-wrapper w-75 mx-auto">
@@ -320,7 +320,7 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> Not set </span>
+                                            <span class="text-xs font-weight-bold"> no establecido </span>
                                         </td>
                                         <td class="align-middle">
                                             <div class="progress-wrapper w-75 mx-auto">
@@ -345,7 +345,7 @@
                                                         class="avatar avatar-sm me-3" alt="spotify">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">Launch our Mobile App</h6>
+                                                    <h6 class="mb-0 text-sm">Inicie nuestra aplicación móvil</h6>
                                                 </div>
                                             </div>
                                         </td>
@@ -374,7 +374,7 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> $20,500 </span>
+                                            <span class="text-xs font-weight-bold"> 20,500 </span>
                                         </td>
                                         <td class="align-middle">
                                             <div class="progress-wrapper w-75 mx-auto">
@@ -399,7 +399,7 @@
                                                         class="avatar avatar-sm me-3" alt="jira">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">Add the New Pricing Page</h6>
+                                                    <h6 class="mb-0 text-sm">Agregar la nueva página de precios</h6>
                                                 </div>
                                             </div>
                                         </td>
@@ -413,7 +413,7 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> $500 </span>
+                                            <span class="text-xs font-weight-bold"> 500 </span>
                                         </td>
                                         <td class="align-middle">
                                             <div class="progress-wrapper w-75 mx-auto">
@@ -437,7 +437,7 @@
                                                         class="avatar avatar-sm me-3" alt="invision">
                                                 </div>
                                                 <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">Redesign New Online Shop</h6>
+                                                    <h6 class="mb-0 text-sm">Rediseño Nueva Tienda Online</h6>
                                                 </div>
                                             </div>
                                         </td>
@@ -456,7 +456,7 @@
                                             </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-xs font-weight-bold"> $2,000 </span>
+                                            <span class="text-xs font-weight-bold"> 2,000 </span>
                                         </td>
                                         <td class="align-middle">
                                             <div class="progress-wrapper w-75 mx-auto">
@@ -503,7 +503,7 @@
                                     <i class="material-icons text-danger text-gradient">code</i>
                                 </span>
                                 <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #1832412</h6>
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Nuevo orden #1832412</h6>
                                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">21 DEC 11 PM</p>
                                 </div>
                             </div>
@@ -522,7 +522,7 @@
                                     <i class="material-icons text-warning text-gradient">credit_card</i>
                                 </span>
                                 <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">New card added for order
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Nueva tarjeta añadida para el pedido
                                         #4395133</h6>
                                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">20 DEC 2:20 AM</p>
                                 </div>
@@ -532,7 +532,7 @@
                                     <i class="material-icons text-primary text-gradient">key</i>
                                 </span>
                                 <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Unlock packages for development
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Desbloquear paquetes para desarrollo
                                     </h6>
                                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">18 DEC 4:54 AM</p>
                                 </div>
@@ -542,7 +542,7 @@
                                     <i class="material-icons text-dark text-gradient">payments</i>
                                 </span>
                                 <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">New order #9583120</h6>
+                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Nuevo orden #9583120</h6>
                                     <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">17 DEC</p>
                                 </div>
                             </div>
@@ -556,16 +556,16 @@
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6 mb-lg-0 mb-4">
                         <div class="copyright text-center text-sm text-muted text-lg-start">
-                            ©
+
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart"></i> by
-                            <a href="#" class="font-weight-bold" target="_blank">Creative Tim</a>
-                            for a better web.
+                            </script>
+
+                            <a href="#" class="font-weight-bold" target="_blank">© BankFlow</a>
+
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    {{-- <div class="col-lg-6">
                         <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-muted" target="_blank">Creative Tim</a>
@@ -580,7 +580,7 @@
                                 <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </footer>

@@ -1,6 +1,7 @@
 <x-app-tenant-layout>
     <div class="container-fluid px-2 px-md-4">
         <p>
+            <br>
             <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#recomendaciones"
                 aria-expanded="true" aria-controls="consumos">
                 Recomendaciones

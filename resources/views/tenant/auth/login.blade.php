@@ -27,13 +27,13 @@
                         <div class="collapse navbar-collapse" id="navigation">
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item"><a class="nav-link active text-white" aria-current="page"
-                                        href="{{ url('/') }}">Home</a></li>
-                                <li class="nav-item"><a class="nav-link text-white" href="#!">About</a></li>
+                                        href="{{ url('/') }}">Inicio</a></li>
+                                {{-- <li class="nav-item"><a class="nav-link text-white" href="#!">About</a></li> --}}
                                 <li class="nav-item"><a class="nav-link text-white"
-                                        href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio">Contact</a>
+                                        href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio">Contacto Whatsapp</a>
                                 </li>
-                                <li class="nav-item"><a class="nav-link text-white"
-                                        href="#!">Log In</a></li>
+                                {{-- <li class="nav-item"><a class="nav-link text-white"
+                                        href="#!">Log In</a></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -43,16 +43,16 @@
         </div>
     </div>
     <main class="main-content  mt-0">
-        <div class="page-header bg-black align-items-start min-vh-100">
+        <div class="page-header bg-gray-600 align-items-start min-vh-100">
 
             <div class="container my-auto mt-8">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
                         <div class="card z-index-0 fadeIn3 fadeInBottom bg-gray-300">
-                           
+
                                     <h4 class="font-weight-bolder text-center mt-4">Iniciar sesión</h4>
                                     <p class= "text-center">Ingrese su Correo y Contraseña</p>
-                                    
+
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login.in.tenant', tenant('id'))}}">
                                     @csrf
@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </main>
     <!--   Core JS Files   -->

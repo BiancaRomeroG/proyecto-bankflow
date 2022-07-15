@@ -32,7 +32,7 @@
                                         href="#!">Home</a></li>-->
                                     <!--<li class="nav-item"><a class="nav-link text-white" href="#!">About</a></li>-->
                                     <li class="nav-item"><a class="nav-link text-white"
-                                            href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio">Contacto</a>
+                                            href="https://api.whatsapp.com/send?phone=+59178491807&text=Hola,%20mas%20informacion%20del%20servicio">Contacto Whatsapp</a>
                                     </li>
                                     <li class="nav-item"><a class="nav-link text-white"
                                             href="{{ route('log-empresa') }}">Inicia sesión</a></li>
