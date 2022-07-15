@@ -80,7 +80,7 @@ class SolicitudCreditoController extends Controller
      */
     public function store(Request $request)
     {
-        $empresa = Auth::user()->id_empresa;
+        //$empresa = Auth::user()->id_empresa;
 
         //se crea la carpeta de credito
         $carpeta = new carpeta_credito();
@@ -101,10 +101,6 @@ class SolicitudCreditoController extends Controller
         // $detalle->descripcion = $request->motivo;
         // $detalle->estado = $request->estado;
         // $detalle->pago_estado = $request->estado;
-        // $detalle->tasa_interes = (float) $request->interes;
-        // $detalle->capital = (float) $request->capital;
-        // $detalle->numero_cuotas = (int) $request->numero_cuotas;
-        // $detalle->duracion = $request->duracion;
         $detalle->id_carpeta = $carpeta->id;
         $detalle->save();
 
@@ -192,6 +188,40 @@ class SolicitudCreditoController extends Controller
 
 
         return redirect()->route('creditos.index', tenant('id')); //con una alerta que se hizo todo chido
+    }
+
+    public function editDetails($id)
+    {
+        $solicitud = solicitud_credito::find($id);
+        $detalles = $solicitud->detalles;
+        return view('tenant.procesos.editarDetalles', compact('detalles', 'id'));
+    }
+
+    public function updateDetails(Request $request)
+    {
+        try {
+            $proceso = solicitud_credito::find($request->id);
+
+            $detalle = credito_detalle::find($request->id_detalle);
+            $detalle->numero_cuotas = $request->numero_cuotas;
+            $detalle->tasa_interes = $request->tasa_interes;
+            $detalle->duracion = $request->duracion;
+            $detalle->descripcion = $request->descripcion;
+            $detalle->pago_estado = $request->pago_estado;
+            $detalle->update();
+            DB::commit();
+            BitacoraController::registrar(
+                Auth::user()->id,
+                'Actualización',
+                'Actualización de detalles de solicitud de credito para el cliente ' . $proceso->id_cliente
+            );
+        
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return "Ocurrio un error";
+        }
+
+        return redirect()->route('creditos.show', [tenant('id'), $request->id]);
     }
 
     /**

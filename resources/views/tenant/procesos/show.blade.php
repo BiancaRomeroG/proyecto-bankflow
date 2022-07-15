@@ -37,59 +37,112 @@
             <hr class="m-0">
             
             <div class="card-body">
-                <div class="card bg-gray-100 shadow-lg">
-                    <div class="card bg-gradient-default">
-                        <div class="card-body">
-                            <h5 class="font-weight-normal text-info text-gradient">
-                                Informacion General</h5>
-                            <blockquote class="blockquote text-white mb-0">
-                                <p class="text-dark ms-3">Nombre:
-                                    {{ $solicitud_credito->cliente->user->name }}
-                                    {{ $solicitud_credito->cliente->user->ap_paterno }}
-                                    {{ $solicitud_credito->cliente->user->ap_materno }} </p>
-                                <p class="text-dark ms-3">Carnet de Identidad:
-                                    {{ $solicitud_credito->cliente->user->ci }}</p>
-                                <p class="text-dark ms-3">Telefono:
-                                    {{ $solicitud_credito->cliente->user->telefono }}
-                                </p>
-                                <p class="text-dark ms-3"> Correo:
-                                    {{ $solicitud_credito->cliente->user->email }}
-                                </p>
-                                <p class="text-dark ms-3"> Domicilio:
-                                    {{ $solicitud_credito->cliente->user->domicilio }}
-                                </p>
-                            </blockquote>
+                <div class="row">
+                    <div class="col-12 col-xl-4">
+                        <div class="card card-plain h-100">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-md-8 d-flex align-items-center">
+                                        <h6 class="mb-0 text-info">Informacion General</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+                                <hr class="my-2">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                            class="text-dark">Monto Solicitado:</strong> &nbsp;
+                                        {{ $solicitud_credito->monto }}
+                                    </li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Motivo:</strong> &nbsp;
+                                        {{ $solicitud_credito->motivo }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Tipo de Credito:</strong> &nbsp;
+                                        {{ $solicitud_credito->tipo->nombre }}</li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
 
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="card bg-gray-100 shadow-lg">
-                    <div class="card bg-gradient-default">
-                        <div class="card-body">
-                            <h5 class="font-weight-normal text-info text-gradient">
-                                Detalles Especificos</h5>
-                            <blockquote class="blockquote text-white mb-0">
-                                <p class="text-dark ms-3">Descripcion:
-                                    {{ $solicitud_credito->detalles->descripcion }}</p>
-                                <p class="text-dark ms-3">Monto:
-                                    {{ $solicitud_credito->monto }}</p>
-                                <p class="text-dark ms-3">Fecha Inicio:
-                                    {{ $solicitud_credito->detalles->fecha_inicio }}</p>
-                                <p class="text-dark ms-3">Interes:
-                                    {{ $solicitud_credito->detalles->tasa_interes }}</p>
-                                <p class="text-dark ms-3">Tipo de Credito:
-                                    {{ $solicitud_credito->tipo->nombre }}</p>
-                                <p class="text-dark ms-3">Duracion:
-                                    {{ $solicitud_credito->detalles->duracion }}</p>
-                                <p class="text-dark ms-3">Estado:
-                                    {{ $solicitud_credito->detalles->estado }}</p>
-                                <p class="text-dark ms-3">Coutas Canceladas:
-                                    {{ $solicitud_credito->detalles->numero_cuotas }}</p>
-                            </blockquote>
+                    <div class="col-12 col-xl-4">
+                        <div class="card card-plain h-100">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-md-8 d-flex align-items-center">
+                                        <h6 class="mb-0 text-info">Informacion del Solicitante</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+                                <hr class="my-2">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                            class="text-dark">Nombre:</strong> &nbsp;
+                                        {{ $solicitud_credito->cliente->user->name }}
+                                        {{ $solicitud_credito->cliente->user->ap_paterno }}
+                                        {{ $solicitud_credito->cliente->user->ap_materno }}
+                                    </li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Motivo:</strong> &nbsp;
+                                        {{ $solicitud_credito->cliente->user->ci }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Telefono:</strong> &nbsp;
+                                        {{ $solicitud_credito->cliente->user->telefono }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Correo:</strong> &nbsp;
+                                        {{ $solicitud_credito->cliente->user->email }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Domicilio:</strong> &nbsp;
+                                        {{ $solicitud_credito->cliente->user->domicilio }}</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+
+
+                    <div class="col-12 col-xl-4">
+                        <div class="card card-plain h-100">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-md-8 d-flex align-items-center">
+                                        <h6 class="mb-0 text-info">Informacion Especifica</h6>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <a href="{{ route('creditos.editarDetalles', [tenant('id'), $solicitud_credito->id] ) }}">
+                                            <span class="material-icons" title="Editar informacion">edit</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+                                <hr class="my-2">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong
+                                            class="text-dark">Descripcion:</strong> &nbsp;
+                                        {{ $solicitud_credito->detalles->descripcion }}
+                                    </li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Fecha de Inicio:</strong> &nbsp;
+                                        {{ $solicitud_credito->detalles->fecha_inicio }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Interes:</strong> &nbsp;
+                                        {{ $solicitud_credito->detalles->tasa_interes }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Duracion:</strong> &nbsp;
+                                        {{ $solicitud_credito->detalles->duracion }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Estado de Pago:</strong> &nbsp;
+                                        {{ $solicitud_credito->detalles->pago_estado }}</li>
+                                    <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">
+                                            Numero de Cuotas:</strong> &nbsp;
+                                        {{ $solicitud_credito->detalles->numero_cuotas }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>

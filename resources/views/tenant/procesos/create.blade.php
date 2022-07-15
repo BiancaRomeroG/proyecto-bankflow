@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="row mt-3">
-                                <h5 class="font-weight-bolder">Informacion de Carpeta</h5>
+                                <h5 class="font-weight-bolder">Informacion Especifica</h5>
                                 <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                                     <div class="input-group input-group-static my-2">
                                         <label>Monto Solicitado: </label>
@@ -130,10 +130,10 @@
             var telefono = $('option:selected', el).attr('parametro2');
             var email = $('option:selected', el).attr('parametro3');
             var domicilio = $('option:selected', el).attr('parametro4');
-            console.log(ci);
-            console.log(telefono);
-            console.log(email);
-            console.log(domicilio);
+            // console.log(ci);
+            // console.log(telefono);
+            // console.log(email);
+            // console.log(domicilio);
             $('#ci').val(ci);
             $('#telefono').val(telefono);
             $('#email').val(email);

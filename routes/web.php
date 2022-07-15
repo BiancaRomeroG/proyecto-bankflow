@@ -26,6 +26,7 @@ use App\Http\Controllers\SC_BitacoraController;
 use App\Http\Controllers\SC_EmpresasController;
 use App\Http\Controllers\SC_PlanesController;
 use App\Http\Controllers\SC_UsuariosController;
+use App\Http\Controllers\ReportesController;
 use App\Models\empresa;
 use App\Models\Planes;
 use App\Models\SC_Dashboard;
@@ -138,6 +139,8 @@ Route::group([
             Route::resource('empleados', EmpleadosController::class);
             Route::resource('tipos', TipoCreditoController::class);
             Route::resource('usuarios', UsuariosController::class);
+            Route::get('creditos/{id}/editarDetalles', [SolicitudCreditoController::class, 'editDetails'])->name('creditos.editarDetalles');
+            Route::put('creditos/actualizarDetalles', [SolicitudCreditoController::class, 'updateDetails'])->name('creditos.updateDetalles');
             Route::resource('creditos', SolicitudCreditoController::class);
             Route::resource('creditos.documentos', DocumentosController::class);
             Route::resource('creditos.legalizacion', LegalizacionController::class);
@@ -161,6 +164,7 @@ Route::group([
             Route::post('/requisitos/store', [RequisitosController::class, 'store'])->name('requisitos.store');
             Route::get('/requisitos/{id}/edit', [RequisitosController::class, 'edit'])->name('requisitos.edit');
             Route::put('requisitos/{id}/update', [RequisitosController::class, 'update'])->name('requisitos.update');
+            Route::get('reportes',[ReportesController::class,'index'])->name('reportes.index');
             
         }
     );

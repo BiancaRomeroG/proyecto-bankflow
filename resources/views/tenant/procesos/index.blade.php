@@ -30,6 +30,7 @@
                 </div>
             </div>
             <hr class="m-0">
+
             <div class="container">
                 <div class="row">
                     <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
@@ -51,7 +52,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="card-body">
+                
                 <div class="card bg-gray-100 shadow-lg">
                     <div class="table-responsive">
                         <table class="table align-items-center mb-0" id="tabla">
