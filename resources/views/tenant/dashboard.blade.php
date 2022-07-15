@@ -4,7 +4,76 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+    @can('SideBar Mis Procesos')
+    <div class="container-fluid px-2 px-md-4">
+        <p>
+            <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#bienvenidos"
+                aria-expanded="true" aria-controls="bienvenidos">
+                Bienvenidos
+            </button>
+        </p>
 
+        <div  id="bienvenidos">
+            <div class="card card-body">
+                <div class="accordion-1">
+                    <div class="container">
+                        <div class="row my-5">
+                            <div class="col-md-6 mx-auto text-center">
+                                <h2>Bienvenidos</h2>
+                                <p>Banckflow te ofrece grandes proyectos para grandes socios</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xl-4">
+                                <div class="card mb-5 mb-xl-0">
+                                    <div class="card bg-gradient-light shadow-lg">         
+                                        <div class="card-header text-center bg-transparent pt-4 pb-3">
+                                            <h1 class="font-weight-bold mt-2 text-dark"
+                                                style="font-family: Arial, Helvetica, sans-serif">
+                                                <h5 class="card-title">Eficiencia del proceso de negocio</h5>
+                                            </h1>
+                                            <p class="card-text">Workflow una solución completa para la automatización de procesos crediticios para todas las entidades financieras</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-xl-4">
+                                <div class="card mb-5 mb-xl-0">
+                                    <div class="card bg-gradient-light shadow-lg">         
+                                        <div class="card-header text-center bg-transparent pt-4 pb-3">
+                                            <h1 class="font-weight-bold mt-2 text-dark"
+                                                style="font-family: Arial, Helvetica, sans-serif">
+                                                <h5 class="card-title">Seguridad en tu economia</h5>
+                                            </h1>
+                                            <p class="card-text">Hemos estado a la vanguardia de una revolución profesional desde el nacimiento de nuestra empresa.
+                                                El éxito de nuestros clientes es el nuestro.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-xl-4">
+                                <div class="card mb-5 mb-xl-0">
+                                    <div class="card bg-gradient-light shadow-lg">         
+                                        <div class="card-header text-center bg-transparent pt-4 pb-3">
+                                            <h1 class="font-weight-bold mt-2 text-dark"
+                                                style="font-family: Arial, Helvetica, sans-serif">
+                                                <h5 class="card-title">Nuestro ecosistema es una fortaleza</h5>
+                                            </h1>
+                                            <p class="card-text">Brindamos a nuestros socios una ventaja competitiva gracias a nuestra tecnología potente y flexible que permite un desarrollo más rapido</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endcan
+    @can('SideBar Usuarios')
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -584,6 +653,7 @@
             </div>
         </footer>
     </div>
+    @endcan
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
