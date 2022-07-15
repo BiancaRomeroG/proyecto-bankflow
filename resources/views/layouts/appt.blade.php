@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    
     <title>@yield('title')</title>
+
 
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -27,6 +28,7 @@
     
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('assets') }}/css/material-dashboard.css?v=3.0.2" rel="stylesheet" />
+
 
 </head>
 
