@@ -19,6 +19,7 @@ use App\Http\Controllers\misCreditosController;
 use App\Http\Controllers\SolicitudCreditoController;
 use App\Http\Controllers\TipoCreditoController;
 use App\Http\Controllers\PersonalizarController;
+use App\Http\Controllers\PoliticaController;
 use App\Http\Controllers\RegistrarController;
 use App\Http\Controllers\RequisitosController;
 use App\Http\Controllers\SC_BitacoraController;
@@ -124,6 +125,10 @@ Route::group([
                 return view('tenant.dashboard');
             })->name('dashboard.tenant');
 
+            Route::get('/dashboardcliente', function () {
+                return view('tenant.dashboardcliente');
+            })->name('dashboardcliente.tenant');
+
             Route::post('/logout', [LoginController::class, 'logout'])
                 ->name('logout.tenant');
             //RUTAS DE EMPRESA
@@ -134,11 +139,14 @@ Route::group([
             Route::resource('empleados', EmpleadosController::class);
             Route::resource('tipos', TipoCreditoController::class);
             Route::resource('usuarios', UsuariosController::class);
+            Route::get('creditos/{id}/editarDetalles', [SolicitudCreditoController::class, 'editDetails'])->name('creditos.editarDetalles');
+            Route::put('creditos/actualizarDetalles', [SolicitudCreditoController::class, 'updateDetails'])->name('creditos.updateDetalles');
             Route::resource('creditos', SolicitudCreditoController::class);
             Route::resource('creditos.documentos', DocumentosController::class);
             Route::resource('creditos.legalizacion', LegalizacionController::class);
             Route::resource('creditos.asociados', AsociadosController::class);
             Route::resource('miCredito', creditoClienteController::class);
+            Route::resource('politica', PoliticaController::class);
 
             Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
 
