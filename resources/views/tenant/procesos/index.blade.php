@@ -27,23 +27,23 @@
                 </div>
             </div>
             <hr class="m-0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                        <label>Numero de registros</label>
-                        <select class="form-control border border-gray-400" id="opcion" name="opcion">
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="-1">Todos</option>
-                        </select>
-                    </div>
-                    <div class="col-10 col-sm-8 col-md-8 col-lg-8 col-xl-8">
 
-                    </div>
-                </div>
-            </div>
+
+
+
+
+
             <div class="card-body">
+                <div class="col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2 mb-3">
+                    <label>Numero de registros</label>
+
+                    <select class="form-control border border-gray-400" id="opcion" name="opcion">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="-1">Todos</option>
+                    </select>
+                </div>
                 <div class="card bg-gray-100 shadow-lg">
                     <div class="table-responsive">
                         <table class="table align-items-center mb-0" id="tabla">
@@ -157,7 +157,8 @@
                                                 </a>
                                             @endcan
 
-                                            <a href="{{ route('creditos.asociados.index', [tenant('id'), $credito->id]) }}">
+                                            <a
+                                                href="{{ route('creditos.asociados.index', [tenant('id'), $credito->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-secondary m-auto" type="button"
                                                     title="Asociados">
                                                     <span class="material-icons">group</span>
