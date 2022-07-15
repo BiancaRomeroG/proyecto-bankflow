@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\carpeta_credito;
 use App\Models\documentos;
+use App\Models\solicitud_credito;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -52,6 +53,10 @@ class DocumentosController extends Controller
             'id_carpeta' => $request->id_carpeta,
             'tipo' => 'normal',
         ]);
+
+        $solicitud = solicitud_credito::where('solicitud_creditos.id_carpeta_credito', $request->id_carpeta)->first();
+        $solicitud->estado = 'En revision';
+        $solicitud->save();
 
         return redirect()->route('creditos.documentos.index', [tenant('id') , $request->id_carpeta]);
     }

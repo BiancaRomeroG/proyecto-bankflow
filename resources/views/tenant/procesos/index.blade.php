@@ -14,14 +14,16 @@
                         @endcan
                     </div>
                     <div class="col-12 col-lg-3 col-sm-12 col-md-3 col-xl-3">
-                        <div class="input-group" >
+                        <div class="input-group">
                             <div class="form-outline">
-                                <input type="text" id="buscar" class="border border-gray-400 form-control bg-gray-100" placeholder="&nbsp; Buscar" />
+                                <input type="text" id="buscar"
+                                    class="border border-gray-400 form-control bg-gray-100"
+                                    placeholder="&nbsp; Buscar" />
                             </div>
 
-                                <button type="button" class="btn btn-primary" >
-                                    <i class="fas fa-search"></i>
-                                </button>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
 
                         </div>
                     </div>
@@ -39,8 +41,13 @@
                             <option value="-1"> &nbsp; Todos</option>
                         </select>
                     </div>
-                    <div class="col-10 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-
+                    <div class="col-10 col-sm-8 col-md-8 col-lg-8 col-xl-8 form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="check" name="check"
+                            @can('Crear procesos') value="EN PROCESO"> @endcan
+                            @can('Crear documentos digitales') value="EN DOCUMENTACION"> @endcan
+                            @can('Aceptar creditos') value="EN REVISION"> @endcan
+                            @can('Crear documentos legales') value="DESEMBOLSADO"> @endcan <label
+                            class="form-check-label" for="check">{{ __('  Filtrar por area') }}</label>
                     </div>
                 </div>
             </div>
@@ -62,16 +69,18 @@
                                         Cliente</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Motivo</th>
+                                        Monto</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Estado</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Opciones</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Condición de Tarea</th>
+                                    @can('Crear documentos legales')
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Condición de Tarea</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -99,26 +108,33 @@
                                         <td class="text-center">
                                             <span class="text-secondary text-xs font-weight-normal"><a
                                                     href="{{ route('clientes.show', [tenant('id'), $credito->cliente->id]) }}">{{ $credito->cliente->user->name }}
-                                                    {{ $credito->cliente->user->ap_paterno }}</a></span>
+                                                    {{ $credito->cliente->user->ap_paterno }} {{ $credito->cliente->user->ap_materno }}</a></span>
                                         </td>
 
                                         <td>
                                             <span
-                                                class="text-secondary text-xs font-weight-normal">{{ $credito->motivo }}</span>
+                                                class="text-secondary text-xs font-weight-normal">{{ $credito->monto.' Bs.' }}</span>
                                         </td>
-
                                         <td>
-                                            @if ($credito->estado == 'en proceso')
+                                            @if ($credito->estado == 'En proceso')
                                                 <span class="badge"
                                                     style="background-color: blueviolet">{{ $credito->estado }}</span>
                                             @endif
-                                            @if ($credito->estado == 'aprobado')
+                                            @if ($credito->estado == 'En revision')
                                                 <span class="badge"
-                                                    style="background-color: rgb(43, 226, 61)">{{ $credito->estado }}</span>
+                                                    style="background-color: rgb(214, 202, 25)">{{ $credito->estado }}</span>
                                             @endif
-                                            @if ($credito->estado == 'rechazado')
+                                            @if ($credito->estado == 'En documentacion')
                                                 <span class="badge"
                                                     style="background-color: rgb(240, 44, 44)">{{ $credito->estado }}</span>
+                                            @endif
+                                            @if ($credito->estado == 'Legalizacion')
+                                                <span class="badge"
+                                                    style="background-color: rgb(44, 240, 191)">{{ $credito->estado }}</span>
+                                            @endif
+                                            @if ($credito->estado == 'Desembolsado')
+                                                <span class="badge"
+                                                    style="background-color: rgb(28, 218, 28)">{{ $credito->estado }}</span>
                                             @endif
                                         </td>
 
@@ -158,33 +174,35 @@
                                                 </a>
                                             @endcan
 
-                                            <a href="{{ route('creditos.asociados.index', [tenant('id'), $credito->id]) }}">
+                                            <a
+                                                href="{{ route('creditos.asociados.index', [tenant('id'), $credito->id]) }}">
                                                 <button class="btn btn-icon btn-sm btn-secondary m-auto" type="button"
                                                     title="Asociados">
                                                     <span class="material-icons">group</span>
                                                 </button>
                                             </a>
                                         </td>
-                                        <td class="text-center">
-                                            @if ($credito->condicion == 0)
-                                                <a
-                                                    href="{{ route('creditos.marcar', [tenant('id'), $credito->id_gestion]) }}">
-                                                    <button class="btn btn-icon btn-sm bg-gradient-primary m-auto"
-                                                        type="button" title="Terminar tarea">
-                                                        <span class="material-icons">check</span>
-                                                    </button>
-                                                </a>
-                                            @else
-                                                <a
-                                                    href="{{ route('creditos.marcar', [tenant('id'), $credito->id_gestion]) }}">
-                                                    <button class="btn btn-icon btn-sm bg-gradient-danger m-auto"
-                                                        type="button" title="Marcar no terminado">
-                                                        <span class="material-icons">close</span>
-                                                    </button>
-                                                </a>
-                                            @endif
-                                        </td>
-
+                                        @can('Crear documentos legales')
+                                            <td class="text-center">
+                                                @if ($credito->condicion == 0)
+                                                    <a
+                                                        href="{{ route('creditos.marcar', [tenant('id'), $credito->id_gestion]) }}">
+                                                        <button class="btn btn-icon btn-sm bg-gradient-primary m-auto"
+                                                            type="button" title="Terminar tarea">
+                                                            <span class="material-icons">check</span>
+                                                        </button>
+                                                    </a>
+                                                @else
+                                                    <a
+                                                        href="{{ route('creditos.marcar', [tenant('id'), $credito->id_gestion]) }}">
+                                                        <button class="btn btn-icon btn-sm bg-gradient-danger m-auto"
+                                                            type="button" title="Marcar no terminado">
+                                                            <span class="material-icons">close</span>
+                                                        </button>
+                                                    </a>
+                                                @endif
+                                            </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -85,7 +85,7 @@
                                         <input name="motivo" class="form-control" type="text" />
                                     </div>
                                 </div>
-                                <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                                {{-- <div class="col-6 col-sm-4 mt-sm-0 mb-3">
                                     <div class="input-group input-group-static my-2">
                                         <label>Interes: </label>
                                         <select class="mi-selector form-select" name="interes" id="interes">
@@ -95,7 +95,7 @@
                                             <option value="3">8%</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div>--}}
                                 <div class="col-12 col-sm-8 col-lg-4 mt-sm-0 mb-3">
                                     <label>Tipo de credito: </label>
                                     <select class="form-select mi-selector" name="id_tipo_credito">
@@ -105,12 +105,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-6 col-sm-4 mt-sm-0 mb-3">
+                                {{--<div class="col-6 col-sm-4 mt-sm-0 mb-3">
                                     <div class="input-group input-group-static my-2">
                                         <label>Duracion: </label>
                                         <input name="duracion" class="form-control" type="text" />
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="button-row d-flex mt-4 d-md-flex">
                                     <button class="btn bg-gradient-dark mb-0 js-btn-prev" type="submit"

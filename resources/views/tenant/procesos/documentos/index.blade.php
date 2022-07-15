@@ -22,7 +22,8 @@
                         <div class="input-group">
                             <div class="form-outline">
                                 <input type="text" id="buscar"
-                                    class="border border-gray-400 form-control bg-gray-100" placeholder="&nbsp;Buscar" />
+                                    class="border border-gray-400 form-control bg-gray-100"
+                                    placeholder="&nbsp;Buscar" />
                             </div>
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
@@ -53,55 +54,58 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($documentos as $documento)
-                                    <tr>
-                                        <td class="align-center text-center">
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ ++$i }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-xs">{{ $documento->formato }}</h6>
+                                @if (count($documentos) > 0)
+                                    @foreach ($documentos as $documento)
+                                        <tr>
+                                            <td class="align-center text-center">
+                                                <div class="d-flex px-2 py-1">
+                                                    <span
+                                                        class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ ++$i }}</span>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">
-                                                {{ $documento->descripcion }}
-                                            </p>
-                                        </td>
-                                        <td>
-                                            <a
-                                                href="{{ route('creditos.documentos.show', [tenant('id'), $carpeta->id, $documento->id]) }}">
-                                                <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
-                                                    title="Ver documento">
-                                                    <span><i class="far fa-eye"></i></span>
-                                                </button>
-                                            </a>
-
-                                            @can('Descargar documentos digitales')
+                                            </td>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-xs">{{ $documento->formato }}</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $documento->descripcion }}
+                                                </p>
+                                            </td>
+                                            <td>
                                                 <a
-                                                    href="{{ route('documentos.descargar', [tenant('id'), $documento->id]) }}">
-                                                    <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
-                                                        title="Descargar documento">
-                                                        <span class="material-icons">sim_card_download</span>
+                                                    href="{{ route('creditos.documentos.show', [tenant('id'), $carpeta->id, $documento->id]) }}">
+                                                    <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
+                                                        title="Ver documento">
+                                                        <span><i class="far fa-eye"></i></span>
                                                     </button>
                                                 </a>
-                                            @endcan
-                                            @can('Eliminar documentos digitales')
-                                                <a>
-                                                    <button class="btn btn-icon btn-sm btn-primary m-auto" type="submit"
-                                                        form="formDelete" title="Eliminar documento">
-                                                        <span class="material-icons">delete</span>
-                                                    </button>
-                                                </a>
-                                            @endcan
-                                        </td>
-                                    </tr>
-                                @endforeach
+
+                                                @can('Descargar documentos digitales')
+                                                    <a
+                                                        href="{{ route('documentos.descargar', [tenant('id'), $documento->id]) }}">
+                                                        <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
+                                                            title="Descargar documento">
+                                                            <span class="material-icons">sim_card_download</span>
+                                                        </button>
+                                                    </a>
+                                                @endcan
+                                                @can('Eliminar documentos digitales')
+                                                    <a>
+                                                        <button class="btn btn-icon btn-sm btn-primary m-auto"
+                                                            type="submit" form="formDelete" title="Eliminar documento">
+                                                            <span class="material-icons">delete</span>
+                                                        </button>
+                                                    </a>
+                                                @endcan
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -109,9 +113,12 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('creditos.documentos.destroy', [tenant('id'), $carpeta->id, $documento->id]) }}"
-        method="POST" id="formDelete">
-        @csrf
-        @method('DELETE')
-    </form>
+    @if (count($documentos) > 0)
+        <form action="{{ route('creditos.documentos.destroy', [tenant('id'), $carpeta->id, $documento->id]) }}"
+            method="POST" id="formDelete">
+            @csrf
+            @method('DELETE')
+        </form>
+    @endif
+
 </x-app-tenant-layout>

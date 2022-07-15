@@ -6,14 +6,15 @@
                 <div class="row justify-content-between">
                     <div class="col-6 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                         <h4 class="text-dark" class="card-title">Documentos legales</h4>
-                        <p class="mb-0">{{$carpeta->info_cliente}}</p>
-                        <p>{{$carpeta->requisito_prestamo}}</p>
+                        <p class="mb-0">{{ $carpeta->info_cliente }}</p>
+                        <p>{{ $carpeta->requisito_prestamo }}</p>
                     </div>
                     <div class="col-12 col-sm-12 col-md-auto col-lg-3 col-xl-3">
                         {{-- <a href="{{ route('creditos.index', tenant('id')) }}" class="btn btn-sm btn-dark"><i class="fas fa-arrow-left"></i>Atras</a>
                         &nbsp; --}}
                         @can('Crear documentos legales')
-                            <a href="{{ route('creditos.legalizacion.create', [tenant('id'), $carpeta->id]) }}" class="btn btn-sm btn-dark">Agregar nuevo documento</a>
+                            <a href="{{ route('creditos.legalizacion.create', [tenant('id'), $carpeta->id]) }}"
+                                class="btn btn-sm btn-dark">Agregar nuevo documento</a>
                         @endcan
                     </div>
                     <div class="col-12 col-lg-3 col-sm-12 col-md-12 col-xl-3">
@@ -43,61 +44,68 @@
                                     <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Descripcion</th>
-                                        <th
+                                    <th
                                         class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Opcion</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($documentos as $documento)
-                                    <tr>
-                                        <td class="align-center text-center">
-                                            <div class="d-flex px-2 py-1">
-                                                <span
-                                                    class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ ++$i }}</span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-xs">{{ $documento->formato }}</h6>
+                                @if (count($documentos) > 0)
+                                    @foreach ($documentos as $documento)
+                                        <tr>
+                                            <td class="align-center text-center">
+                                                <div class="d-flex px-2 py-1">
+                                                    <span
+                                                        class="text-secondary text-xs font-weight-normal">&nbsp;&nbsp;{{ ++$i }}</span>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">
-                                                {{ $documento->descripcion}}
-                                            </p>
-                                        </td>
-                                        <td>
-                                            <a
-                                                href="{{ route('creditos.legalizacion.show', [tenant('id'), $carpeta->id, $documento->id]) }}">
-                                                <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
-                                                    title="Ver documento">
-                                                    <span><i class="far fa-eye"></i></span>
-                                                </button>
-                                            </a>
-
-                                            @can('Descargar documentos legales')
+                                            </td>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-xs">{{ $documento->formato }}</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">
+                                                    {{ $documento->descripcion }}
+                                                </p>
+                                            </td>
+                                            <td>
                                                 <a
-                                                    href="{{ route('documentos.descargar', [tenant('id'), $documento->id]) }}">
-                                                    <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
-                                                        title="Descargar documento">
-                                                        <span class="material-icons">sim_card_download</span>
+                                                    href="{{ route('creditos.legalizacion.show', [tenant('id'), $carpeta->id, $documento->id]) }}">
+                                                    <button class="btn btn-icon btn-sm btn-info m-auto" type="button"
+                                                        title="Ver documento">
+                                                        <span><i class="far fa-eye"></i></span>
                                                     </button>
                                                 </a>
-                                            @endcan
-                                            @can('Eliminar documentos legales')
-                                                <a>
-                                                    <button class="btn btn-icon btn-sm btn-primary m-auto" type="submit"
-                                                        form="formDelete" title="Eliminar documento">
-                                                        <span class="material-icons">delete</span>
-                                                    </button>
-                                                </a>
-                                            @endcan
-                                        </td>
-                                    </tr>
-                                @endforeach
+
+                                                @can('Descargar documentos legales')
+                                                    <a
+                                                        href="{{ route('documentos.descargar', [tenant('id'), $documento->id]) }}">
+                                                        <button class="btn btn-icon btn-sm btn-danger m-auto" type="button"
+                                                            title="Descargar documento">
+                                                            <span class="material-icons">sim_card_download</span>
+                                                        </button>
+                                                    </a>
+                                                @endcan
+                                                @can('Eliminar documentos legales')
+                                                    <a>
+                                                        <button class="btn btn-icon btn-sm btn-primary m-auto"
+                                                            type="submit" form="formDelete" title="Eliminar documento">
+                                                            <span class="material-icons">delete</span>
+                                                        </button>
+                                                    </a>
+                                                @endcan
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    <form action="{{ route('creditos.legalizacion.destroy', [tenant('id'), $carpeta->id, $documento->id]) }}"
+                                        method="POST" id="formDelete">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -105,9 +113,5 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('creditos.legalizacion.destroy', [tenant('id'), $carpeta->id, $documento->id]) }}"
-        method="POST" id="formDelete">
-        @csrf
-        @method('DELETE')
-    </form>
+    
 </x-app-tenant-layout>

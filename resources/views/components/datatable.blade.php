@@ -32,6 +32,14 @@
             $('#buscar').on('keyup', function() {
                 table.search(this.value).draw();
             });
+
+            $('input[name="check"]').change(function() {
+                if (this.checked) {
+                    table.columns(4).search(this.value).draw();
+                } else {
+                    table.columns(4).search('').draw();
+                }
+            });
         });
     </script>
 </div>
