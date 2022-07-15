@@ -17,163 +17,153 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse w-auto h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('dashboard.tenant', tenant('id')) }}">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{{ route('dashboard.tenant', tenant('id')) }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">dashboard</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Home</span>
+                </a>
+            </li>
+            @can('SideBar Usuarios')
+                <li>
+                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
+                        data-bs-toggle="collapse" aria-expanded="false">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">dashboard</i>
+                            <i class="material-icons">group</i>
                         </div>
-                        <span class="nav-link-text ms-1">Home</span>
-                    </a>   
+                        <span class="nav-link-text ms-1">Usuarios</span>
+                    </a>
+
+                    <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu1" data-bs-parent="#menu">
+                        <div>
+                            <li class="w-100">
+                                <a class="nav-link" href="{{ route('empleados.index', tenant('id')) }}"><span
+                                        class="nav-link-item ms-4">Empleado</span></a>
+                            </li>
+                            <li class="w-100">
+                                <a class="nav-link" href="{{ route('clientes.index', tenant('id')) }}"><span
+                                        class="nav-link-item ms-4">Cliente</span></a>
+                            </li>
+                        </div>
+                    </ul>
                 </li>
-
-                @can('SideBar Usuarios')
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
-                            data-bs-toggle="collapse" aria-expanded="false">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons">group</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Usuarios</span>
-                        </a>
-
-                        <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu1"
-                            data-bs-parent="#menu">
-                            <div class="">
-                                <li class="w-100">
-                                    <a class="nav-link" href="{{ route('empleados.index', tenant('id')) }}"><span
-                                            class="nav-link-item ms-4">Empleado</span></a>
-                                </li>
-                                <li class="w-100">
-                                    <a class="nav-link" href="{{ route('clientes.index', tenant('id')) }}"><span
-                                            class="nav-link-item ms-4">Cliente</span></a>
-                                </li>
-                        </ul>
-                    </li>
-                @endcan
-                @can('SideBar Empresa')
-                    <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
-                            data-bs-toggle="collapse" aria-expanded="false">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">work</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Empresa</span>
-                        </a>
-                        <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu2"
-                            data-bs-parent="#menu">
-                            <div class="">
-                                <li class="w-100">
-                                    <a class="nav-link "> <span class="nav-link-item ms-4">Politica de Negocio</span></a>
-                                </li>
-                                <li class="w-100">
-                                    <a href="{{ route('areas.index', tenant('id')) }}" class="nav-link "> <span
-                                            class="nav-link-item ms-4">Areas</span></a>
-                                </li>
-                                <li class="w-100">
-                                    <a href="{{ route('roles.index', tenant('id')) }}" class="nav-link "> <span
-                                            class="nav-link-item ms-4">Roles</span></a>
-                                </li>
-                        </ul>
-                    </li>
-                @endcan
-                @can('SideBar Requisitos')
-                    <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ route('info_creditos', tenant('id')) }}">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">description</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Requisitos</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('SideBar Mis Procesos')
-                    <li class="nav-item">
-                        <a class="nav-link text-white " href="#">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">post_add</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Mis Créditos</span>
-                        </a>
-                    </li>
-                @endcan
-                @can('SideBar Procesos Crediticios')
-                    <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
-                            data-bs-toggle="collapse" aria-expanded="false">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">work</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Procesos Crediticios</span>
-                        </a>
-                        <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu3"
-                            data-bs-parent="#menu">
-                            <div class="">
-                                <li class="w-100">
-                                    <a href="{{ route('creditos.index', tenant('id')) }}" class="nav-link "> <span
-                                            class="nav-link-item ms-4">Procesos asignados</span></a>
-                                </li>
-                                <li class="w-100">
-                                    <a href="{{ route('tipos.index', tenant('id')) }}" class="nav-link "> <span
-                                            class="nav-link-item ms-4">Tipos de Creditos</span></a>
-                                </li>
-                        </ul>
-                    </li>
-                @endcan
+            @endcan
+            @can('SideBar Empresa')
+                <li>
+                    <a href="#submenu2" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
+                        data-bs-toggle="collapse" aria-expanded="false">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">work</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Empresa</span>
+                    </a>
+                    <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu2" data-bs-parent="#menu">
+                        <div class="">
+                            <li class="w-100">
+                                <a href="{{ route('politica.index', tenant('id')) }}" class="nav-link "> <span
+                                     class="nav-link-item ms-4">Politica de Negocio</span></a>
+                            </li>
+                            <li class="w-100">
+                                <a href="{{ route('areas.index', tenant('id')) }}" class="nav-link "> <span
+                                        class="nav-link-item ms-4">Areas</span></a>
+                            </li>
+                            <li class="w-100">
+                                <a href="{{ route('roles.index', tenant('id')) }}" class="nav-link "> <span
+                                        class="nav-link-item ms-4">Roles</span></a>
+                            </li>
+                    </ul>
+                </li>
+            @endcan
+            @can('SideBar Requisitos')
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="#">
+                    <a class="nav-link text-white " href="{{ route('info_creditos', tenant('id')) }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">description</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Requisitos</span>
+                    </a>
+                </li>
+            @endcan
+            @can('SideBar Mis Procesos')
+                <li class="nav-item">
+                    <a class="nav-link text-white " href="{{ route('miCredito.index', tenant('id')) }}" >
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">post_add</i>
                         </div>
-                        <span class="nav-link-text ms-1">Reportes</span>
+                        <span class="nav-link-text ms-1">Mis Créditos</span>
                     </a>
                 </li>
-                @can('SideBar Bitacora')
-                    <li class="nav-item">
-                        <a class="nav-link text-white " href="{{ route('bitacora.index', tenant('id')) }}">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">description</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Bitacora</span>
-                        </a>
-                    </li>
-                @endcan
-                <li class="nav-item mt-3">
-                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas
-                        administrativas</h6>
+            @endcan
+            @can('SideBar Procesos Crediticios')
+                <li>
+                    <a href="#submenu3" data-bs-toggle="collapse" class="nav-link align-middle collapsed"
+                        data-bs-toggle="collapse" aria-expanded="false">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">work</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Procesos Crediticios</span>
+                    </a>
+                    <ul class="collapse nav flex-column" style="padding-left: 0.5rem" id="submenu3" data-bs-parent="#menu">
+                        <div class="">
+                            <li class="w-100">
+                                <a href="{{ route('creditos.index', tenant('id')) }}" class="nav-link "> <span
+                                        class="nav-link-item ms-4">Procesos asignados</span></a>
+                            </li>
+                            {{-- <li class="w-100">
+                                <a href="{{ route('tipos.index', tenant('id')) }}" class="nav-link "> <span
+                                        class="nav-link-item ms-4">Creditos Concluidos</span></a>
+                            </li> --}}
+                            <li class="w-100">
+                                <a href="{{ route('tipos.index', tenant('id')) }}" class="nav-link "> <span
+                                        class="nav-link-item ms-4">Tipos de Creditos</span></a>
+                            </li>
+                    </ul>
                 </li>
+            @endcan
+            <li class="nav-item">
+                <a class="nav-link text-white " href="#">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">post_add</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Reportes</span>
+                </a>
+            </li>
+            @can('SideBar Bitacora')
                 <li class="nav-item">
-                    @can('SideBar Mis Procesos')
-                        <a class="nav-link text-white "
-                            href="{{ route('clientes.show', [tenant('id'), Auth::user()->id]) }}">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Perfil</span>
-                        </a>
-                    @endcan
-                    @can('SideBar Usuarios')
-                        <a class="nav-link text-white "
-                            href="{{ route('empleados.show', [tenant('id'), Auth::user()->id]) }}">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Perfil</span>
-                        </a>
-                    @endcan
-                </li>
-                <li class="nav-item">
-                    <form style="display: inline" method="POST"
-                        action="{{ route('logout.tenant', tenant('id')) }}">
-                        @csrf
-                        <a class="nav-link text-white " href="#" onclick="this.closest('form').submit()">
-                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">logout</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Cerrar sesión</span>
-                        </a>
-                    </form>
+                    <a class="nav-link text-white " href="{{ route('bitacora.index', tenant('id')) }}">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">description</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Bitacora</span>
                     </a>
                 </li>
+            @endcan
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Páginas
+                    administrativas</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white "
+                    href="{{ route('usuarios.show', [tenant('id'), Auth::user()->id]) }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">person</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <form style="display: inline" method="POST" action="{{ route('logout.tenant', tenant('id')) }}">
+                    @csrf
+                    <a class="nav-link text-white " href="#" onclick="this.closest('form').submit()">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">logout</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Cerrar sesión</span>
+                    </a>
+                </form>
+                </a>
+            </li>
         </ul>
     </div>
 
