@@ -130,10 +130,10 @@
             var telefono = $('option:selected', el).attr('parametro2');
             var email = $('option:selected', el).attr('parametro3');
             var domicilio = $('option:selected', el).attr('parametro4');
-            console.log(ci);
-            console.log(telefono);
-            console.log(email);
-            console.log(domicilio);
+            // console.log(ci);
+            // console.log(telefono);
+            // console.log(email);
+            // console.log(domicilio);
             $('#ci').val(ci);
             $('#telefono').val(telefono);
             $('#email').val(email);

@@ -19,13 +19,13 @@ use App\Http\Controllers\misCreditosController;
 use App\Http\Controllers\SolicitudCreditoController;
 use App\Http\Controllers\TipoCreditoController;
 use App\Http\Controllers\PersonalizarController;
-use App\Http\Controllers\PoliticaController;
 use App\Http\Controllers\RegistrarController;
 use App\Http\Controllers\RequisitosController;
 use App\Http\Controllers\SC_BitacoraController;
 use App\Http\Controllers\SC_EmpresasController;
 use App\Http\Controllers\SC_PlanesController;
 use App\Http\Controllers\SC_UsuariosController;
+use App\Http\Controllers\ReportesController;
 use App\Models\empresa;
 use App\Models\Planes;
 use App\Models\SC_Dashboard;
@@ -124,10 +124,6 @@ Route::group([
                 return view('tenant.dashboard');
             })->name('dashboard.tenant');
 
-            Route::get('/dashboardcliente', function () {
-                return view('tenant.dashboardcliente');
-            })->name('dashboardcliente.tenant');
-
             Route::post('/logout', [LoginController::class, 'logout'])
                 ->name('logout.tenant');
             //RUTAS DE EMPRESA
@@ -143,7 +139,6 @@ Route::group([
             Route::resource('creditos.legalizacion', LegalizacionController::class);
             Route::resource('creditos.asociados', AsociadosController::class);
             Route::resource('miCredito', creditoClienteController::class);
-            Route::resource('politica', PoliticaController::class);
 
             Route::get('documentos/{id}/descargar', [DocumentosController::class, 'descargar'])->name('documentos.descargar');
 
@@ -161,6 +156,7 @@ Route::group([
             Route::post('/requisitos/store', [RequisitosController::class, 'store'])->name('requisitos.store');
             Route::get('/requisitos/{id}/edit', [RequisitosController::class, 'edit'])->name('requisitos.edit');
             Route::put('requisitos/{id}/update', [RequisitosController::class, 'update'])->name('requisitos.update');
+            Route::get('reportes',[ReportesController::class,'index'])->name('reportes.index');
             
         }
     );
